@@ -1,9 +1,11 @@
 import time
 from datetime import datetime
 
-import Contact
-from Config.config_private import WEBINAR_TOKENS
 import requests
+from Config.config_private import WEBINAR_TOKENS
+
+import Contact
+
 
 class WebinarApi:
     """
