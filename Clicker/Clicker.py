@@ -2,7 +2,7 @@ import asyncio
 from datetime import datetime
 
 from Config.config import LOG_FILE, OLD_USERS
-from queue import get_user_from_queue_file, del_user_from_temp_file, get_old_users
+from queue_for_webdriver import get_user_from_queue_file, del_user_from_temp_file, get_old_users
 from selenium_t import registration_url_user_webdriver
 
 

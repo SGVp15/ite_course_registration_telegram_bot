@@ -1,6 +1,6 @@
 from aiogram import types
 
-from Config.config import ADMIN_ID, USERS_ID
+from Config.config_private import ADMIN_ID, USERS_ID
 from keybords.inline import inline_kb_admin, inline_kb_main, inline_kb_zoom
 from loader import dp, bot
 

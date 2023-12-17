@@ -1,7 +1,7 @@
 from aiogram import types
 from aiogram.dispatcher import FSMContext
 
-from Config.config import ADMIN_ID, USERS_ID
+from Config.config_private import ADMIN_ID, USERS_ID
 from keybords import inline
 from loader import dp
 

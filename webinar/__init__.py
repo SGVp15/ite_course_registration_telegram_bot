@@ -1,1 +1,1 @@
-from .api_get_ import  WebinarApi
+from .api_get_ import WebinarApi

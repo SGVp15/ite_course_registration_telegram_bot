@@ -1,6 +1,6 @@
 from aiogram import types
-
-from Config.config import USERS_ID, SELLERS, ADMIN_ID, QUEUE, LOG_FILE
+from Config.config_private import USERS_ID,ADMIN_ID
+from Config.config import SELLERS,  QUEUE, LOG_FILE
 from keybords.inline import inline_kb_main
 from loader import dp, bot
 from webinar.api_get_ import get_all_registration_url
