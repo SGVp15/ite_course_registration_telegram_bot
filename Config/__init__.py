@@ -1,2 +1,2 @@
-from .config import *
-from .config_private import *
+from Config.config import *
+from Config.config_private import *

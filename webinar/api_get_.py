@@ -3,7 +3,7 @@ from datetime import datetime
 
 import Contact
 from Config.config_private import WEBINAR_TOKENS
-
+import requests
 
 class WebinarApi:
     """
