@@ -1,7 +1,6 @@
 import datetime
 import re
 
-import Config
 from Config.config import PATTERN_ZOOM_REGISTRATION_URL, PATTERN_WEBINAR_REGISTRATION_URL
 from Contact import User
 
@@ -40,7 +39,7 @@ def get_users_from_string(s: str) -> list[User]:
         name = parsing_cyrillic(row)
         try:
             user = User(last_name=name[0], first_name=name[1], email=email, url_registration=url, course=course,
-                           webinar_eventsid=webinar_eventsid, curator_email=curator_email)
+                        webinar_eventsid=webinar_eventsid, curator_email=curator_email)
             user.date, user.course, user.teacher = date, course, teacher
             users.append(user)
         except IndexError:

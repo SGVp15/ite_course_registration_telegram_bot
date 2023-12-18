@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 from Contact import User
 
 
-async def registration_url_user_webdriver(user: User) -> bool:
+async def registration_user_zoom_link(user: User) -> bool:
     options = uc.ChromeOptions()
     # options.add_argument("--disable-blink-features=AutomationControlled")
     # options.add_argument("--disable-notifications")

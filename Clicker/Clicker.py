@@ -3,7 +3,7 @@ from datetime import datetime
 
 from Config.config import LOG_FILE, OLD_USERS
 from queue_for_webdriver import get_user_from_queue_file, del_user_from_temp_file, get_old_users
-from selenium_t import registration_url_user_webdriver
+from selenium_zoom import registration_user_zoom_link
 
 
 async def run_main():
@@ -20,7 +20,7 @@ async def run_main():
             print(f'[ INFO ] [ Есть в логе ] {user}')
         else:
             print(f'[ INFO ] {user}')
-            await registration_url_user_webdriver(user)
+            await registration_user_zoom_link(user)
             with open(OLD_USERS, encoding='utf-8', mode='a') as file:
                 file.write(f'{user}\n')
 

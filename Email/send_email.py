@@ -11,12 +11,12 @@ from pathlib import Path
 from Config import EMAIL_LOGIN, EMAIL_PASSWORD
 
 
-def send_email_with_attachment(send_to: list, text='', file: str = '../data/.log.txt'):
+def send_email_with_attachment(send_to: list, text='', file: str = './data/.log.txt'):
     msg = EmailMessage()
     msg['From'] = EMAIL_LOGIN
     msg['Subject'] = 'Zoom registration'
     msg['To'] = ', '.join(send_to)
-    text = ''
+
     msg.set_content(text)
     if file != '':
         msg.add_attachment(open(file, 'r', encoding='utf-8').read(), filename='log.txt')
@@ -53,9 +53,6 @@ def send_email_childe_congratulation(send_to: str, file: str = ''):
     part.add_header('Content-Disposition',
                     'attachment; filename=attachment.pdf'.format(Path(path).name))
     msg.attach(part)
-
-    # if file != '':
-    #     msg.add_attachment(open('./ozon/' + file, 'rb').read(), filename=file)
 
     smtp = smtplib.SMTP_SSL('smtp.yandex.ru', 465)
     smtp.login(EMAIL_LOGIN, EMAIL_PASSWORD)
