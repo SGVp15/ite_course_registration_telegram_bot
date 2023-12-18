@@ -6,8 +6,8 @@ from Contact import User
 
 
 def parsing_cyrillic(row) -> list:
-    row = re.sub(r'[^A-Za-z А-Яа-яЁё]+', '', row)
-    cyrillic = re.findall(r'([A-Za-zА-Яа-яЁё]+)', row)
+    row = re.sub(r'[^ А-Яа-яЁё]+', '', row)
+    cyrillic = re.findall(r'([А-Яа-яЁё]+)', row)
     return cyrillic
 
 
