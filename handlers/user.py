@@ -2,7 +2,6 @@ from aiogram import types
 from aiogram.dispatcher import filters
 
 import webinar
-from Config.config import PATTERN_ZOOM_REGISTRATION_URL, PATTERN_WEBINAR_REGISTRATION_URL
 from Config.config_private import USERS_ID, ADMIN_ID, WEBINAR_TOKENS
 from Contact import parser
 from converter import read_xlsx, read_xls
@@ -64,24 +63,24 @@ async def handle_document(message: types.Message):
         print(e)
 
 
-# @dp.message_handler(
-#     filters.Regexp(regexp=[PATTERN_ZOOM_REGISTRATION_URL, PATTERN_WEBINAR_REGISTRATION_URL]),
-#     user_id=[*ADMIN_ID, *USERS_ID])
-# async def add_users_zoom_to_file(message: types.Message):
-#     users = parser.get_users_from_string(message.text)
-#     if users:
-#         await message.answer('Контакт не корректен', reply_markup=inline_kb_main)
-#     else:
-#         await message.reply('Добавил в очередь', reply_markup=inline_kb_main)
-#
-#         webinar_users = [u for u in users if u.webinar_eventsid != '']
-#         if webinar_users:
-#             for token in WEBINAR_TOKENS:
-#                 w = webinar.api_get_.WebinarApi(token=token)
-#                 all_webinar_users = get_users_from_string(w.get_all_registration_url())
-#                 new_webinar_users = [u for u in webinar_users if u not in all_webinar_users]
-#                 w.post_registration_users_list(users=new_webinar_users)
-#
-#         zoom_users = [u for u in users if u.webinar_eventsid == '']
-#         for user in zoom_users:
-#             add_to_queue_file(user)
+@dp.message_handler(
+    filters.Regexp(regexp='https://'),
+    user_id=[*ADMIN_ID, *USERS_ID])
+async def add_users_zoom_to_file(message: types.Message):
+    users = parser.get_users_from_string(message.text)
+    if users is None:
+        await message.answer('Контакт не корректен', reply_markup=inline_kb_main)
+    else:
+        await message.reply('Добавил в очередь', reply_markup=inline_kb_main)
+
+        webinar_users = [u for u in users if u.webinar_eventsid != '']
+        if webinar_users:
+            for token in WEBINAR_TOKENS:
+                w = webinar.api_get_.WebinarApi(token=token)
+                all_webinar_users = parser.get_users_from_string(w.get_all_registration_url())
+                new_webinar_users = [u for u in webinar_users if u not in all_webinar_users]
+                w.post_registration_users_list(users=new_webinar_users)
+
+        zoom_users = [u for u in users if u.webinar_eventsid == '']
+        for user in zoom_users:
+            add_to_queue_file(user)
