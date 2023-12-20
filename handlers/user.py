@@ -4,11 +4,12 @@ from aiogram.dispatcher import filters
 import webinar
 from Config.config_private import USERS_ID, ADMIN_ID, WEBINAR_TOKENS
 from Contact import parser
+from My_jinja.my_jinja import MyJinja
 from converter import read_xlsx, read_xls
 from keybords.inline import inline_kb_main
 from loader import dp, bot
 from queue_for_webdriver import add_to_queue_file
-
+from Email.email_sending import EmailSending
 
 @dp.message_handler(commands='id')
 async def send_id(message: types.Message):
@@ -54,15 +55,33 @@ def start_registration(users):
     try:
         webinar_users = [user for user in users if user.webinar_eventsid != '']
         for token in WEBINAR_TOKENS:
-            w = webinar.api_get_.WebinarApi(token=token)
-            all_webinar_users.extend(parser.get_users_from_string(w.get_all_registration_url()))
+            webinar_api = webinar.api_get_.WebinarApi(token=token)
+            all_webinar_users.extend(parser.get_users_from_string(webinar_api.get_all_registration_url()))
         new_webinar_users = [user for user in webinar_users if user not in all_webinar_users]
+
         if new_webinar_users:
             for token in WEBINAR_TOKENS:
-                w = webinar.api_get_.WebinarApi(token=token)
-                response = w.post_registration_users_list(users=new_webinar_users)
+                webinar_api = webinar.api_get_.WebinarApi(token=token)
+                response = webinar_api.post_registration_users_list(users=new_webinar_users)
                 print(response)
+        # get all_webinar_users
+        all_webinar_users = []
+        for token in WEBINAR_TOKENS:
+            webinar_api = webinar.api_get_.WebinarApi(token=token)
+            all_webinar_users.extend(parser.get_users_from_string(webinar_api.get_all_registration_url()))
+        # add link to new_webinar_users
+        for user in new_webinar_users:
+            for old_user in all_webinar_users:
+                if user == old_user:
+                    user.link = old_user.link
+        # send email
+        for user in new_webinar_users:
+            template = MyJinja(template_folder='./Config/template_email', template_file='course_registration.html')
+            template.create_document(user)
+            email = EmailSending()
+            email.send_email()
 
+        # ZOOM add to registration queue
         zoom_users = [user for user in users if user.url_registration != '']
         for user in zoom_users:
             add_to_queue_file(user)
