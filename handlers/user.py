@@ -4,12 +4,13 @@ from aiogram.dispatcher import filters
 import webinar
 from Config.config_private import USERS_ID, ADMIN_ID, WEBINAR_TOKENS
 from Contact import parser
+from Email.email_sending import EmailSending
 from My_jinja.my_jinja import MyJinja
 from converter import read_xlsx, read_xls
 from keybords.inline import inline_kb_main
 from loader import dp, bot
 from queue_for_webdriver import add_to_queue_file
-from Email.email_sending import EmailSending
+
 
 @dp.message_handler(commands='id')
 async def send_id(message: types.Message):
@@ -77,8 +78,8 @@ def start_registration(users):
         # send email
         for user in new_webinar_users:
             template = MyJinja(template_folder='./Config/template_email', template_file='course_registration.html')
-            template.create_document(user)
-            email = EmailSending()
+            text = template.create_document(user)
+            email = EmailSending(text=text)
             email.send_email()
 
         # ZOOM add to registration queue

@@ -17,3 +17,5 @@ PATTERN_ZOOM_REGISTRATION_URL: str  = r'https://.*zoom.us/meeting/register/\S+'
 PATTERN_WEBINAR_REGISTRATION_URL: str = r'https://events.webinar.ru/\w+/(.*?)/.*\S+'
 PATTERN_ZOOM_URL: str = r'\s*(https://.*zoom.us/.*\S+)'
 #-----------------------------------------------------------------------------------------------------------------------
+SMTP_SERVER = 'smtp.yandex.ru'
+PORT_SMTP=465
