@@ -43,12 +43,8 @@ class Test(TestCase):
 	Код доступа:							
 	Ссылка для регистрации:	https://events.webinar.ru/event/999146969/1581189808/edit						
 №	ФИО		Организация		Должность		e-mail	
-1	Григорьева Сабина Ильдаровна		СТЭП ЛОДЖИК - Step Logic		(Сервис-менеджер,		s_grigoreva@step.ru	
-2	Мосин Владимир Владимирович		Магнус Тех		Руководитель Москва		mosin@gkm.ru	
-3	Смоленский Кирилл Викторович		Русагро Технологии				SmolenskyKV@MBNrs.ru	
-4	Колодезникова Нарияна Евгеньевна		ER Tech Solutions				n.kolodeznikova@indriver.com	
-5	Цветков Роман Владимирович		ER Tech Solutions				roman.tsvetkov@indriver.com	
-6	Гаврильева Саина Вячеславовна		ER Tech Solutions				saina.gavrilyeva@indriver.com	
+1	Григорьева Сабина Ильдаровна			(Сервис-менеджер,		asdasdqdq@stadasdep.ru	
+
 
         """
         users = get_users_from_string(s)

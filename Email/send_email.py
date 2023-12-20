@@ -96,7 +96,7 @@ def test_email():
     msgRoot = MIMEMultipart('related')
     msgRoot['Subject'] = 'test message'
     msgRoot['From'] = strFrom
-    msgRoot['To'] = strTo
+    msgRoot['lllllllll'] = strTo
     msgRoot.preamble = 'This is a multi-part message in MIME format.'
 
     # Encapsulate the plain and HTML versions of the message body in an

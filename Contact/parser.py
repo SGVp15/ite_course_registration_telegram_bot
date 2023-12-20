@@ -13,7 +13,7 @@ def parsing_cyrillic(row) -> list:
 
 def get_users_from_string(s: str) -> list[User]:
     s = refactor_string(s)
-    date, course, teacher = get_course_info_from_string(s)
+    couse_name, date,  teacher, course = get_course_info_from_string(s)
     url = parsing_for_pattern(row=s, pattern=fr'\s*({PATTERN_ZOOM_REGISTRATION_URL})\s*')
 
     webinar_eventsid = parsing_for_pattern(row=s, pattern=fr'\s*{PATTERN_WEBINAR_REGISTRATION_URL}\s*')
@@ -39,8 +39,8 @@ def get_users_from_string(s: str) -> list[User]:
         name = parsing_cyrillic(row)
         try:
             user = User(last_name=name[0], first_name=name[1], email=email, url_registration=url, course=course,
-                        webinar_eventsid=webinar_eventsid, curator_email=curator_email)
-            user.date, user.course, user.teacher = date, course, teacher
+                        webinar_eventsid=webinar_eventsid, curator_email=curator_email, webinar_name=couse_name,
+                        date=date, teacher=teacher)
             users.append(user)
         except IndexError:
             pass
@@ -66,21 +66,27 @@ def refactor_string(row: str) -> str:
 
 def get_course_info_from_string(s: str) -> tuple:
     s = s.strip()
-    '''	Курс: 	«QA и тестирование программного обеспечения» Онлайн
-             QA-online    
-    Даты проведения курса: 	20.03 - 24.03.2023, 5 занятий с 11:00 до 15:00 мск (24 ак. часа)
-    Тренер: 	Звездин Артем Сергеевич
-    Место проведения: 	Zoom_1
-    Идентификатор конференции:	873 5209 8606
-    '''
-
-    rows = s.split('\n')
     try:
+        couse_name = re.findall('(Курс: .*)\n', s)[0]
+    except IndexError:
+        couse_name = ''
+    try:
+        couse_teacher = re.findall('(Тренер:.*)\n', s)[0]
+    except IndexError:
+        couse_teacher = ''
+    try:
+        couse_date = re.findall('(Даты проведения курса:.*)\n', s)[0]
+    except IndexError:
+        couse_date = ''
+    try:
+        rows = s.split('\n')
         course = re.findall(r'(\w+-online)', rows[1].strip())[0]
         teacher = re.findall(r'Тренер:\s+([А-Яа-я]+)', rows[3].strip())[0]
         date = re.findall(r'Даты проведения курса:\s+([\d.\s\-]+)', rows[2].strip())[0]
         date = date.split('.')
         date = f'{datetime.date.today().strftime("%Y")}-{date[1].strip()}-{date[0].strip()}'
+
     except IndexError:
-        return '', '', ''
-    return date, course, teacher
+        course = ''
+        date = ''
+    return couse_name, couse_date,  couse_teacher, course

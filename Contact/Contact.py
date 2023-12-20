@@ -3,7 +3,7 @@ import re
 
 class User:
     def __init__(self, last_name: str, first_name: str, email: str, url_registration: str = '', course: str = '',
-                 webinar_eventsid: str = '', curator_email=''):
+                 webinar_eventsid: str = '', curator_email='', webinar_name='', link='', date='', teacher=''):
         """
 
         :type webinar_eventsid: String from https://events.webinar.ru/event/999146969
@@ -13,10 +13,13 @@ class User:
         self.email = email.lower()
         self.url_registration = re.sub('https://us06web.zoom.us', 'https://zoom.us', url_registration)
         self.course = course
+        self.date = date
         self.role = 'GUEST'
         self.webinar_eventsid = webinar_eventsid
         self.curator_email = curator_email
-        self.link = ''
+        self.link = link
+        self.teacher = teacher
+        self.webinar_name = webinar_name
 
     def __str__(self):
         return f'{self.last_name}\t{self.first_name}\t{self.email}\t{self.url_registration}\t{self.course}'
