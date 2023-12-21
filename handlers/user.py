@@ -17,7 +17,7 @@ async def send_id(message: types.Message):
     await message.answer(message.chat.id)
 
 
-@dp.message_handler(content_types=types.ContentType.DOCUMENT, user_id = [*ADMIN_ID, *USERS_ID])
+@dp.message_handler(content_types=types.ContentType.DOCUMENT, user_id=[*ADMIN_ID, *USERS_ID])
 async def handle_document(message: types.Message):
     # Get the file ID from the document object
     file_id = message.document.file_id
@@ -40,7 +40,8 @@ async def handle_document(message: types.Message):
 
     users = parser.get_users_from_string(s)
     try:
-        user.manager_email = user_id_email(message.from_id)
+        for user in users:
+            user.manager_email = user_id_email[message.from_id]
     except KeyError as e:
         print(e)
     text = start_registration(users)
@@ -51,7 +52,8 @@ async def handle_document(message: types.Message):
 async def add_users_zoom_to_file(message: types.Message):
     users = parser.get_users_from_string(message.text)
     try:
-        user.manager_email = user_id_email(message.from_id)
+        for user in users:
+            user.manager_email = user_id_email[message.from_id]
     except KeyError as e:
         print(e)
     text = start_registration(users)
@@ -94,10 +96,11 @@ def start_registration(users):
             template_text = MyJinja(template_file='course_registration.txt')
             text = template_text.create_document(user)
             if user.manager_email != '':
-                EmailSending(to=user.email, cc=user.curator_email, bcc=user.manager_email, text=text,
+                EmailSending(to=user.email, cc=[user.curator_email, user.manager_email], bcc=user.manager_email,
+                             text=text,
                              html=html).send_email()
             else:
-                EmailSending(to=user.email, cc=user.curator_email, text=text,
+                EmailSending(to=user.email, cc=[user.curator_email, user.manager_email], text=text,
                              html=html).send_email()
 
         # ZOOM add to registration queue
