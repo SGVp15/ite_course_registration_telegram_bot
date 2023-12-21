@@ -21,8 +21,7 @@ async def send_test_email_handler(callback_query: types.callback_query):
 №	ФИО		Организация		Должность		e-mail	
 1	Григорьева Сабина 					asdasdqdq@stadasdep.rasdasdu	'''
 
-    user = parser.get_list_users_from_string(s)
-
+    user = parser.get_list_users_from_string(s)[0]
     try:
         user.manager_email = user_id_email[str(callback_query.from_user.id)]
     except KeyError as e:
