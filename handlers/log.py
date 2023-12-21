@@ -19,7 +19,7 @@ async def send_id(message: types.Message):
     await message.answer(message.chat.id)
 
 
-@dp.callback_query_handler(lambda c: c.data in ['get_queue', ], user_id=[*ADMIN_ID, *USERS_ID])
+@dp.callback_query_handler(lambda c: c.data in ['show_queue', ], user_id=[*ADMIN_ID, *USERS_ID])
 async def show_queue(callback_query: types.callback_query):
     await bot.send_message(chat_id=callback_query.from_user.id, text=get_queue(), reply_markup=inline_kb_main)
 
