@@ -12,10 +12,10 @@ LOG_PROGRAM = './logs.txt'
 IMPORT_FILE = './data/input.txt'
 OLD_USERS = './data/users.txt'
 # -----------------------------------------------------------------------------------------------------------------------
-PATTERN_REGISTRATION_URL: str = r'https://.*\S+'
+PATTERN_REGISTRATION_URL = r'https://.*\S+'
 # 'https://events.webinar.ru/ITExpert/569285096/1bd05f2176c42f9208556acf5e594f32'
-PATTERN_WEBINAR_SESSION_ID: str = r'https://events.webinar.ru/\w+/(.*?)/.*\S+'
-PATTERN_ZOOM_URL: str = r'\s*(https://.*zoom.us/.*\S+)'
+PATTERN_WEBINAR_SESSION_ID = r'https://(my.mts-link.ru|events.webinar.ru)/\w+/(.*?)/.*\S+'
+PATTERN_ZOOM_URL = r'\s*(https://.*zoom.us/.*\S+)'
 # -----------------------------------------------------------------------------------------------------------------------
 SMTP_SERVER = 'smtp.yandex.ru'
 PORT_SMTP = 465

@@ -1,55 +1,48 @@
-from email.MIMEImage import MIMEImage
-from email.MIMEMultipart import MIMEMultipart
-from email.MIMEText import MIMEText
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 from Config.config import EMAILS_SALLER, SMTP_SERVER, PORT_SMTP
 from Config.config_private import EMAIL_LOGIN, EMAIL_PASSWORD
-import smtplib
 
 
 class EmailSending:
-    def __init__(self, subject='', from_email=EMAIL_LOGIN, to='', bcc=EMAILS_SALLER, text=''):
+    def __init__(self, subject='Вы зарегистрированы на курс', from_email=EMAIL_LOGIN, to='', bcc=EMAILS_SALLER,
+                 text='PlainText', html=''):
         self.subject = subject
         self.from_email = from_email
+
+        if type(to) == list:
+            self.to = ';'.join(to)
+        else:
+            self.to = to
         self.to = to
-        self.bcc = bcc
+
+        if type(bcc) == list:
+            self.bcc = ';'.join(bcc)
+        else:
+            self.bcc = bcc
         self.text = text
+        self.html = html
 
     def send_email(self):
-        strFrom = self.from_email
-        strTo = self.to
-        # Create the root message and fill in the from, to, and subject headers
-        msgRoot = MIMEMultipart('related')
-        msgRoot['Subject'] = self.subject
-        msgRoot['From'] = strFrom
-        msgRoot['lllllllll'] = strTo
-        msgRoot.preamble = 'This is a multi-part message in MIME format.'
+        msg = MIMEMultipart('alternative')
+        msg['From'] = EMAIL_LOGIN
+        msg['Subject'] = self.subject
+        msg['To'] = self.to
+        msg['Bcc'] = self.bcc
 
-        # Encapsulate the plain and HTML versions of the message body in an
-        # 'alternative' part, so message agents can decide which they want to display.
-        msgAlternative = MIMEMultipart('alternative')
-        msgRoot.attach(msgAlternative)
+        part1 = MIMEText(self.text, 'plain')
+        part2 = MIMEText(self.html, 'html')
 
-        msgText = MIMEText('This is the alternative plain text message.')
-        msgAlternative.attach(msgText)
+        # Attach parts into message container.
+        # According to RFC 2046, the last part of a multipart message, in this case
+        # the HTML message, is best and preferred.
+        msg.attach(part1)
+        msg.attach(part2)
 
-        # We reference the image in the IMG SRC attribute by the ID we give it below
-        msgText = MIMEText(text, 'html')
-        msgAlternative.attach(msgText)
-
-        # This example assumes the image is in the current directory
-        # fp = open('test.jpg', 'rb')
-        # msgImage = MIMEImage(fp.read())
-        # fp.close()
-
-        # Define the image's ID as referenced above
-        # msgImage.add_header('Content-ID', '<image1>')
-        # msgRoot.attach(msgImage)
-
-        # Send the email (this example assumes SMTP authentication is required)
-
-        smtp = smtplib.SMTP()
-        smtp.connect(SMTP_SERVER, port=PORT_SMTP)
+        smtp = smtplib.SMTP_SSL(SMTP_SERVER, PORT_SMTP)
         smtp.login(EMAIL_LOGIN, EMAIL_PASSWORD)
-        smtp.sendmail(strFrom, strTo, msgRoot.as_string())
+        smtp.sendmail(from_addr=self.from_email, to_addrs=self.to, msg=msg.as_string())
         smtp.quit()
+        print('Email send', self.to)

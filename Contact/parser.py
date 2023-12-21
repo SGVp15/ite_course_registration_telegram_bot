@@ -13,12 +13,13 @@ def parsing_cyrillic(row) -> list:
 
 def get_users_from_string(s: str) -> list[User]:
     s = refactor_string(s)
-    couse_name, date,  teacher, course = get_course_info_from_string(s)
+    couse_name, date, teacher, course = get_course_info_from_string(s)
     url = parsing_for_pattern(row=s, pattern=fr'\s*({PATTERN_REGISTRATION_URL})\s*')
 
-    webinar_eventsid = parsing_for_pattern(row=s, pattern=fr'\s*{PATTERN_WEBINAR_SESSION_ID}\s*')
-    if webinar_eventsid == '':
-        webinar_eventsid = parsing_for_pattern(row=s, pattern=fr'''\s*self.webinar_eventsid='(\w+)'\s*''')
+    try:
+        webinar_eventsid = re.findall(pattern=fr'\s*{PATTERN_WEBINAR_SESSION_ID}\s*', string=s)[0][1]
+    except IndexError:
+        webinar_eventsid = ''
 
     rows = s.split('\n')
 
@@ -89,4 +90,4 @@ def get_course_info_from_string(s: str) -> tuple:
     except IndexError:
         course = ''
         date = ''
-    return couse_name, couse_date,  couse_teacher, course
+    return couse_name, couse_date, couse_teacher, course

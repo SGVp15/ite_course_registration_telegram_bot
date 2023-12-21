@@ -78,7 +78,9 @@ def start_registration(users):
         # send email
         for user in new_webinar_users:
             template = MyJinja()
-            EmailSending(text=template.create_document(user)).send_email()
+            html = template.create_document(user)
+            email = EmailSending(to=user.email, text='Plain TEXTPlain TEXT Plain TEXT', html=html)
+            email.send_email()
 
         # ZOOM add to registration queue
         zoom_users = [user for user in users if user.webinar_eventsid == '']
