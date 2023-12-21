@@ -54,7 +54,7 @@ async def registration_user_zoom_link(user: User) -> bool:
 
             except web_error:
                 print(f"[Error]\tElement not found\t{find_element}")
-            time.sleep(0.1)
+            time.sleep(1)
 
         fill_element('question_first_name', user.first_name)
         fill_element('question_last_name', user.last_name)
@@ -72,7 +72,7 @@ async def registration_user_zoom_link(user: User) -> bool:
     for i in range(5):
         try:
             fill_out_form(user)
-            await asyncio.sleep(0.5)
+            await asyncio.sleep(5)
             print('fill_out_form')
 
             try:
