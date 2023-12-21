@@ -65,5 +65,4 @@ def get_old_users() -> list[User]:
     if os.path.exists(OLD_USERS):
         with open(OLD_USERS, encoding='utf-8', mode='r') as file:
             s = file.read()
-        users = get_users_from_event_row(s)
-        return users
+        return get_users_from_event_row(s)
