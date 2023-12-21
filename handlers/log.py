@@ -25,7 +25,7 @@ async def show_queue(callback_query: types.callback_query):
 
 
 @dp.callback_query_handler(
-    lambda c: c.data in ['get_log', 'get_seller', 'get_courses', 'get_queue', 'get_history', 'get_log_program'],
+    lambda c: c.data in ['get_log', 'get_seller', 'get_courses', 'get_history', 'get_log_program'],
     user_id=[*ADMIN_ID, *USERS_ID])
 async def get_file(callback_query: types.callback_query):
     query = callback_query.data
