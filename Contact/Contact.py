@@ -3,7 +3,8 @@ import re
 
 class User:
     def __init__(self, last_name: str, first_name: str, email: str, url_registration: str = '', course: str = '',
-                 webinar_eventsid: str = '', curator_email='', webinar_name='', link='', date='', teacher=''):
+                 webinar_eventsid: str = '', curator_email='', webinar_name='', link='', date='', teacher='',
+                 manager_email=''):
         """
 
         :type webinar_eventsid: String from https://events.webinar.ru/event/999146969
@@ -17,6 +18,7 @@ class User:
         self.role = 'GUEST'
         self.webinar_eventsid = webinar_eventsid
         self.curator_email = curator_email
+        self.manager_email = manager_email
         self.link = link
         self.teacher = teacher
         self.webinar_name = webinar_name
