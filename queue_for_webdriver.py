@@ -30,9 +30,10 @@ def del_user_from_temp_file(file=QUEUE):
 
 
 # @staticmethod
-def add_to_queue_file(user: User, file: str = QUEUE):
+def add_to_queue_file(users: list[User], file: str = QUEUE):
     with open(file=file, mode='a', encoding='utf-8') as f:
-        f.write(str(user) + '\n')
+        for user in users:
+            f.write(str(user) + '\n')
     delete_duplicates_in_queue_file()
 
 
@@ -40,7 +41,8 @@ def add_to_queue_file(user: User, file: str = QUEUE):
 def get_user_from_queue_file(file=QUEUE) -> list[User]:
     with open(file=file, mode='r', encoding='utf-8') as f:
         s = f.read()
-    return get_users_from_event_row(s)
+    users = get_users_from_event_row(s)
+    return users
 
 
 # @staticmethod
@@ -52,11 +54,11 @@ def clear_queue(file=QUEUE):
 # @staticmethod
 def get_queue(file_path=QUEUE) -> str:
     with open(file_path, mode='r', encoding='utf-8') as file_path:
-        queue = file_path.read()
-        if queue == '':
+        s = file_path.read()
+        if s == '':
             return 'Очередь пустая!\n'
         else:
-            return queue
+            return s
 
 
 # @staticmethod
@@ -64,4 +66,5 @@ def get_old_users() -> list[User]:
     if os.path.exists(OLD_USERS):
         with open(OLD_USERS, encoding='utf-8', mode='r') as file:
             s = file.read()
-        return get_users_from_event_row(s)
+        users = get_users_from_event_row(s)
+        return users
