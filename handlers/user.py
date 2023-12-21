@@ -2,7 +2,7 @@ from aiogram import types
 from aiogram.dispatcher import filters
 
 import webinar
-from Config.config_private import USERS_ID, ADMIN_ID, WEBINAR_TOKENS
+from Config.config_private import USERS_ID, ADMIN_ID, WEBINAR_TOKENS, user_id_email
 from Contact import parser
 from Email.email_sending import EmailSending
 from My_jinja.my_jinja import MyJinja
@@ -17,7 +17,7 @@ async def send_id(message: types.Message):
     await message.answer(message.chat.id)
 
 
-@dp.message_handler(content_types=types.ContentType.DOCUMENT, user_id=[*ADMIN_ID, *USERS_ID])
+@dp.message_handler(content_types=types.ContentType.DOCUMENT, user_id = [*ADMIN_ID, *USERS_ID])
 async def handle_document(message: types.Message):
     # Get the file ID from the document object
     file_id = message.document.file_id
@@ -37,13 +37,24 @@ async def handle_document(message: types.Message):
     elif path.endswith('.txt'):
         with open(path, encoding='utf-8', mode='r') as f:
             s = f.read()
-    text = start_registration(parser.get_users_from_string(s))
+
+    users = parser.get_users_from_string(s)
+    try:
+        user.manager_email = user_id_email(user_id)
+    except KeyError:
+        pass
+    text = start_registration(users)
     await message.answer(f'Файл обработал {file_path}\n{text}', reply_markup=inline_kb_main)
 
 
 @dp.message_handler(filters.Regexp(regexp='https://'), user_id=[*ADMIN_ID, *USERS_ID])
 async def add_users_zoom_to_file(message: types.Message):
-    text = start_registration(parser.get_users_from_string(message.text))
+    users = parser.get_users_from_string(message.text)
+    try:
+        user.manager_email = user_id_email(user_id)
+    except KeyError:
+        pass
+    text = start_registration(users)
     if users is None:
         await message.answer('Контакт не корректен', reply_markup=inline_kb_main)
     else:
@@ -82,8 +93,12 @@ def start_registration(users):
 
             template_text = MyJinja(template_file='course_registration.txt')
             text = template_text.create_document(user)
-            email = EmailSending(to=user.email, cc=user.curator_email, text=text, html=html)
-            email.send_email()
+            if user.manager_email != '':
+                EmailSending(to=user.email, cc=user.curator_email, bcc=user.manager_email, text=text,
+                             html=html).send_email()
+            else:
+                EmailSending(to=user.email, cc=user.curator_email, text=text,
+                             html=html).send_email()
 
         # ZOOM add to registration queue
         zoom_users = [user for user in users if user.webinar_eventsid == '']

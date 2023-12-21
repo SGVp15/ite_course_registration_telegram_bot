@@ -1,9 +1,9 @@
-python-dotenv
-selenium
-openpyxl
+python-dotenv~=1.0.0
+selenium~=4.16.0
+openpyxl~=3.1.2
 undetected_chromedriver
 aiogram~=2.25.1
-requests
+requests~=2.31.0
 xlrd~=2.0.1
 pyperclip~=1.8.2
 Jinja2~=3.1.2
