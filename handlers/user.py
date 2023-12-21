@@ -40,7 +40,7 @@ async def handle_document(message: types.Message):
 
     users = parser.get_users_from_string(s)
     try:
-        user.manager_email = user_id_email(user_id)
+        user.manager_email = user_id_email(message.chat.id)
     except KeyError:
         pass
     text = start_registration(users)
@@ -51,7 +51,7 @@ async def handle_document(message: types.Message):
 async def add_users_zoom_to_file(message: types.Message):
     users = parser.get_users_from_string(message.text)
     try:
-        user.manager_email = user_id_email(user_id)
+        user.manager_email = user_id_email(message.chat.id)
     except KeyError:
         pass
     text = start_registration(users)
