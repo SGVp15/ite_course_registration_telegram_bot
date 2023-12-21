@@ -7,7 +7,7 @@ from Config.config_private import EMAIL_LOGIN, EMAIL_PASSWORD
 
 
 class EmailSending:
-    def __init__(self, subject='Вы зарегистрированы на курс', from_email=EMAIL_LOGIN, to='', bcc=EMAILS_SALLER,
+    def __init__(self, subject='Вы зарегистрированы на курс', from_email=EMAIL_LOGIN, to='', cc='', bcc=EMAILS_SALLER,
                  text='PlainText', html=''):
         self.subject = subject
         self.from_email = from_email
@@ -18,10 +18,16 @@ class EmailSending:
             self.to = to
         self.to = to
 
+        if type(cc) == list:
+            self.cc = ';'.join(cc)
+        else:
+            self.cc = cc
+
         if type(bcc) == list:
             self.bcc = ';'.join(bcc)
         else:
             self.bcc = bcc
+
         self.text = text
         self.html = html
 
@@ -31,6 +37,7 @@ class EmailSending:
         msg['Subject'] = self.subject
         msg['To'] = self.to
         msg['Bcc'] = self.bcc
+        msg['Cc'] = self.cc
 
         part1 = MIMEText(self.text, 'plain')
         part2 = MIMEText(self.html, 'html')
