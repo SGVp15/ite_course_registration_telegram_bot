@@ -74,16 +74,14 @@ def start_registration(users):
         for user in new_webinar_users:
             for old_user in all_webinar_users:
                 if user == old_user:
-                    user.link = old_user.link
+                    user.link = old_user.url_registration
         # send email
         for user in new_webinar_users:
-            template = MyJinja(template_folder='./Config/template_email', template_file='course_registration.html')
-            text = template.create_document(user)
-            email = EmailSending(text=text)
-            email.send_email()
+            template = MyJinja()
+            EmailSending(text=template.create_document(user)).send_email()
 
         # ZOOM add to registration queue
-        zoom_users = [user for user in users if user.url_registration != '']
+        zoom_users = [user for user in users if user.webinar_eventsid == '']
         for user in zoom_users:
             add_to_queue_file(user)
         text_message += f'{users[0].course}\nДобавил:\n'

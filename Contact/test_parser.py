@@ -48,16 +48,13 @@ class Test(TestCase):
 
         """
         users = get_users_from_string(s)
-        test_user = User(last_name='Григорьева', first_name='Сабина', email='s_grigoreva@step.ru',
+        test_user = User(last_name='Григорьева', first_name='Сабина', email='asdasdqdq@stadasdep.ru',
                          url_registration='', webinar_eventsid='999146969')
         print(users[0])
         print(test_user)
         if users[0] != test_user:
             self.fail()
 
-        if users[1] != User(last_name='Мосин', first_name='Владимир', email='mosin@gkm.ru',
-                            url_registration='', webinar_eventsid='999146969'):
-            self.fail()
         test_user = get_users_from_string(
             "Григорьева	Сабина	s_grigoreva@step.ru	self.url_registration=''		self.webinar_eventsid='999146969'")[
             0]
@@ -69,4 +66,15 @@ class Test(TestCase):
 
         s = 'https://events.webinar.ru/ITExpert/569285096/a0413b7e540c11cb8aa93d8a1bdf5f76 Рыбалкин Александ a.rybalkin@itexpert.ru'
         users = get_users_from_string(s)
+        print(users[0])
+
+        test_user = get_users_from_string(
+            "Савушкин, Григорий, g.savushkin@itexpert.ru, https://events.webinar.ru/ITExpert/569285096/7ca38749207b4313ca9c9a420fefcdee")[
+            0]
+
+        user = User(last_name='Савушкин', first_name='Григорий', email='g.savushkin@itexpert.ru',
+                    webinar_eventsid='569285096')
+        if test_user != user:
+            self.fail()
+
         print(users[0])

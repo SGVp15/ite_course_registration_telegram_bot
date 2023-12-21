@@ -25,10 +25,10 @@ class User:
         return f'{self.last_name}\t{self.first_name}\t{self.email}\t{self.url_registration}\t{self.course}'
 
     def __eq__(self, other):
-        if self.last_name == other.last_name:
-            if self.first_name == other.first_name:
-                if self.email == other.email:
-                    if self.url_registration == other.url_registration:
-                        if self.webinar_eventsid == other.webinar_eventsid:
-                            return True
+        if self.last_name == other.last_name and self.first_name == other.first_name and self.email == other.email:
+            if self.webinar_eventsid != '':
+                if self.webinar_eventsid == other.webinar_eventsid:
+                    return True
+            elif self.url_registration == other.url_registration:
+                return True
         return False
