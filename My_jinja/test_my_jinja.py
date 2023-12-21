@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from Contact.parser import get_users_from_string
+from Contact.parser import get_list_users_from_string
 from My_jinja.my_jinja import MyJinja
 
 
@@ -20,7 +20,7 @@ class TestMyJinja(TestCase):
                    2    Широковская Александра Александровна		Сибинтек				shirokovskayaaa@sibintek.ru
                    '''
 
-        users = get_users_from_string(s)
+        users = get_list_users_from_string(s)
         print(users)
         jin = MyJinja(template_folder='../Config/template_email')
         for i, user in enumerate(users):

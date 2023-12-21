@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 from Contact import User
-from parser import get_users_from_string
+from parser import get_list_users_from_string
 
 
 class Test(TestCase):
@@ -20,7 +20,7 @@ class Test(TestCase):
            2    Широковская Александра Александровна		Сибинтек				shirokovskayaaa@sibintek.ru
            '''
 
-        users = get_users_from_string(s)
+        users = get_list_users_from_string(s)
         test_user = User(last_name='Савушкин', first_name='Григорий', email='g.savushkin@itexpert.ru',
                          url_registration='https://us06web.zoom.us/meeting/register/tZAscequpz0sGd0hMbssnWyDoB8nDJ4GeHfL')
         print('last_name', users[0].last_name == test_user.last_name)
@@ -47,7 +47,7 @@ class Test(TestCase):
 
 
         """
-        users = get_users_from_string(s)
+        users = get_list_users_from_string(s)
         test_user = User(last_name='Григорьева', first_name='Сабина', email='asdasdqdq@stadasdep.ru',
                          url_registration='', webinar_eventsid='999146969')
         print(users[0])
@@ -55,7 +55,7 @@ class Test(TestCase):
         if users[0] != test_user:
             self.fail()
 
-        test_user = get_users_from_string(
+        test_user = get_list_users_from_string(
             "Григорьева	Сабина	s_grigoreva@step.ru	self.url_registration=''		self.webinar_eventsid='999146969'")[
             0]
 
@@ -65,10 +65,10 @@ class Test(TestCase):
             self.fail()
 
         s = 'https://events.webinar.ru/ITExpert/569285096/a0413b7e540c11cb8aa93d8a1bdf5f76 Рыбалкин Александ a.rybalkin@itexpert.ru'
-        users = get_users_from_string(s)
+        users = get_list_users_from_string(s)
         print(users[0])
 
-        test_user = get_users_from_string(
+        test_user = get_list_users_from_string(
             "Савушкин, Григорий, g.savushkin@itexpert.ru, https://events.webinar.ru/ITExpert/569285096/7ca38749207b4313ca9c9a420fefcdee")[
             0]
 
