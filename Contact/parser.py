@@ -14,11 +14,11 @@ def parsing_cyrillic(row) -> list:
 def get_users_from_event_row(s: str) -> list[User]:
     users = []
     for row in s.split('\n'):
-        users.extend(get_users_from_string(row))
+        users.extend(get_list_users_from_string(row))
     return users
 
 
-def get_users_from_string(s: str) -> list[User]:
+def get_list_users_from_string(s: str) -> list[User]:
     s = refactor_string(s)
     couse_name, date, teacher, course = get_course_info_from_string(s)
     url = parsing_for_pattern(row=s, pattern=fr'\s*({PATTERN_REGISTRATION_URL})\s*')

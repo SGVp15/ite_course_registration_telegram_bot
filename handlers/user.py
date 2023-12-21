@@ -38,7 +38,7 @@ async def handle_document(message: types.Message):
         with open(path, encoding='utf-8', mode='r') as f:
             s = f.read()
 
-    users = parser.get_users_from_string(s)
+    users = parser.get_list_users_from_string(s)
     try:
         for user in users:
             user.manager_email = user_id_email[str(message.from_id)]
@@ -50,7 +50,7 @@ async def handle_document(message: types.Message):
 
 @dp.message_handler(filters.Regexp(regexp='https://'), user_id=[*ADMIN_ID, *USERS_ID])
 async def add_users_zoom_to_file(message: types.Message):
-    users = parser.get_users_from_string(message.text)
+    users = parser.get_list_users_from_string(message.text)
     try:
         for user in users:
             user.manager_email = user_id_email[str(message.from_id)]
@@ -66,58 +66,54 @@ async def add_users_zoom_to_file(message: types.Message):
 def start_registration(users):
     text_message = ''
     all_webinar_users = []
-    try:
-        webinar_users = [user for user in users if user.webinar_eventsid != '']
+    webinar_users = [user for user in users if user.webinar_eventsid != '']
+    for token in WEBINAR_TOKENS:
+        webinar_api = webinar.api_get_.WebinarApi(token=token)
+        all_webinar_users.extend(parser.get_users_from_event_row(webinar_api.get_all_registration_url()))
+    new_webinar_users = [user for user in webinar_users if user not in all_webinar_users]
+
+    if new_webinar_users:
+        for token in WEBINAR_TOKENS:
+            webinar_api = webinar.api_get_.WebinarApi(token=token)
+            response = webinar_api.post_registration_users_list(users=new_webinar_users)
+            print(response)
+        # get all_webinar_users
+        all_webinar_users = []
         for token in WEBINAR_TOKENS:
             webinar_api = webinar.api_get_.WebinarApi(token=token)
             all_webinar_users.extend(parser.get_users_from_event_row(webinar_api.get_all_registration_url()))
-        new_webinar_users = [user for user in webinar_users if user not in all_webinar_users]
-
-        if new_webinar_users:
-            for token in WEBINAR_TOKENS:
-                webinar_api = webinar.api_get_.WebinarApi(token=token)
-                response = webinar_api.post_registration_users_list(users=new_webinar_users)
-                print(response)
-            # get all_webinar_users
-            all_webinar_users = []
-            for token in WEBINAR_TOKENS:
-                webinar_api = webinar.api_get_.WebinarApi(token=token)
-                all_webinar_users.extend(parser.get_users_from_event_row(webinar_api.get_all_registration_url()))
-            # add link to new_webinar_users
-            for user in new_webinar_users:
-                for old_user in all_webinar_users:
-                    if user == old_user:
-                        user.link = old_user.url_registration
-            # send email
-            for user in new_webinar_users:
-                template_html = MyJinja()
-                html = template_html.create_document(user)
-
-                template_text = MyJinja(template_file='course_registration.txt')
-                text = template_text.create_document(user)
-                if user.manager_email != '':
-                    EmailSending(subject=user.webinar_name, to=user.email, cc=user.curator_email,
-                                 bcc=user.manager_email,
-                                 text=text,
-                                 html=html).send_email()
-                else:
-                    EmailSending(subject=user.webinar_name, to=user.email, cc=user.curator_email, text=text,
-                                 html=html).send_email()
-
-        # ZOOM add to registration queue
-        zoom_users = [user for user in users if user.webinar_eventsid == '']
-        if zoom_users:
-            old_zoom_users = get_old_users()
-            new_zoom_users = [user for user in zoom_users if user not in old_zoom_users]
-            add_to_queue_file(new_webinar_users)
-
-        text_message += f'{users[0].course}\nДобавил:\n'
+        # add link to new_webinar_users
         for user in new_webinar_users:
-            text_message += f'{user.last_name} {user.first_name} \n'
-        for user in new_zoom_users:
-            text_message += f'{user.last_name} {user.first_name} \n'
+            for old_user in all_webinar_users:
+                if user == old_user:
+                    user.link = old_user.url_registration
+        # send email
+        for user in new_webinar_users:
+            template_html = MyJinja()
+            html = template_html.create_document(user)
 
-        return text_message
-    except Exception as e:
-        print(e)
-        return e
+            template_text = MyJinja(template_file='course_registration.txt')
+            text = template_text.create_document(user)
+            if user.manager_email != '':
+                EmailSending(subject=user.webinar_name, to=user.email, cc=user.curator_email,
+                             bcc=user.manager_email,
+                             text=text,
+                             html=html).send_email()
+            else:
+                EmailSending(subject=user.webinar_name, to=user.email, cc=user.curator_email, text=text,
+                             html=html).send_email()
+
+    # ZOOM add to registration queue
+    zoom_users = [user for user in users if user.webinar_eventsid == '']
+    if zoom_users:
+        old_zoom_users = get_old_users()
+        new_zoom_users = [user for user in zoom_users if user not in old_zoom_users]
+        add_to_queue_file(new_webinar_users)
+
+    text_message += f'{users[0].course}\nДобавил:\n'
+    for user in new_webinar_users:
+        text_message += f'{user.last_name} {user.first_name} \n'
+    for user in new_zoom_users:
+        text_message += f'{user.last_name} {user.first_name} \n'
+
+    return text_message

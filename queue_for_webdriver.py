@@ -38,11 +38,10 @@ def add_to_queue_file(users: list[User], file: str = QUEUE):
 
 
 # @staticmethod
-def get_user_from_queue_file(file=QUEUE) -> list[User]:
+def get_users_from_queue_file(file=QUEUE) -> list[User]:
     with open(file=file, mode='r', encoding='utf-8') as f:
         s = f.read()
-    users = get_users_from_event_row(s)
-    return users
+    return get_users_from_event_row(s)
 
 
 # @staticmethod
