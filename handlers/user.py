@@ -9,7 +9,7 @@ from My_jinja.my_jinja import MyJinja
 from converter import read_xlsx, read_xls
 from keybords.inline import inline_kb_main
 from loader import dp, bot
-from queue_for_webdriver import add_to_queue_file
+from queue_for_webdriver import add_to_queue_file, get_old_users
 
 
 @dp.message_handler(commands='id')
@@ -104,13 +104,16 @@ def start_registration(users):
                              html=html).send_email()
 
         # ZOOM add to registration queue
-        zoom_users = [user for user in users if user.webinar_eventsid == '']
-        for user in zoom_users:
+        zoom_users = set([user for user in users if user.webinar_eventsid == ''])
+        old_zoom_users = set(get_old_users())
+        new_webinar_users = zoom_users - old_zoom_users
+        for user in new_webinar_users:
             add_to_queue_file(user)
+
         text_message += f'{users[0].course}\nДобавил:\n'
         for user in new_webinar_users:
             text_message += f'{user.last_name} {user.first_name} \n'
-        for user in zoom_users:
+        for user in new_zoom_users:
             text_message += f'{user.last_name} {user.first_name} \n'
 
         return text_message
