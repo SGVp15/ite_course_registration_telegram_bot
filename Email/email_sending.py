@@ -11,22 +11,15 @@ class EmailSending:
                  text='PlainText', html=''):
         self.subject = subject
         self.from_email = from_email
-
-        if type(to) == list:
-            self.to = ';'.join(to)
-        else:
-            self.to = to
+        self.to_addrs = []
         self.to = to
-
-        if type(cc) == list:
-            self.cc = ';'.join(cc)
-        else:
-            self.cc = cc
-
-        if type(bcc) == list:
-            self.bcc = ';'.join(bcc)
-        else:
-            self.bcc = bcc
+        self.cc = cc
+        self.bcc = bcc
+        for x in [self.to, self.cc, self.bcc]:
+            if type(x) == list:
+                self.to_addrs.extend(x)
+            elif x != '':
+                self.to_addrs.append(x)
 
         self.text = text
         self.html = html
@@ -36,8 +29,8 @@ class EmailSending:
         msg['From'] = EMAIL_LOGIN
         msg['Subject'] = self.subject
         msg['To'] = self.to
-        msg['Bcc'] = self.bcc
         msg['Cc'] = self.cc
+        msg['Bcc'] = self.bcc
 
         part1 = MIMEText(self.text, 'plain')
         part2 = MIMEText(self.html, 'html')
@@ -50,6 +43,6 @@ class EmailSending:
 
         smtp = smtplib.SMTP_SSL(SMTP_SERVER, PORT_SMTP)
         smtp.login(EMAIL_LOGIN, EMAIL_PASSWORD)
-        smtp.sendmail(from_addr=self.from_email, to_addrs=self.to, msg=msg.as_string())
+        smtp.sendmail(from_addr=self.from_email, to_addrs=self.to_addrs, msg=msg.as_string())
         smtp.quit()
         print('Email send', self.to)
