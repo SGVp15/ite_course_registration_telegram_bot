@@ -105,6 +105,7 @@ def start_registration(users):
 
     # ZOOM add to registration queue
     zoom_users = [user for user in users if user.webinar_eventsid == '']
+    new_zoom_users = []
     if zoom_users:
         old_zoom_users = get_old_users()
         new_zoom_users = [user for user in zoom_users if user not in old_zoom_users]
