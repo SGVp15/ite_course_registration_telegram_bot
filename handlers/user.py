@@ -108,7 +108,7 @@ def start_registration(users):
     if zoom_users:
         old_zoom_users = get_old_users()
         new_zoom_users = [user for user in zoom_users if user not in old_zoom_users]
-        add_to_queue_file(new_webinar_users)
+        add_to_queue_file(new_zoom_users)
 
     text_message += f'{users[0].course}\nДобавил:\n'
     for user in new_webinar_users:
