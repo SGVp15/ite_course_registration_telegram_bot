@@ -45,4 +45,4 @@ class EmailSending:
         smtp.login(EMAIL_LOGIN, EMAIL_PASSWORD)
         smtp.sendmail(from_addr=self.from_email, to_addrs=self.to_addrs, msg=msg.as_string())
         smtp.quit()
-        print('Email send', self.to)
+        return f'Email send {self.to_addrs}'

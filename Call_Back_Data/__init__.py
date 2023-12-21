@@ -11,3 +11,4 @@ class CollBackData:
     clear_queue = 'clear_queue'
     clear_log = 'clear_log'
     clear_course = 'clear_course'
+    send_test_email = 'send_test_email'
