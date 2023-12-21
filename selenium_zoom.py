@@ -76,7 +76,7 @@ async def registration_user_zoom_link(user: User) -> bool:
             print('fill_out_form')
 
             try:
-                with open('./Config/xpath_selenium.txt', mode='r', encoding='utf-8') as f:
+                with open('Config/xpath_btn_registration_zoom.txt', mode='r', encoding='utf-8') as f:
                     xpath = f.read()
             except FileNotFoundError as e:
                 xpath = '/html/body/div[4]/div/div[2]/div/div/div/div/div[1]/div[4]/div/button'
