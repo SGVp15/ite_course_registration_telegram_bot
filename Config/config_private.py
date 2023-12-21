@@ -9,3 +9,7 @@ USERS_ID = [int(x) for x in config['USERS_ID'].split(',')]
 # ------------------------------------------------------------
 #  Webinar
 WEBINAR_TOKENS = [x.strip() for x in config['WEBINAR_TOKEN'].split(',')]
+# ------------------------------------------------------------
+# Email
+EMAIL_LOGIN = config['EMAIL_LOGIN']
+EMAIL_PASSWORD = config['EMAIL_PASSWORD']

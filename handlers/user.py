@@ -4,6 +4,8 @@ from aiogram.dispatcher import filters
 import webinar
 from Config.config_private import USERS_ID, ADMIN_ID, WEBINAR_TOKENS
 from Contact import parser
+from Email.email_sending import EmailSending
+from My_jinja.my_jinja import MyJinja
 from converter import read_xlsx, read_xls
 from keybords.inline import inline_kb_main
 from loader import dp, bot
@@ -35,22 +37,53 @@ async def handle_document(message: types.Message):
     elif path.endswith('.txt'):
         with open(path, encoding='utf-8', mode='r') as f:
             s = f.read()
+    text = start_registration(parser.get_users_from_string(s))
+    await message.answer(f'Файл обработал {file_path}\n{text}', reply_markup=inline_kb_main)
 
+
+@dp.message_handler(filters.Regexp(regexp='https://'), user_id=[*ADMIN_ID, *USERS_ID])
+async def add_users_zoom_to_file(message: types.Message):
+    text = start_registration(parser.get_users_from_string(message.text))
+    if users is None:
+        await message.answer('Контакт не корректен', reply_markup=inline_kb_main)
+    else:
+        await message.reply(f'Добавил в очередь {text}', reply_markup=inline_kb_main)
+
+
+def start_registration(users):
     text_message = ''
-    users = parser.get_users_from_string(s)
+    all_webinar_users = []
     try:
         webinar_users = [user for user in users if user.webinar_eventsid != '']
-        all_webinar_users = []
         for token in WEBINAR_TOKENS:
-            w = webinar.api_get_.WebinarApi(token=token)
-            all_webinar_users.extend(parser.get_users_from_string(w.get_all_registration_url()))
+            webinar_api = webinar.api_get_.WebinarApi(token=token)
+            all_webinar_users.extend(parser.get_users_from_string(webinar_api.get_all_registration_url()))
         new_webinar_users = [user for user in webinar_users if user not in all_webinar_users]
+
         if new_webinar_users:
             for token in WEBINAR_TOKENS:
-                w = webinar.api_get_.WebinarApi(token=token)
-                response = w.post_registration_users_list(users=new_webinar_users)
+                webinar_api = webinar.api_get_.WebinarApi(token=token)
+                response = webinar_api.post_registration_users_list(users=new_webinar_users)
+                print(response)
+        # get all_webinar_users
+        all_webinar_users = []
+        for token in WEBINAR_TOKENS:
+            webinar_api = webinar.api_get_.WebinarApi(token=token)
+            all_webinar_users.extend(parser.get_users_from_string(webinar_api.get_all_registration_url()))
+        # add link to new_webinar_users
+        for user in new_webinar_users:
+            for old_user in all_webinar_users:
+                if user == old_user:
+                    user.link = old_user.url_registration
+        # send email
+        for user in new_webinar_users:
+            template = MyJinja()
+            html = template.create_document(user)
+            email = EmailSending(to=user.email, text='Plain TEXTPlain TEXT Plain TEXT', html=html)
+            email.send_email()
 
-        zoom_users = [user for user in users if user.url_registration != '']
+        # ZOOM add to registration queue
+        zoom_users = [user for user in users if user.webinar_eventsid == '']
         for user in zoom_users:
             add_to_queue_file(user)
         text_message += f'{users[0].course}\nДобавил:\n'
@@ -58,29 +91,8 @@ async def handle_document(message: types.Message):
             text_message += f'{user.last_name} {user.first_name} \n'
         for user in zoom_users:
             text_message += f'{user.last_name} {user.first_name} \n'
-        await message.answer(f'Файл обработал {file_path}\n{text_message}', reply_markup=inline_kb_main)
+
+        return text_message
     except Exception as e:
         print(e)
-
-
-@dp.message_handler(
-    filters.Regexp(regexp='https://'),
-    user_id=[*ADMIN_ID, *USERS_ID])
-async def add_users_zoom_to_file(message: types.Message):
-    users = parser.get_users_from_string(message.text)
-    if users is None:
-        await message.answer('Контакт не корректен', reply_markup=inline_kb_main)
-    else:
-        await message.reply('Добавил в очередь', reply_markup=inline_kb_main)
-
-        webinar_users = [u for u in users if u.webinar_eventsid != '']
-        if webinar_users:
-            for token in WEBINAR_TOKENS:
-                w = webinar.api_get_.WebinarApi(token=token)
-                all_webinar_users = parser.get_users_from_string(w.get_all_registration_url())
-                new_webinar_users = [u for u in webinar_users if u not in all_webinar_users]
-                w.post_registration_users_list(users=new_webinar_users)
-
-        zoom_users = [u for u in users if u.webinar_eventsid == '']
-        for user in zoom_users:
-            add_to_queue_file(user)
+        return e
