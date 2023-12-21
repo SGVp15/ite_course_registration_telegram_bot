@@ -4,6 +4,7 @@ from Call_Back_Data import CollBackData as callBackData
 from Config.config_private import USERS_ID, ADMIN_ID, user_id_email
 from Contact import parser
 from Email.email_sending import EmailSending
+from My_jinja.my_jinja import MyJinja
 from keybords.inline import inline_kb_main
 from loader import dp, bot
 
