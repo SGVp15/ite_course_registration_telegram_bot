@@ -50,7 +50,7 @@ def clear_queue(file=QUEUE):
 
 
 # @staticmethod
-def get_queue(file_path=QUEUE):
+def get_queue(file_path=QUEUE) -> str:
     with open(file_path, mode='r', encoding='utf-8') as file_path:
         queue = file_path.read()
         if queue == '':
