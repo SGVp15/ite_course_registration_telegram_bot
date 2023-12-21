@@ -2,7 +2,7 @@ from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeybo
 
 from Call_Back_Data import CollBackData as callBackData
 
-inline_btn_logs = InlineKeyboardButton('Скачать Логи', callback_data=callBackData.download_logs)
+inline_btn_logs = InlineKeyboardButton('Скачать Логи', callback_data=callBackData.download_log)
 inline_kb_main = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='📩 Скачать логи ZOOM', callback_data=callBackData.get_log), ],
     [InlineKeyboardButton(text='📩 Скачать логи Webinar', callback_data=callBackData.get_registration_webinar), ],
@@ -10,7 +10,7 @@ inline_kb_main = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='📒  Скачать файл Продавцы', callback_data=callBackData.get_seller), ],
     [InlineKeyboardButton(text='📩 Показать очередь Zoom', callback_data=callBackData.show_queue), ],
 
-    [InlineKeyboardButton(text='>> ZOOM >>', callback_data=callBackData.zoom_menu), ],
+    [InlineKeyboardButton(text='>> ZOOM >>', callback_data=callBackData.zoom_menusssss), ],
     [InlineKeyboardButton(text='>> Admin >>', callback_data=callBackData.admin_menu), ],
 ])
 
