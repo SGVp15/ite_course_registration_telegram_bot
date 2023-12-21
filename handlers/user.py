@@ -41,7 +41,7 @@ async def handle_document(message: types.Message):
     users = parser.get_users_from_string(s)
     try:
         user.manager_email = user_id_email(message.from_id)
-    except Exception as e:
+    except KeyError as e:
         print(e)
     text = start_registration(users)
     await message.answer(f'Файл обработал {file_path}\n{text}', reply_markup=inline_kb_main)
@@ -52,7 +52,7 @@ async def add_users_zoom_to_file(message: types.Message):
     users = parser.get_users_from_string(message.text)
     try:
         user.manager_email = user_id_email(message.from_id)
-    except Exception as e:
+    except KeyError as e:
         print(e)
     text = start_registration(users)
     if users is None:
