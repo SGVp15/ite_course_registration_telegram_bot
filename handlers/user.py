@@ -49,6 +49,7 @@ async def add_users_zoom_to_file(message: types.Message):
     else:
         await message.reply(f'Добавил в очередь {text}', reply_markup=inline_kb_main)
 
+
 def start_registration(users):
     text_message = ''
     all_webinar_users = []
@@ -56,7 +57,7 @@ def start_registration(users):
         webinar_users = [user for user in users if user.webinar_eventsid != '']
         for token in WEBINAR_TOKENS:
             webinar_api = webinar.api_get_.WebinarApi(token=token)
-            for row in webinar_api.get_all_registration_url():
+            for row in webinar_api.get_all_registration_url().split('\n'):
                 all_webinar_users.extend(parser.get_users_from_string(row))
         new_webinar_users = [user for user in webinar_users if user not in all_webinar_users]
 
@@ -69,7 +70,7 @@ def start_registration(users):
         all_webinar_users = []
         for token in WEBINAR_TOKENS:
             webinar_api = webinar.api_get_.WebinarApi(token=token)
-            for row in webinar_api.get_all_registration_url():
+            for row in webinar_api.get_all_registration_url().split('\n'):
                 all_webinar_users.extend(parser.get_users_from_string(row))
         # add link to new_webinar_users
         for user in new_webinar_users:
@@ -78,9 +79,12 @@ def start_registration(users):
                     user.link = old_user.url_registration
         # send email
         for user in new_webinar_users:
-            template = MyJinja()
-            html = template.create_document(user)
-            email = EmailSending(to=user.email, text='Plain TEXTPlain TEXT Plain TEXT', html=html)
+            template_html = MyJinja()
+            html = template_html.create_document(user)
+
+            template_text = MyJinja(template_file='course_registration.txt')
+            text = template_text.create_document(user)
+            email = EmailSending(to=user.email, cc=user.curator_email, text=text, html=html)
             email.send_email()
 
         # ZOOM add to registration queue
@@ -97,5 +101,3 @@ def start_registration(users):
     except Exception as e:
         print(e)
         return e
-
-
