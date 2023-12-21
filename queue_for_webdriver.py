@@ -53,7 +53,7 @@ def clear_queue(file=QUEUE):
 # @staticmethod
 def get_queue(file_path=QUEUE) -> str:
     with open(file_path, mode='r', encoding='utf-8') as file_path:
-        s = file_path.read()
+        s = file_path.read().strip()
         if s == '':
             return 'Очередь пустая!\n'
         else:
