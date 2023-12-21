@@ -20,11 +20,11 @@ async def send_test_email_handler(callback_query: types.callback_query):
 	Ссылка для регистрации:	https://events.webinar.ru/event/999146969/1581189808/edit						
 №	ФИО		Организация		Должность		e-mail	
 1	Григорьева Сабина 					asdasdqdq@stadasdep.rasdasdu	'''
-    
+
     user = parser.get_list_users_from_string(s)
 
     try:
-        user.manager_email = user_id_email[str(message.from_id)]
+        user.manager_email = user_id_email[str(callback_query.from_user.id)]
     except KeyError as e:
         print(e)
 
