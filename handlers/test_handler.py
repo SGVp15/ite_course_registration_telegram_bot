@@ -11,7 +11,7 @@ from loader import dp, bot
 
 @dp.callback_query_handler(lambda c: c.data == callBackData.send_test_email, user_id=[*ADMIN_ID, *USERS_ID])
 async def send_test_email_handler(callback_query: types.callback_query):
-    s = '''Курс:	«ТЕСТ ТЕСТОнлайн						
+    s = '''Курс:	«Проверка отправки почты				
 		OPS-online						
 	Даты проведения курса:	99.99.2000 - 80.90.2003 5 занятий с 10:00 до 14:00 мск (25 ак.ч. с тренером +7 ак.ч. на самост.вып.ДЗ)						
 	Тренер:	Сапегин Степан Борисович						
