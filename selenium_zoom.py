@@ -5,7 +5,7 @@ import undetected_chromedriver as uc
 from selenium.common import NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException
 from selenium.webdriver.common.by import By
 
-from Contact import User
+from Contact.Contact import User
 
 
 async def registration_user_zoom_link(user: User) -> bool:
@@ -45,20 +45,16 @@ async def registration_user_zoom_link(user: User) -> bool:
 
     web_error = (NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException)
 
-    def fill_out_form(user: User):
+    def fill_form(contact: User):
         def fill_element(find_element='question_last_name', text=''):
-            try:
-                element = driver.find_element(value=find_element)
-                element.clear()
-                element.send_keys(text)
+            element = driver.find_element(value=find_element)
+            element.clear()
+            element.send_keys(text)
 
-            except web_error:
-                print(f"[Error]\tElement not found\t{find_element}")
-            time.sleep(1)
-
-        fill_element('question_first_name', user.first_name)
-        fill_element('question_last_name', user.last_name)
-        fill_element('question_email', user.email)
+        time.sleep(1)
+        fill_element('question_first_name', contact.first_name)
+        fill_element('question_last_name', contact.last_name)
+        fill_element('question_email', contact.email)
 
     driver.get(url=user.url_registration)
 
@@ -71,9 +67,9 @@ async def registration_user_zoom_link(user: User) -> bool:
 
     for i in range(5):
         try:
-            fill_out_form(user)
-            await asyncio.sleep(5)
-            print('fill_out_form')
+            fill_form(user)
+            await asyncio.sleep(1)
+            print('fill_form_ok')
 
             try:
                 with open('Config/xpath_btn_registration_zoom.txt', mode='r', encoding='utf-8') as f:
