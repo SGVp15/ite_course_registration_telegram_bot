@@ -7,7 +7,7 @@ from Config.config_private import EMAIL_LOGIN, EMAIL_PASSWORD
 
 
 class EmailSending:
-    def __init__(self, subject='Вы зарегистрированы на курс', from_email=EMAIL_LOGIN, to='', cc='', bcc=EMAILS_SALLER,
+    def __init__(self, subject='Вы зарегистрированы на курс', from_email=EMAIL_LOGIN, to='', cc='', bcc='',
                  text='PlainText', html=''):
         self.subject = subject
         self.from_email = from_email
