@@ -11,6 +11,13 @@ def parsing_cyrillic(row) -> list:
     return cyrillic
 
 
+def get_users_from_event_row(s: str) -> list[User]:
+    users = []
+    for row in s.split('\n'):
+        users.extend(get_users_from_string(row))
+    return users
+
+
 def get_users_from_string(s: str) -> list[User]:
     s = refactor_string(s)
     couse_name, date, teacher, course = get_course_info_from_string(s)

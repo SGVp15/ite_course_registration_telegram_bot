@@ -57,8 +57,7 @@ def start_registration(users):
         webinar_users = [user for user in users if user.webinar_eventsid != '']
         for token in WEBINAR_TOKENS:
             webinar_api = webinar.api_get_.WebinarApi(token=token)
-            for row in webinar_api.get_all_registration_url().split('\n'):
-                all_webinar_users.extend(parser.get_users_from_string(row))
+            all_webinar_users.extend(parser.get_users_from_event_row(webinar_api.get_all_registration_url()))
         new_webinar_users = [user for user in webinar_users if user not in all_webinar_users]
 
         if new_webinar_users:
@@ -70,8 +69,7 @@ def start_registration(users):
         all_webinar_users = []
         for token in WEBINAR_TOKENS:
             webinar_api = webinar.api_get_.WebinarApi(token=token)
-            for row in webinar_api.get_all_registration_url().split('\n'):
-                all_webinar_users.extend(parser.get_users_from_string(row))
+            all_webinar_users.extend(parser.get_users_from_event_row(webinar_api.get_all_registration_url()))
         # add link to new_webinar_users
         for user in new_webinar_users:
             for old_user in all_webinar_users:
