@@ -2,11 +2,11 @@ from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeybo
 
 inline_btn_logs = InlineKeyboardButton('Скачать Логи', callback_data='download_logs')
 inline_kb_main = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='📩 Логи ZOOM', callback_data='get_log'),],
-    [InlineKeyboardButton(text='📩 Логи Webinar', callback_data='get_registration_webinar'), ],
+    [InlineKeyboardButton(text='📩 Скачать логи ZOOM', callback_data='get_log'),],
+    [InlineKeyboardButton(text='📩 Скачать логи Webinar', callback_data='get_registration_webinar'), ],
 
-    [InlineKeyboardButton(text='📒  Скачать Продавцы', callback_data='get_seller'), ],
-    [InlineKeyboardButton(text='📩 Очередь ZOOM', callback_data='get_queue'), ],
+    [InlineKeyboardButton(text='📒  Скачать файл Продавцы', callback_data='get_seller'), ],
+    [InlineKeyboardButton(text='📩 Показать очередь Zoom', callback_data='show_queue'), ],
 
     [InlineKeyboardButton(text='>> ZOOM >>', callback_data='zoom_menu'), ],
     [InlineKeyboardButton(text='>> Admin >>', callback_data='admin_menu'), ],
