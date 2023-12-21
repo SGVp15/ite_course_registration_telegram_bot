@@ -86,6 +86,7 @@ async def registration_user_zoom_link(user: User) -> bool:
         except web_error:
             await asyncio.sleep(5)
             continue
+
     driver.close()
     driver.quit()
     await asyncio.sleep(1)
