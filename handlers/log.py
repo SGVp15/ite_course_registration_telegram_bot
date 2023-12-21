@@ -1,10 +1,11 @@
 from aiogram import types
 
+from Call_Back_Data import CollBackData as callBackData
 from Config.config import SELLERS, LOG_FILE
 from Config.config_private import USERS_ID, ADMIN_ID
 from keybords.inline import inline_kb_main
 from loader import dp, bot
-from queue_for_webdriver import get_queue
+from queue_for_webdriver import get_queue, clear_queue
 from webinar.api_get_ import get_all_registration_url
 
 
@@ -19,12 +20,12 @@ async def send_id(message: types.Message):
     await message.answer(message.chat.id)
 
 
-@dp.callback_query_handler(lambda c: c.data in ['show_queue', ], user_id=[*ADMIN_ID, *USERS_ID])
+@dp.callback_query_handler(lambda c: c.data in [callBackData.show_queue, ], user_id=[*ADMIN_ID, *USERS_ID])
 async def show_queue(callback_query: types.callback_query):
     await bot.send_message(chat_id=callback_query.from_user.id, text=get_queue(), reply_markup=inline_kb_main)
 
 
-@dp.callback_query_handler(lambda c: c.data in ['get_log', 'get_seller'], user_id=[*ADMIN_ID, *USERS_ID])
+@dp.callback_query_handler(lambda c: c.data in [callBackData.get_log, callBackData.get_seller], user_id=[*ADMIN_ID, *USERS_ID])
 async def get_file(callback_query: types.callback_query):
     query = callback_query.data
     file = LOG_FILE
@@ -41,26 +42,15 @@ async def get_file(callback_query: types.callback_query):
             await bot.send_document(chat_id=callback_query.from_user.id, document=f, reply_markup=inline_kb_main)
 
 
-@dp.callback_query_handler(lambda c: c.data == 'get_registration_webinar', user_id=[*ADMIN_ID, *USERS_ID])
+@dp.callback_query_handler(lambda c: c.data == callBackData.get_registration_webinar, user_id=[*ADMIN_ID, *USERS_ID])
 async def get_file_registration_webinar(callback_query: types.callback_query):
     file = './data/webinar_registration.txt'
     get_all_registration_url()
     with open(file, "rb") as f:
         await bot.send_document(chat_id=callback_query.from_user.id, document=f, reply_markup=inline_kb_main)
 
-# @dp.callback_query_handler(lambda c: c.data in ['clear_course', 'clear_log'], user_id=[*ADMIN_ID, ])
-# async def clear_file(callback_query: types.callback_query):
-#     query = callback_query.data
-#
-#     if query == 'clear_log':
-#         file = LOG_FILE
-#         file_backup = LOG_BACKUP
-#     elif query == 'clear_course':
-#         file = COURSES_FILE
-#         file_backup = COURSES_FILE_BACKUP
-#
-#     backup_log(file=file, file_backup=file_backup)
-#
-#     with open(file=file, mode="w", encoding='utf-8') as f:
-#         f.write('')
-#     await bot.send_message(chat_id=callback_query.from_user.id, text='Ok', reply_markup=inline_kb_main)
+
+@dp.callback_query_handler(lambda c: c.data == callBackData.clear_queue, user_id=[*ADMIN_ID, ])
+async def clear_file(callback_query: types.callback_query):
+    clear_queue()
+    await bot.send_message(chat_id=callback_query.from_user.id, text='Ok', reply_markup=inline_kb_main)
