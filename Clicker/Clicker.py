@@ -22,13 +22,13 @@ async def run_main():
                 del_user_from_temp_file()
             else:
                 print(f'[ INFO ] {user}')
-                await registration_user_zoom_link(user)
-                with open(OLD_USERS, encoding='utf-8', mode='a') as file:
-                    file.write(f'{user}\n')
+                if await registration_user_zoom_link(user):
+                    with open(OLD_USERS, encoding='utf-8', mode='a') as file:
+                        file.write(f'{user}\n')
 
-                write_user_to_log(f'{datetime.now()}\t{user}\n')
-                print(f'[ OK ] {user}')
-                del_user_from_temp_file()
+                    write_user_to_log(f'{datetime.now()}\t{user}\n')
+                    print(f'[ OK ] {user}')
+                    del_user_from_temp_file()
                 await asyncio.sleep(60 * 5)
 
 
