@@ -49,7 +49,6 @@ async def add_users_zoom_to_file(message: types.Message):
     else:
         await message.reply(f'Добавил в очередь {text}', reply_markup=inline_kb_main)
 
-
 def start_registration(users):
     text_message = ''
     all_webinar_users = []
