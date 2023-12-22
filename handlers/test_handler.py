@@ -31,5 +31,6 @@ OPS-online
     text = template_text.create_document(user)
 
     text_message = EmailSending(subject=user.webinar_name, to=user.manager_email, text=text, html=html,
-                                manager=user.manager_email).send_email()
+                                manager=user.manager_email,
+                                files_path=['./Email/template_email/course_registration.html',]).send_email()
     await bot.send_message(chat_id=callback_query.from_user.id, text=text_message, reply_markup=inline_kb_main)
