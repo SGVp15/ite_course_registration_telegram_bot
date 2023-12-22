@@ -7,30 +7,10 @@ from Email.email_sending import EmailSending
 from My_jinja.my_jinja import MyJinja
 from keybords.inline import inline_kb_main
 from loader import dp, bot
+from Email.test_email_sending import TestEmailSending
 
 
 @dp.callback_query_handler(lambda c: c.data == callBackData.send_test_email, user_id=[*ADMIN_ID, *USERS_ID])
 async def send_test_email_handler(callback_query: types.callback_query):
-    s = '''Курс: «Проверка отправки почты				
-OPS-online
-Даты проведения курса:	99.99.2000 - 80.90.2003 5 занятий с 10:00 до 14:00 мск (25 ак.ч. с тренером +7 ак.ч. на самост.вып.ДЗ)
-Тренер:	Сапегин Степан Борисович
-Место проведения:	Webinar_1
-Идентификатор конференции:	+
-Код доступа:
-Ссылка для регистрации:	https://events.webinar.ru/event/999146969/1581189808/edit						
-№	ФИО		Организация		Должность		e-mail	
-1	Григорьева Сабина 					asdasdqdq@stadasdep.rasdasdu	'''
-    user = parser.get_list_users_from_string(s)[0]
-    user.manager_email = user_id_email.get(str(callback_query.from_user.id), '')
-
-    template_html = MyJinja()
-    html = template_html.create_document(user)
-
-    template_text = MyJinja(template_file='course_registration.txt')
-    text = template_text.create_document(user)
-
-    text_message = EmailSending(subject=user.webinar_name, to=user.manager_email, text=text, html=html,
-                                manager=user.manager_email,
-                                files_path=['./Email/template_email/course_registration.html',]).send_email()
+    text_message = TestEmailSending.test_send_email(callback_query.from_user.id)
     await bot.send_message(chat_id=callback_query.from_user.id, text=text_message, reply_markup=inline_kb_main)
