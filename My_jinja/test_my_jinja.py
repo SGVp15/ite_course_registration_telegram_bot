@@ -22,7 +22,7 @@ class TestMyJinja(TestCase):
 
         users = get_list_users_from_string(s)
         print(users)
-        jin = MyJinja(template_folder='../Config/template_email')
+        jin = MyJinja(template_folder='../Email/template_email')
         for i, user in enumerate(users):
             with open(f'./{i}.html', mode='w', encoding='utf-8') as f:
                 f.write(jin.create_document(user))

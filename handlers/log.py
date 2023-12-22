@@ -5,7 +5,7 @@ from Config.config import SELLERS, LOG_FILE
 from Config.config_private import USERS_ID, ADMIN_ID
 from keybords.inline import inline_kb_main
 from loader import dp, bot
-from queue_for_webdriver import get_queue, clear_queue
+from queue_zoom import get_queue, clear_queue
 from webinar.api_get_ import get_all_registration_url
 
 

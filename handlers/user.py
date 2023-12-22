@@ -9,7 +9,7 @@ from My_jinja.my_jinja import MyJinja
 from converter import read_xlsx, read_xls
 from keybords.inline import inline_kb_main
 from loader import dp, bot
-from queue_for_webdriver import add_to_queue_file, get_old_users
+from queue_zoom import add_to_queue_file, get_old_users
 
 
 @dp.message_handler(commands='id')
