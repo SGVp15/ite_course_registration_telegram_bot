@@ -2,7 +2,7 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
-
+from email.message import EmailMessage
 from Config.config import SMTP_SERVER, SMTP_PORT
 from Config.config_private import EMAIL_LOGIN, EMAIL_PASSWORD, email_login_password
 import os
@@ -45,12 +45,18 @@ class EmailSending:
 
     def send_email(self):
         try:
-            msg = MIMEMultipart('alternative')
+            msg = EmailMessage()
             msg['From'] = self.from_email
             msg['Subject'] = self.subject
             msg['To'] = self.to
             msg['Cc'] = self.cc
             msg['Bcc'] = self.bcc
+
+            for file in self.files:
+                with open(file, 'rb') as f:
+                    file_data = f.read()
+                    file_name = os.path.basename(file)
+                    msg.add_attachment(file_data, maintype='application', subtype='octet-stream', filename=file_name)
 
             part1 = MIMEText(self.text, 'plain')
             part2 = MIMEText(self.html, 'html')
@@ -58,22 +64,8 @@ class EmailSending:
             # Attach parts into message container.
             # According to RFC 2046, the last part of a multipart message, in this case
             # the HTML message, is best and preferred.
-            msg.attach(part1)
+            # msg.attach(part1)
             msg.attach(part2)
-
-            # for file in self.files:
-            #     with open(file, 'rb') as f:
-            #         file_data = f.read()
-            #         file_name = os.path.basename(file)
-            #         msg.add_attachment(file_data, maintype='application', subtype='octet-stream', filename=file_name)
-
-            for file in self.files:
-                with open(file, "rb") as f:
-                    file_name = os.path.basename(file)
-                    part = MIMEApplication(f.read(), file_name=file_name)
-                # After the file is closed
-                part['Content-Disposition'] = f'attachment; filename={file_name}'
-                msg.attach(part)
 
             smtp = smtplib.SMTP_SSL(self.smtp_server, self.smtp_port)
             smtp.login(self.user, self.password)
