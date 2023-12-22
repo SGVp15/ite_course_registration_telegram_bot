@@ -30,4 +30,5 @@ class TestEmailSending(TestCase):
 
         return EmailSending(subject=user.webinar_name, to=user.manager_email, text=text, html=html,
                             manager=user.manager_email,
-                            files_path=['./Email/template_email/course_registration.html', ]).send_email()
+                            files_path=['./Email/template_email/course_registration.html',
+                                        './Email/template_email/course_registration.txt']).send_email()
