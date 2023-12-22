@@ -9,7 +9,7 @@ from Config.config_private import EMAIL_LOGIN, EMAIL_PASSWORD, email_login_passw
 class EmailSending:
     def __init__(self, subject='Вы зарегистрированы на курс', from_email=EMAIL_LOGIN, to='', cc='', bcc='',
                  text='', html='', smtp_server=SMTP_SERVER, smtp_port=SMTP_PORT,
-                 user=EMAIL_LOGIN, password=EMAIL_PASSWORD, manager=None):
+                 user=EMAIL_LOGIN, password=EMAIL_PASSWORD, manager=None, files_path=[]):
         """
 
         :type text: Plain text Email, if html not support
@@ -39,6 +39,7 @@ class EmailSending:
                 self.from_email = manager
             except KeyError:
                 pass
+        self.files = files_path
 
     def send_email(self):
         try:
@@ -57,6 +58,12 @@ class EmailSending:
             # the HTML message, is best and preferred.
             msg.attach(part1)
             msg.attach(part2)
+
+            for file in self.files:
+                with open(file, 'rb') as f:
+                    file_data = f.read()
+                    file_name = os.path.basename(file)
+                    msg.add_attachment(file_data, maintype='application', subtype='octet-stream', filename=file_name)
 
             smtp = smtplib.SMTP_SSL(self.smtp_server, self.smtp_port)
             smtp.login(self.user, self.password)
