@@ -4,6 +4,7 @@ from email.mime.text import MIMEText
 
 from Config.config import SMTP_SERVER, SMTP_PORT
 from Config.config_private import EMAIL_LOGIN, EMAIL_PASSWORD, email_login_password
+import os
 
 
 class EmailSending:
