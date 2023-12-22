@@ -12,7 +12,6 @@ class EmailSending:
                  user=EMAIL_LOGIN, password=EMAIL_PASSWORD, manager=None):
         self.subject = subject
         self.from_email = from_email
-        self.from_email = 'course@itexpert.ru'
         self.to_addrs = []
         self.to = to
         self.cc = cc
