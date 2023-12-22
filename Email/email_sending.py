@@ -18,15 +18,15 @@ class EmailSending:
         """
         self.subject = subject
         self.from_email = from_email
-        self.to_addrs = []
+        self.to_address = []
         self.to = to
         self.cc = cc
         self.bcc = bcc
         for x in [self.to, self.cc, self.bcc]:
             if type(x) is list:
-                self.to_addrs.extend(x)
+                self.to_address.extend(x)
             elif x != '':
-                self.to_addrs.append(x)
+                self.to_address.append(x)
 
         self.text = text
         self.html = html
@@ -69,10 +69,10 @@ class EmailSending:
 
             smtp = smtplib.SMTP_SSL(self.smtp_server, self.smtp_port)
             smtp.login(self.user, self.password)
-            smtp.sendmail(from_addr=self.from_email, to_addrs=self.to_addrs, msg=msg.as_string())
+            smtp.sendmail(from_addr=self.from_email, to_addrs=self.to_address, msg=msg.as_string())
             smtp.quit()
 
-            return f'Email send {self.to_addrs}'
+            return f'Email send {self.to_address}'
 
         except Exception as e:
             return f'Error {e}'

@@ -2,9 +2,9 @@ import time
 from datetime import datetime
 
 import requests
-from Config.config_private import WEBINAR_TOKENS
 
 import Contact
+from Config.config_private import WEBINAR_TOKENS
 
 
 class WebinarApi:
@@ -50,9 +50,9 @@ class WebinarApi:
 
     # noinspection PyPep8Naming
     def get_new_webinars_from_sheduler(self, from_date='', is_start_webinar=0):
-        # Вывод всех вебинаров можно забрать [eventsessionsID]
-        # eventId - для формирования полной ссылки
-        # request = f'https://userapi.webinar.ru/v3/organization/events/schedule?perPage=250&page=1&status[2]=START&from={from_date}&to=2022-12-30'
+        # Вывод всех вебинаров можно забрать [eventsessionsID] eventId - для формирования полной ссылки request =
+        # f'https://userapi.webinar.ru/v3/organization/events/schedule?perPage=250&page=1&status[2]=START&from={
+        # from_date}&to=2022-12-30'
         status_start = ''
         if is_start_webinar:
             status_start = 'status[2]=START&'
@@ -61,7 +61,7 @@ class WebinarApi:
 
         if from_date == '':
             url = f'https://userapi.webinar.ru/v3/organization/events/schedule?{status_start}'
-        # request = f'https://userapi.webinar.ru/v3/organization/events/schedule'
+        # request = "https://userapi.webinar.ru/v3/organization/events/schedule
         response = self.get_response(url=url)
         eventsId = {}
         name = {}
@@ -75,9 +75,9 @@ class WebinarApi:
     # noinspection PyPep8Naming
     def print_link(self, event_sessions_id, event_id):
         s = self.get_url_client(event_sessions_id, event_id)
-        l = s.split('\n')
-        l.sort()
-        return '\n'.join(l)
+        rows = s.split('\n')
+        sorted(rows)
+        return '\n'.join(rows)
 
     def get_all_registration_url(self):
         now = datetime.now()
@@ -89,7 +89,6 @@ class WebinarApi:
         for eventSessionsID in events_ids:
             event_id = events_ids[eventSessionsID]
             out += f'{names[eventSessionsID]}'
-            # print(f'Ссылки слушателям')
             out += self.print_link(eventSessionsID, event_id)
             out += '\n'
             out += ('--' * 70)
