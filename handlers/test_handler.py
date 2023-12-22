@@ -22,7 +22,7 @@ OPS-online
 №	ФИО		Организация		Должность		e-mail	
 1	Григорьева Сабина 					asdasdqdq@stadasdep.rasdasdu	'''
     user = parser.get_list_users_from_string(s)[0]
-    user.manager_email = user_id_email.get([str(callback_query.from_user.id)], '')
+    user.manager_email = user_id_email.get(str(callback_query.from_user.id), '')
 
     template_html = MyJinja()
     html = template_html.create_document(user)
