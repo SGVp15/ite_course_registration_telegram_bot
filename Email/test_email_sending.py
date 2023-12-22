@@ -1,6 +1,6 @@
 from unittest import TestCase
-from Call_Back_Data import CollBackData as callBackData
-from Config.config_private import USERS_ID, ADMIN_ID, user_id_email
+
+from Config.config_private import user_id_email
 from Contact import parser
 from Email.email_sending import EmailSending
 from My_jinja.my_jinja import MyJinja

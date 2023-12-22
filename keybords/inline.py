@@ -27,8 +27,7 @@ inline_kb_admin = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='📒  Скачать Логи Программные', callback_data=callBackData.get_log_program), ],
 
     [InlineKeyboardButton(text='☠️ Очистить очередь регистрации', callback_data=callBackData.clear_queue), ],
-    # [InlineKeyboardButton(text='☠️ Удалить Логи регистрации', callback_data=cb.clear_log), ],
-    # [InlineKeyboardButton(text='☠️ Удалить Курсы', callback_data=cb.clear_course), ],
+    [InlineKeyboardButton(text='☠️ Удалить Логи регистрации', callback_data=callBackData.clear_log), ],
 ])
 
 help_kb = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True

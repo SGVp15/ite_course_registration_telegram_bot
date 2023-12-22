@@ -1,11 +1,10 @@
 import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-from email.mime.application import MIMEApplication
 from email.message import EmailMessage
+from email.mime.text import MIMEText
+from os.path import basename
+
 from Config.config import SMTP_SERVER, SMTP_PORT
 from Config.config_private import EMAIL_LOGIN, EMAIL_PASSWORD, email_login_password
-import os
 
 
 class EmailSending:
@@ -55,7 +54,7 @@ class EmailSending:
             for file in self.files:
                 with open(file, 'rb') as f:
                     file_data = f.read()
-                    file_name = os.path.basename(file)
+                    file_name = basename(file)
                     msg.add_attachment(file_data, maintype='application', subtype='octet-stream', filename=file_name)
 
             part1 = MIMEText(self.text, 'plain')

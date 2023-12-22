@@ -51,6 +51,12 @@ async def get_file_registration_webinar(callback_query: types.callback_query):
 
 
 @dp.callback_query_handler(lambda c: c.data == callBackData.clear_queue, user_id=[*ADMIN_ID, ])
-async def clear_file(callback_query: types.callback_query):
+async def clear_queue_file(callback_query: types.callback_query):
     clear_queue()
-    await bot.send_message(chat_id=callback_query.from_user.id, text='Ok', reply_markup=inline_kb_main)
+    await bot.send_message(chat_id=callback_query.from_user.id, text='clear_queue  Ok', reply_markup=inline_kb_main)
+
+
+@dp.callback_query_handler(lambda c: c.data == callBackData.clear_log, user_id=[*ADMIN_ID, ])
+async def clear_log_file(callback_query: types.callback_query):
+    # TODO create function
+    await bot.send_message(chat_id=callback_query.from_user.id, text='clear_log Ok', reply_markup=inline_kb_main)

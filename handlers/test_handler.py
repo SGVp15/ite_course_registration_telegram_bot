@@ -1,13 +1,10 @@
 from aiogram import types
 
 from Call_Back_Data import CollBackData as callBackData
-from Config.config_private import USERS_ID, ADMIN_ID, user_id_email
-from Contact import parser
-from Email.email_sending import EmailSending
-from My_jinja.my_jinja import MyJinja
+from Config.config_private import USERS_ID, ADMIN_ID
+from Email.test_email_sending import TestEmailSending
 from keybords.inline import inline_kb_main
 from loader import dp, bot
-from Email.test_email_sending import TestEmailSending
 
 
 @dp.callback_query_handler(lambda c: c.data == callBackData.send_test_email, user_id=[*ADMIN_ID, *USERS_ID])
