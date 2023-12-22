@@ -10,7 +10,7 @@ from Config.config_private import EMAIL_LOGIN, EMAIL_PASSWORD, email_login_passw
 class EmailSending:
     def __init__(self, subject='Вы зарегистрированы на курс', from_email=EMAIL_LOGIN, to='', cc='', bcc='',
                  text='', html='', smtp_server=SMTP_SERVER, smtp_port=SMTP_PORT,
-                 user=EMAIL_LOGIN, password=EMAIL_PASSWORD, manager=None, files_path=[]):
+                 login=EMAIL_LOGIN, password=EMAIL_PASSWORD, manager=None, files_path=[]):
         """
 
         :type text: Plain text Email, if html not support
@@ -31,7 +31,7 @@ class EmailSending:
         self.html = html
         self.smtp_server = smtp_server
         self.smtp_port = smtp_port
-        self.user = user
+        self.user = login
         self.password = password
         if manager:
             try:
