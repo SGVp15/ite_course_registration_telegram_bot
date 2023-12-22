@@ -2,13 +2,14 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-from Config.config import EMAILS_SALLER, SMTP_SERVER, PORT_SMTP
-from Config.config_private import EMAIL_LOGIN, EMAIL_PASSWORD
+from Config.config import SMTP_SERVER, SMTP_PORT
+from Config.config_private import EMAIL_LOGIN, EMAIL_PASSWORD, email_login_password
 
 
 class EmailSending:
     def __init__(self, subject='Вы зарегистрированы на курс', from_email=EMAIL_LOGIN, to='', cc='', bcc='',
-                 text='PlainText', html=''):
+                 text='PlainText', html='', smtp_server=SMTP_SERVER, smtp_port=SMTP_PORT,
+                 user=EMAIL_LOGIN, password=EMAIL_PASSWORD, manager=None):
         self.subject = subject
         self.from_email = from_email
         self.to_addrs = []
@@ -23,26 +24,42 @@ class EmailSending:
 
         self.text = text
         self.html = html
+        self.smtp_server = smtp_server
+        self.smtp_port = smtp_port
+        self.user = user
+        self.password = password
+        if manager:
+            try:
+                self.password = email_login_password[manager]
+                self.user = manager
+                self.from_email = manager
+            except KeyError:
+                pass
 
     def send_email(self):
-        msg = MIMEMultipart('alternative')
-        msg['From'] = EMAIL_LOGIN
-        msg['Subject'] = self.subject
-        msg['To'] = self.to
-        msg['Cc'] = self.cc
-        msg['Bcc'] = self.bcc
+        try:
+            msg = MIMEMultipart('alternative')
+            msg['From'] = self.from_email
+            msg['Subject'] = self.subject
+            msg['To'] = self.to
+            msg['Cc'] = self.cc
+            msg['Bcc'] = self.bcc
 
-        part1 = MIMEText(self.text, 'plain')
-        part2 = MIMEText(self.html, 'html')
+            part1 = MIMEText(self.text, 'plain')
+            part2 = MIMEText(self.html, 'html')
 
-        # Attach parts into message container.
-        # According to RFC 2046, the last part of a multipart message, in this case
-        # the HTML message, is best and preferred.
-        msg.attach(part1)
-        msg.attach(part2)
+            # Attach parts into message container.
+            # According to RFC 2046, the last part of a multipart message, in this case
+            # the HTML message, is best and preferred.
+            msg.attach(part1)
+            msg.attach(part2)
 
-        smtp = smtplib.SMTP_SSL(SMTP_SERVER, PORT_SMTP)
-        smtp.login(EMAIL_LOGIN, EMAIL_PASSWORD)
-        smtp.sendmail(from_addr=self.from_email, to_addrs=self.to_addrs, msg=msg.as_string())
-        smtp.quit()
-        return f'Email send {self.to_addrs}'
+            smtp = smtplib.SMTP_SSL(self.smtp_server, self.smtp_port)
+            smtp.login(self.user, self.password)
+            smtp.sendmail(from_addr=self.from_email, to_addrs=self.to_addrs, msg=msg.as_string())
+            smtp.quit()
+
+            return f'Email send {self.to_addrs}'
+
+        except Exception as e:
+            return f'Error {e}'

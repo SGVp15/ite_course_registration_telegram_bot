@@ -98,7 +98,8 @@ def start_registration(users):
                 EmailSending(subject=user.webinar_name, to=user.email, cc=user.curator_email,
                              bcc=user.manager_email,
                              text=text,
-                             html=html).send_email()
+                             html=html,
+                             manager=user.manager_email).send_email()
             else:
                 EmailSending(subject=user.webinar_name, to=user.email, cc=user.curator_email, text=text,
                              html=html).send_email()

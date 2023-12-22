@@ -18,4 +18,4 @@ PATTERN_WEBINAR_SESSION_ID = r'https://(my.mts-link.ru|events.webinar.ru)/\w+/(.
 PATTERN_ZOOM_URL = r'\s*(https://.*zoom.us/.*\S+)'
 # -----------------------------------------------------------------------------------------------------------------------
 SMTP_SERVER = 'smtp.yandex.ru'
-PORT_SMTP = 465
+SMTP_PORT = 465
