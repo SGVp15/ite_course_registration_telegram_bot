@@ -78,6 +78,7 @@ async def registration_user_zoom_link(user: User) -> bool:
                 xpath = '/html/body/div[4]/div/div[2]/div/div/div/div/div[1]/div[4]/div/button'
 
             driver.find_element(By.XPATH, xpath).click()
+            # ToDo create check page
             await asyncio.sleep(1)
             driver.close()
             driver.quit()

@@ -8,8 +8,12 @@ from Config.config_private import EMAIL_LOGIN, EMAIL_PASSWORD, email_login_passw
 
 class EmailSending:
     def __init__(self, subject='Вы зарегистрированы на курс', from_email=EMAIL_LOGIN, to='', cc='', bcc='',
-                 text='PlainText', html='', smtp_server=SMTP_SERVER, smtp_port=SMTP_PORT,
+                 text='', html='', smtp_server=SMTP_SERVER, smtp_port=SMTP_PORT,
                  user=EMAIL_LOGIN, password=EMAIL_PASSWORD, manager=None):
+        """
+
+        :type text: Plain text Email, if html not support
+        """
         self.subject = subject
         self.from_email = from_email
         self.to_addrs = []
@@ -17,7 +21,7 @@ class EmailSending:
         self.cc = cc
         self.bcc = bcc
         for x in [self.to, self.cc, self.bcc]:
-            if type(x) == list:
+            if type(x) is list:
                 self.to_addrs.extend(x)
             elif x != '':
                 self.to_addrs.append(x)

@@ -39,11 +39,8 @@ async def handle_document(message: types.Message):
             s = f.read()
 
     users = parser.get_list_users_from_string(s)
-    try:
-        for user in users:
-            user.manager_email = user_id_email[str(message.from_id)]
-    except KeyError as e:
-        print(e)
+    for user in users:
+        user.manager_email = user_id_email.get([str(message.from_id)], '')
     text = start_registration(users)
     await message.answer(f'Файл обработал {file_path}\n{text}', reply_markup=inline_kb_main)
 
@@ -51,11 +48,8 @@ async def handle_document(message: types.Message):
 @dp.message_handler(filters.Regexp(regexp='https://'), user_id=[*ADMIN_ID, *USERS_ID])
 async def add_users_zoom_to_file(message: types.Message):
     users = parser.get_list_users_from_string(message.text)
-    try:
-        for user in users:
-            user.manager_email = user_id_email[str(message.from_id)]
-    except KeyError as e:
-        print(e)
+    for user in users:
+        user.manager_email = user_id_email.get([str(message.from_id)], '')
     text = start_registration(users)
     if users is None:
         await message.answer('Контакт не корректен', reply_markup=inline_kb_main)
