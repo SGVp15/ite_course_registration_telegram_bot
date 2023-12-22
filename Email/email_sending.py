@@ -72,7 +72,7 @@ class EmailSending:
                     file_name = os.path.basename(file)
                     part = MIMEApplication(f.read(), file_name=file_name)
                 # After the file is closed
-                part['Content-Disposition'] = f'attachment; filename=file_name}'
+                part['Content-Disposition'] = f'attachment; filename={file_name}'
                 msg.attach(part)
 
             smtp = smtplib.SMTP_SSL(self.smtp_server, self.smtp_port)
