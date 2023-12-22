@@ -1,6 +1,7 @@
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from email.mime.application import MIMEApplication
 
 from Config.config import SMTP_SERVER, SMTP_PORT
 from Config.config_private import EMAIL_LOGIN, EMAIL_PASSWORD, email_login_password
@@ -60,11 +61,18 @@ class EmailSending:
             msg.attach(part1)
             msg.attach(part2)
 
+            # for file in self.files:
+            #     with open(file, 'rb') as f:
+            #         file_data = f.read()
+            #         file_name = os.path.basename(file)
+            #         msg.add_attachment(file_data, maintype='application', subtype='octet-stream', filename=file_name)
+
             for file in self.files:
-                with open(file, 'rb') as f:
-                    file_data = f.read()
-                    file_name = os.path.basename(file)
-                    msg.add_attachment(file_data, maintype='application', subtype='octet-stream', filename=file_name)
+                with open(file, "rb") as f:
+                    part = MIMEApplication(f.read(), file_name=basename(f))
+                # After the file is closed
+                part['Content-Disposition'] = f'attachment; filename={basename(f)}'
+                msg.attach(part)
 
             smtp = smtplib.SMTP_SSL(self.smtp_server, self.smtp_port)
             smtp.login(self.user, self.password)
