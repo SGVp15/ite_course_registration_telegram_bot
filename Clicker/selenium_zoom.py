@@ -81,7 +81,7 @@ async def registration_user_zoom_link(user: User) -> bool:
 
             driver.find_element(By.XPATH, xpath).click()
         except web_error:
-            await asyncio.sleep(5)
+            await asyncio.sleep(4)
             continue
         # check page is registration - ok
         await asyncio.sleep(1)
