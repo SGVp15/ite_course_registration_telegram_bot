@@ -5,6 +5,7 @@ import undetected_chromedriver as uc
 from selenium.common import NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException
 from selenium.webdriver.common.by import By
 
+from Config import FILE_XPATH_BTN_ZOOM_REGISTRATION
 from Contact.Contact import User
 
 
@@ -72,21 +73,24 @@ async def registration_user_zoom_link(user: User) -> bool:
             print('fill_form_ok')
 
             try:
-                with open('../Config/xpath_btn_registration_zoom.txt', mode='r', encoding='utf-8') as f:
+                with open(FILE_XPATH_BTN_ZOOM_REGISTRATION, mode='r', encoding='utf-8') as f:
                     xpath = f.read()
             except FileNotFoundError as e:
                 xpath = '/html/body/div[4]/div/div[2]/div/div/div/div/div[1]/div[4]/div/button'
 
             driver.find_element(By.XPATH, xpath).click()
-            # ToDo create check page
-            await asyncio.sleep(1)
+        except web_error:
+            await asyncio.sleep(5)
+            continue
+        # check page is registration - ok
+        await asyncio.sleep(1)
+        try:
+            driver.find_element(By.XPATH, xpath).click()
+        except web_error:
             driver.close()
             driver.quit()
             await asyncio.sleep(1)
             return True
-        except web_error:
-            await asyncio.sleep(5)
-            continue
 
     driver.close()
     driver.quit()
