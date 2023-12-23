@@ -8,6 +8,7 @@ COURSES_FILE = './data/.courses.txt'
 COURSES_FILE_BACKUP = './data/.courses_backup.txt'
 SELLERS = './data/.seller.txt'
 LOG_PROGRAM = './logs.txt'
+WEBINAR_LOG = './data/webinar_registration.txt'
 
 IMPORT_FILE = './data/input.txt'
 OLD_USERS = './data/users.txt'

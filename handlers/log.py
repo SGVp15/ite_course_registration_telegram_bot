@@ -1,7 +1,7 @@
 from aiogram import types
 
 from Call_Back_Data import CollBackData as callBackData
-from Config.config import SELLERS, LOG_FILE
+from Config.config import SELLERS, LOG_FILE, WEBINAR_LOG
 from Config.config_private import USERS_ID, ADMIN_ID
 from keybords.inline import inline_kb_main
 from loader import dp, bot
@@ -44,7 +44,7 @@ async def get_file(callback_query: types.callback_query):
 
 @dp.callback_query_handler(lambda c: c.data == callBackData.get_registration_webinar, user_id=[*ADMIN_ID, *USERS_ID])
 async def get_file_registration_webinar(callback_query: types.callback_query):
-    file = './data/webinar_registration.txt'
+    file = WEBINAR_LOG
     get_all_registration_url()
     with open(file, "rb") as f:
         await bot.send_document(chat_id=callback_query.from_user.id, document=f, reply_markup=inline_kb_main)

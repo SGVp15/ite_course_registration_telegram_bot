@@ -67,6 +67,7 @@ async def registration_user_zoom_link(user: User) -> bool:
             await asyncio.sleep(1)
 
     for i in range(5):
+        driver.get(url=user.url_registration)
         try:
             fill_form(user)
             await asyncio.sleep(1)
