@@ -12,7 +12,7 @@ class User:
         self.first_name = first_name.title()
         self.last_name = last_name.title()
         self.email = email.lower()
-        self.url_registration = re.sub('https://us06web.zoom.us', 'https://zoom.us', url_registration)
+        self.url_registration = url_registration
         self.course = course
         self.date = date
         self.role = 'GUEST'
