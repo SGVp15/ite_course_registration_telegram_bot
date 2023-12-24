@@ -102,7 +102,7 @@ class WebinarApi:
         url = ''
         i = 0
         for user in users:
-            url = f'https://userapi.webinar.ru/v3/events/{user.webinar_eventsid}/invite'
+            url = f'https://userapi.webinar.ru/v3/events/{user.webinar_events_id}/invite'
             if (i + 1) % 40 == 0:
                 r = requests.post(url, headers=self.headers, data=data)
                 # [{"participationId":752414983,"email":"g.savushkin@itexpert.ru","link":"https:\/\/my.mts-link.ru\/81296985\/569285096\/7ca38749207b4313ca9c9a420fefcdee"}]

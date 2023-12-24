@@ -60,7 +60,7 @@ async def add_users_zoom_to_file(message: types.Message):
 def start_registration(users):
     text_message = ''
     all_webinar_users = []
-    webinar_users = [user for user in users if user.webinar_eventsid != '']
+    webinar_users = [user for user in users if user.webinar_events_id != '']
     for token in WEBINAR_TOKENS:
         webinar_api = webinar.api_get_.WebinarApi(token=token)
         all_webinar_users.extend(parser.get_users_from_event_row(webinar_api.get_all_registration_url()))
@@ -99,7 +99,7 @@ def start_registration(users):
                              html=html).send_email()
 
     # ZOOM add to registration queue
-    zoom_users = [user for user in users if user.webinar_eventsid == '']
+    zoom_users = [user for user in users if user.webinar_events_id == '']
     new_zoom_users = []
     if zoom_users:
         old_zoom_users = get_old_users()

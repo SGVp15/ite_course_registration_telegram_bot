@@ -27,7 +27,7 @@ class Test(TestCase):
         print('first_name', users[0].first_name == test_user.first_name)
         print('email', users[0].email == test_user.email)
         print('url_registration', users[0].url_registration == test_user.url_registration)
-        print('webinar_eventsid', users[0].webinar_eventsid == test_user.webinar_eventsid)
+        print('webinar_eventsid', users[0].webinar_events_id == test_user.webinar_events_id)
         if users[0] != test_user:
             self.fail()
 

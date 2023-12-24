@@ -16,7 +16,7 @@ class User:
         self.course = course
         self.date = date
         self.role = 'GUEST'
-        self.webinar_eventsid = webinar_eventsid
+        self.webinar_events_id = webinar_eventsid
         self.curator_email = curator_email
         self.manager_email = manager_email
         self.link = link
@@ -28,8 +28,8 @@ class User:
 
     def __eq__(self, other):
         if self.last_name == other.last_name and self.first_name == other.first_name and self.email == other.email:
-            if self.webinar_eventsid != '':
-                if self.webinar_eventsid == other.webinar_eventsid:
+            if self.webinar_events_id != '':
+                if self.webinar_events_id == other.webinar_events_id:
                     return True
             elif self.url_registration == other.url_registration:
                 return True
