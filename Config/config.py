@@ -21,4 +21,4 @@ PATTERN_ZOOM_URL = r'\s*(https://.*zoom.us/.*\S+)'
 SMTP_SERVER = 'smtp.yandex.ru'
 SMTP_PORT = 465
 # -----------------------------------------------------------------------------------------------------------------------
-FILE_XPATH_BTN_ZOOM_REGISTRATION='./Config/xpath_btn_registration_zoom.txt'
+FILE_XPATH_BTN_ZOOM_REGISTRATION = './Config/xpath_btn_registration_zoom.txt'
