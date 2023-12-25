@@ -89,13 +89,14 @@ def start_registration(users):
             template_text = MyJinja(template_file='course_registration.txt')
             text = template_text.create_document(user)
             if user.manager_email != '':
-                EmailSending(subject=user.webinar_name, to=user.email, cc=user.curator_email,
+                EmailSending(subject=user.webinar_name, from_email='Course', to=user.email, cc=user.curator_email,
                              bcc=user.manager_email,
                              text=text,
                              html=html,
                              manager=user.manager_email).send_email()
             else:
-                EmailSending(subject=user.webinar_name, to=user.email, cc=user.curator_email, text=text,
+                EmailSending(subject=user.webinar_name, from_email='Course', to=user.email, cc=user.curator_email,
+                             text=text,
                              html=html).send_email()
 
     # ZOOM add to registration queue
