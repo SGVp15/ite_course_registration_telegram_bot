@@ -57,14 +57,12 @@ class EmailSending:
                     file_name = basename(file)
                     msg.add_attachment(file_data, maintype='application', subtype='octet-stream', filename=file_name)
 
-            part1 = MIMEText(self.text, 'plain')
-            part2 = MIMEText(self.html, 'html')
-
-            # Attach parts into message container.
-            # According to RFC 2046, the last part of a multipart message, in this case
-            # the HTML message, is best and preferred.
-            # msg.attach(part1)
-            msg.attach(part2)
+            if self.text != '':
+                part1 = MIMEText(self.text, 'plain')
+                msg.attach(part1)
+            if self.html != '':
+                part2 = MIMEText(self.html, 'html')
+                msg.attach(part2)
 
             smtp = smtplib.SMTP_SSL(self.smtp_server, self.smtp_port)
             smtp.login(self.user, self.password)
