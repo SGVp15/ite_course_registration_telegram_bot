@@ -46,8 +46,12 @@ async def get_file(callback_query: types.callback_query):
 async def get_file_registration_webinar(callback_query: types.callback_query):
     file = WEBINAR_LOG
     get_all_registration_url()
-    with open(file, "rb") as f:
-        await bot.send_document(chat_id=callback_query.from_user.id, document=f, reply_markup=inline_kb_main)
+    if is_empty_file(file):
+        await bot.send_message(chat_id=callback_query.from_user.id, text=f'Очередь Webinar пустая',
+                               reply_markup=inline_kb_main)
+    else:
+        with open(file, "rb") as f:
+            await bot.send_document(chat_id=callback_query.from_user.id, document=f, reply_markup=inline_kb_main)
 
 
 @dp.callback_query_handler(lambda c: c.data == callBackData.clear_queue, user_id=[*ADMIN_ID, ])

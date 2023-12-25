@@ -70,7 +70,7 @@ class EmailSending:
             smtp.login(self.user, self.password)
             smtp.sendmail(from_addr=self.from_email, to_addrs=self.to_address, msg=msg.as_string())
             smtp.quit()
-
+            print(f'Email send {self.to_address}')
             return f'Email send {self.to_address}'
 
         except Exception as e:
