@@ -20,7 +20,7 @@ def get_users_from_event_row(s: str) -> list[User]:
 
 def get_list_users_from_string(s: str) -> list[User]:
     s = refactor_string(s)
-    couse_name, date, teacher, course = get_course_info_from_string(s)
+    course_name, date, teacher, course = get_course_info_from_string(s)
     url = parsing_for_pattern(row=s, pattern=fr'\s*({PATTERN_REGISTRATION_URL})\s*')
 
     try:
@@ -47,7 +47,7 @@ def get_list_users_from_string(s: str) -> list[User]:
         name = parsing_cyrillic(row)
         try:
             user = User(last_name=name[0], first_name=name[1], email=email, url_registration=url, course=course,
-                        webinar_eventsid=webinar_eventsid, curator_email=curator_email, webinar_name=couse_name,
+                        webinar_eventsid=webinar_eventsid, curator_email=curator_email, webinar_name=course_name,
                         date=date, teacher=teacher)
             users.append(user)
         except IndexError:

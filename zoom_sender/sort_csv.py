@@ -1,10 +1,6 @@
 import re
 
-from Config.config import LOG_BACKUP
 from Config.config import LOG_FILE
-
-LOG_BACKUP
-LOG_FILE
 
 
 def remove_sort_csv(file=LOG_FILE, sort=True):
@@ -18,17 +14,12 @@ def remove_sort_csv(file=LOG_FILE, sort=True):
     rows = list(rows)
     try:
         rows.remove('')
-    except:
+    except ValueError:
         pass
     if sort:
-        rows.sort(reverse=True)
+        sorted(rows, reverse=True)
     s = '\n'.join(rows)
     s = s.strip()
 
     with open(file=file, mode='w', encoding='utf-8') as f:
         f.write(s + '\n')
-
-
-if __name__ == '__main__':
-    remove_sort_csv(LOG_BACKUP)
-    pass

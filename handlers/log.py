@@ -25,7 +25,8 @@ async def show_queue(callback_query: types.callback_query):
     await bot.send_message(chat_id=callback_query.from_user.id, text=get_queue(), reply_markup=inline_kb_main)
 
 
-@dp.callback_query_handler(lambda c: c.data in [callBackData.get_log, callBackData.get_seller], user_id=[*ADMIN_ID, *USERS_ID])
+@dp.callback_query_handler(lambda c: c.data in [callBackData.get_log, callBackData.get_seller],
+                           user_id=[*ADMIN_ID, *USERS_ID])
 async def get_file(callback_query: types.callback_query):
     query = callback_query.data
     file = LOG_FILE
