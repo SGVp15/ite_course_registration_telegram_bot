@@ -1,10 +1,6 @@
-import handlers
-
-from aiogram.utils import executor
 from Clicker.Clicker import run_main
 
-
-from loader import dp, loop
+from Telegram.main import dp, loop
 
 if __name__ == '__main__':
     print('bot start')

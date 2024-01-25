@@ -4,7 +4,7 @@ from datetime import datetime
 import requests
 
 import Contact
-from Config.config_private import WEBINAR_TOKENS
+from Telegram.config import WEBINAR_TOKENS
 
 
 class WebinarApi:

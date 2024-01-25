@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from Config.config_private import user_id_email
+from Telegram.config import user_id_email
 from Contact import parser
 from Email.email_sending import EmailSending
 from My_jinja.my_jinja import MyJinja

@@ -1,23 +1,24 @@
 from aiogram import types
 from aiogram.dispatcher import filters
+from aiogram.filters import Command
 
 import webinar
-from Config.config_private import USERS_ID, ADMIN_ID, WEBINAR_TOKENS, user_id_email
+from Telegram.config import USERS_ID, ADMIN_ID, WEBINAR_TOKENS, user_id_email
 from Contact import parser
 from Email.email_sending import EmailSending
 from My_jinja.my_jinja import MyJinja
 from converter import read_xlsx, read_xls
-from keybords.inline import inline_kb_main
-from loader import dp, bot
+from Telegram.keybords.inline import inline_kb_main
+from Telegram.main import dp, bot
 from queue_zoom import add_to_queue_file, get_old_users
 
 
-@dp.message_handler(commands='id')
+@dp.message(Command('id'))
 async def send_id(message: types.Message):
-    await message.answer(message.chat.id)
+    await message.answer(str(message.chat.id))
 
 
-@dp.message_handler(content_types=types.ContentType.DOCUMENT, user_id=[*ADMIN_ID, *USERS_ID])
+@dp.message(content_types=types.ContentType.DOCUMENT, user_id=[*ADMIN_ID, *USERS_ID])
 async def handle_document(message: types.Message):
     # Get the file ID from the document object
     file_id = message.document.file_id
@@ -45,7 +46,7 @@ async def handle_document(message: types.Message):
     await message.answer(f'Файл обработал {file_path}\n{text}', reply_markup=inline_kb_main)
 
 
-@dp.message_handler(filters.Regexp(regexp='https://'), user_id=[*ADMIN_ID, *USERS_ID])
+@dp.message(filters.Regexp(regexp='https://'), user_id=[*ADMIN_ID, *USERS_ID])
 async def add_users_zoom_to_file(message: types.Message):
     users = parser.get_list_users_from_string(message.text)
     for user in users:

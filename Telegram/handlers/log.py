@@ -1,10 +1,10 @@
 from aiogram import types
 
-from Call_Back_Data import CollBackData as callBackData
+from Telegram.Call_Back_Data import CallBackData as callBackData
 from Config.config import SELLERS, LOG_FILE, WEBINAR_LOG
-from Config.config_private import USERS_ID, ADMIN_ID
-from keybords.inline import inline_kb_main
-from loader import dp, bot
+from Telegram.config import USERS_ID, ADMIN_ID
+from Telegram.keybords.inline import inline_kb_main
+from Telegram.main import dp, bot
 from queue_zoom import get_queue, clear_queue
 from webinar.api_get_ import get_all_registration_url
 

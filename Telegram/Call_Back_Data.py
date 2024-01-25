@@ -1,4 +1,4 @@
-class CollBackData:
+class CallBackData:
     download_logs = 'download_logs'
     get_log = 'get_log'
     get_registration_webinar = 'get_registration_webinar'
