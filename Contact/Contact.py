@@ -7,7 +7,7 @@ class User:
                  manager_email=''):
         """
 
-        :type webinar_eventsid: String from https://events.webinar.ru/event/999146969
+        :type webinar_eventsid: String from https://events.Webinar.ru/event/999146969
         """
         self.first_name = first_name.title()
         self.last_name = last_name.title()
