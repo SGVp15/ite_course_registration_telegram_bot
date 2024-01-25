@@ -1,6 +1,6 @@
-from aiogram import types
-from aiogram.dispatcher import filters
+from aiogram import types, F
 from aiogram.filters import Command
+from magic_filter import RegexpMode
 
 import webinar
 from Telegram.config import USERS_ID, ADMIN_ID, WEBINAR_TOKENS, user_id_email
@@ -18,7 +18,7 @@ async def send_id(message: types.Message):
     await message.answer(str(message.chat.id))
 
 
-@dp.message(content_types=types.ContentType.DOCUMENT, user_id=[*ADMIN_ID, *USERS_ID])
+@dp.message(F.document & F.from_user.id.in_({*ADMIN_ID, *USERS_ID}))
 async def handle_document(message: types.Message):
     # Get the file ID from the document object
     file_id = message.document.file_id
@@ -46,7 +46,7 @@ async def handle_document(message: types.Message):
     await message.answer(f'Файл обработал {file_path}\n{text}', reply_markup=inline_kb_main)
 
 
-@dp.message(filters.Regexp(regexp='https://'), user_id=[*ADMIN_ID, *USERS_ID])
+@dp.message(F.text.Regexp(regexp='https://', mode=RegexpMode.SEARCH) & F.from_user.id.in_({*ADMIN_ID, *USERS_ID}))
 async def add_users_zoom_to_file(message: types.Message):
     users = parser.get_list_users_from_string(message.text)
     for user in users:

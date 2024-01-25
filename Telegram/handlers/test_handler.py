@@ -7,7 +7,7 @@ from Telegram.keybords.inline import inline_kb_main
 from Telegram.main import dp, bot
 
 
-@dp.callback_query(F.data == callBackData.send_test_email & F.user_id.in_({*ADMIN_ID, *USERS_ID}))
+@dp.callback_query(F.data.in_({callBackData.send_test_email}) & F.user_id.in_({*ADMIN_ID, *USERS_ID}))
 async def send_test_email_handler(callback_query: types.callback_query):
     text_message = TestEmailSending.test_send_email(callback_query.from_user.id)
     await bot.send_message(chat_id=callback_query.from_user.id, text=text_message, reply_markup=inline_kb_main)
