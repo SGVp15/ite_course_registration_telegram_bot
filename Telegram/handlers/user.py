@@ -10,11 +10,6 @@ from Webinar.registration import start_registration
 from converter import read_xlsx, read_xls
 
 
-@dp.message(Command('id'))
-async def send_id(message: types.Message):
-    await message.answer(str(message.chat.id))
-
-
 @dp.message(F.document & F.from_user.id.in_({*ADMIN_ID, *USERS_ID}))
 async def handle_document(message: types.Message):
     # Get the file ID from the document object

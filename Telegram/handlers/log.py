@@ -2,13 +2,13 @@ from aiogram import types, F
 from aiogram.types import FSInputFile
 
 from Config.config import SELLERS, LOG_FILE, WEBINAR_LOG
-from Telegram.Call_Back_Data import CallBackData
-from Telegram.Call_Back_Data import CallBackData as callBackData
+from Telegram.Call_Back_Data import callBackData
+from Telegram.Call_Back_Data import callBackData as callBackData
 from Telegram.config import USERS_ID, ADMIN_ID
 from Telegram.keybords.inline import inline_kb_main
 from Telegram.main import dp, bot
-from queue_zoom import get_queue, clear_queue
 from Webinar.API import get_all_registration_url
+from queue_zoom import get_queue, clear_queue
 
 
 def is_empty_file(file) -> bool:
@@ -17,8 +17,9 @@ def is_empty_file(file) -> bool:
     return len(s) <= 10
 
 
-@dp.callback_query(F.data.in_({callBackData.show_queue})
-                   & F.user_id.in_({*ADMIN_ID, *USERS_ID}))
+@dp.callback_query(F.data == callBackData.show_queue
+                   and F.user_id.in_({*ADMIN_ID})
+                   or F.user_id.in_({*USERS_ID}))
 async def show_queue(callback_query: types.callback_query):
     await bot.send_message(chat_id=callback_query.from_user.id, text=get_queue(), reply_markup=inline_kb_main)
 
@@ -28,9 +29,9 @@ async def show_queue(callback_query: types.callback_query):
 async def get_file(callback_query: types.callback_query):
     query = callback_query.data
     file = LOG_FILE
-    if query == CallBackData.get_seller:
+    if query == callBackData.get_seller:
         file = FSInputFile(SELLERS, 'sellers.txt')
-    elif query == CallBackData.get_log:
+    elif query == callBackData.get_log:
         file = FSInputFile(LOG_FILE, 'log_file.txt')
 
     # try:

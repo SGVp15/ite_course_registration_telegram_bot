@@ -1,6 +1,6 @@
 from aiogram import types, F
 
-from Telegram.Call_Back_Data import CallBackData as callBackData
+from Telegram.Call_Back_Data import callBackData as callBackData
 from Telegram.config import USERS_ID, ADMIN_ID
 from Email.test_email_sending import TestEmailSending
 from Telegram.keybords.inline import inline_kb_main
