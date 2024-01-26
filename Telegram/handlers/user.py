@@ -32,9 +32,12 @@ async def handle_document(message: types.Message):
             s = f.read()
 
     users = parser.get_list_users_from_string(s)
-    # TODO manager emails
-    # for user in users:
-    #     user.manager_email = user_id_email.get(str(message.from_id), '')
+    # manager emails
+    for user in users:
+        try:
+            user.manager_email = user_id_email.get(str(message.from_id), '')
+        except (AttributeError, KeyError):
+            pass
     text = start_registration(users)
     await message.answer(f'Файл обработал {file_path}\n{text}', reply_markup=inline_kb_main)
 
