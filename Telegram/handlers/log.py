@@ -54,7 +54,7 @@ async def get_file_registration_webinar(callback_query: types.callback_query):
             await bot.send_document(chat_id=callback_query.from_user.id, document=f, reply_markup=inline_kb_main)
 
 
-@dp.callback_query((F.data == callBackData.clear_queue)) & (F.from_user.id.in_({*ADMIN_ID}))
+@dp.callback_query((F.data == callBackData.clear_queue) & (F.from_user.id.in_({*ADMIN_ID})))
 async def clear_queue_file(callback_query: types.callback_query):
     clear_queue()
     await bot.send_message(chat_id=callback_query.from_user.id, text='clear_queue  Ok', reply_markup=inline_kb_main)
