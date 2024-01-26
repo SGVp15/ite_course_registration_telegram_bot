@@ -48,7 +48,7 @@ async def add_users_zoom_to_file(message: types.Message):
     for user in users:
         try:
             user.manager_email = user_id_email.get(str(message.from_id), '')
-        except(AttributeError, KeyError):
+        except (AttributeError, KeyError):
             pass
     text = start_registration(users)
     if users is None:
