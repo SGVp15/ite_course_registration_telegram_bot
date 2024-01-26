@@ -1,8 +1,17 @@
 import asyncio
 
-from Telegram.main import start_bot
+from Clicker.Clicker import run_main
+from Telegram.main import start_bot, loop
+
+
+async def main():
+    tasks = [
+        start_bot(),
+        run_main()
+    ]
+    await asyncio.gather(*tasks)
+
 
 if __name__ == '__main__':
     print('bot start')
-    # loop.create_task(registration())
-    asyncio.run(start_bot())
+    asyncio.run(main())
