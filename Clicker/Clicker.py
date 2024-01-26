@@ -6,7 +6,7 @@ from queue_zoom import get_users_from_queue_file, del_user_from_temp_file, get_o
 from Clicker.selenium_zoom import registration_user_zoom_link
 
 
-async def run_main():
+async def run_clicker():
     print('webdriver run')
     while True:
         try:
