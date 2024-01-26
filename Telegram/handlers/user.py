@@ -20,7 +20,7 @@ async def handle_document(message: types.Message):
     file_path = file.file_path
 
     # Read the contents of the file
-    await bot.download_file(file_path, destination_dir='./data')
+    await bot.download_file(file_path, destination=f'./data/{file_path}')
     path = f'./data/{file_path}'
     s = ''
     if path.endswith('.xls'):
@@ -32,17 +32,24 @@ async def handle_document(message: types.Message):
             s = f.read()
 
     users = parser.get_list_users_from_string(s)
-    for user in users:
-        user.manager_email = user_id_email.get(str(message.from_id), '')
+    # TODO manager emails
+    # for user in users:
+    #     user.manager_email = user_id_email.get(str(message.from_id), '')
     text = start_registration(users)
     await message.answer(f'Файл обработал {file_path}\n{text}', reply_markup=inline_kb_main)
 
 
-@dp.message((F.text.Regexp(regexp='https://', mode=RegexpMode.SEARCH)) & (F.from_user.id.in_({*ADMIN_ID, *USERS_ID})))
+@dp.message(
+    (F.text.regexp(r'https://', mode=RegexpMode.SEARCH))
+    & (F.from_user.id.in_({*ADMIN_ID, *USERS_ID}))
+)
 async def add_users_zoom_to_file(message: types.Message):
     users = parser.get_list_users_from_string(message.text)
     for user in users:
-        user.manager_email = user_id_email.get(str(message.from_id), '')
+        try:
+            user.manager_email = user_id_email.get(str(message.from_id), '')
+        except(AttributeError, KeyError):
+            pass
     text = start_registration(users)
     if users is None:
         await message.answer('Контакт не корректен', reply_markup=inline_kb_main)

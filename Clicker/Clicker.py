@@ -29,7 +29,7 @@ async def run_clicker():
                     write_user_to_log(f'{datetime.now()}\t{user}\n')
                     print(f'[ OK ] {user}')
                     del_user_from_temp_file()
-                await asyncio.sleep(60 * 5)
+                await asyncio.sleep(60 * 1)
 
 
 def write_user_to_log(s):

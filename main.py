@@ -13,5 +13,8 @@ async def main():
 
 
 if __name__ == '__main__':
+    # loop = asyncio.new_event_loop()
+    # loop.call_soon(start_bot, loop)
+
     print('bot start')
     asyncio.run(main())
