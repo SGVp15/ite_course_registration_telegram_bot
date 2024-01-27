@@ -53,8 +53,11 @@ async def registration_user_zoom_link(user: User) -> bool:
 
         await asyncio.sleep(1)
         fill_element('question_first_name', contact.first_name)
+        await asyncio.sleep(0.5)
         fill_element('question_last_name', contact.last_name)
+        await asyncio.sleep(0.5)
         fill_element('question_email', contact.email)
+        await asyncio.sleep(0.5)
 
     driver.get(url=user.url_registration)
 
