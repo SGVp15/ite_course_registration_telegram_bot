@@ -2,8 +2,8 @@ import asyncio
 from datetime import datetime
 
 from Config.config import LOG_FILE, OLD_USERS
-from queue_zoom import get_users_from_queue_file, del_user_from_temp_file, get_old_users
-from Clicker.selenium_zoom import registration_user_zoom_link
+from Zoom.queue_zoom import get_users_from_queue_file, del_user_from_temp_file, get_old_users
+from Zoom.selenium_zoom import registration_user_zoom_link
 
 
 async def run_clicker():

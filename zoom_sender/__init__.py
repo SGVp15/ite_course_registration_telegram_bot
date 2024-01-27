@@ -1,3 +1,3 @@
-from zoom_sender.logs import backup_log
+from Zoom.logs import backup_log
 
 __all__ = [backup_log]

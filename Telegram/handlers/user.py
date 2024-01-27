@@ -1,13 +1,12 @@
 from aiogram import types, F
-from aiogram.filters import Command
 from magic_filter import RegexpMode
 
 from Contact import parser
 from Telegram.config import USERS_ID, ADMIN_ID, user_id_email
 from Telegram.keybords.inline import inline_kb_main
 from Telegram.main import dp, bot
-from Webinar.registration import start_registration
-from converter import read_xlsx, read_xls
+from Webinar.main import start_registration
+from Excel.converter import read_xlsx, read_xls
 
 
 @dp.message(F.document & (F.from_user.id.in_({*ADMIN_ID, *USERS_ID})))

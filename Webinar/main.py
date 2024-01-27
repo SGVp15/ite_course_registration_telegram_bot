@@ -3,7 +3,7 @@ from Email import EmailSending
 from My_jinja import MyJinja
 from Telegram.config import WEBINAR_TOKENS
 from Webinar import WebinarApi
-from queue_zoom import get_old_users, add_to_queue_file
+from Zoom.queue_zoom import get_old_users, add_to_queue_file
 
 
 def start_registration(users):

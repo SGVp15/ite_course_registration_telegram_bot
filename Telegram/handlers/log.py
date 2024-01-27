@@ -7,7 +7,7 @@ from Telegram.config import USERS_ID, ADMIN_ID
 from Telegram.keybords.inline import inline_kb_main
 from Telegram.main import dp, bot
 from Webinar.API import get_all_registration_url
-from queue_zoom import get_queue, clear_queue
+from Zoom.queue_zoom import get_queue, clear_queue
 
 
 def is_empty_file(file) -> bool:

@@ -1,6 +1,6 @@
 import asyncio
 
-from Clicker.Clicker import run_clicker
+from Zoom.Clicker import run_clicker
 from Telegram.main import start_bot
 
 

@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from Config.config import LOG_BACKUP, LOG_FILE
-from zoom_sender.sort_csv import remove_sort_csv
+from Zoom.sort_csv import remove_sort_csv
 
 
 def log_write(user, url: str, course: str, file_logs=LOG_FILE, status: str = 'ERROR', sep=','):
