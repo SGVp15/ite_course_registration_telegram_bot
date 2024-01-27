@@ -66,5 +66,4 @@ def get_old_users() -> list[User]:
         with open(OLD_USERS, encoding='utf-8', mode='r') as file:
             s = file.read()
         return get_users_from_event_row(s)
-    else:
-        return []
+    return []
