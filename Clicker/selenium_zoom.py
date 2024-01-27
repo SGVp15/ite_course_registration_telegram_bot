@@ -46,13 +46,13 @@ async def registration_user_zoom_link(user: User) -> bool:
 
     web_error = (NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException)
 
-    def fill_form(contact: User):
+    async def fill_form(contact: User):
         def fill_element(find_element='question_last_name', text=''):
             element = driver.find_element(value=find_element)
             element.clear()
             element.send_keys(text)
 
-        time.sleep(1)
+        await asyncio.sleep(1)
         fill_element('question_first_name', contact.first_name)
         fill_element('question_last_name', contact.last_name)
         fill_element('question_email', contact.email)
@@ -69,7 +69,7 @@ async def registration_user_zoom_link(user: User) -> bool:
     for i in range(5):
         driver.get(url=user.url_registration)
         try:
-            fill_form(user)
+            await fill_form(user)
             await asyncio.sleep(1)
             print('fill_form_ok')
 
