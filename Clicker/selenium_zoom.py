@@ -1,5 +1,4 @@
 import asyncio
-import time
 
 import undetected_chromedriver as uc
 from selenium.common import NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException
