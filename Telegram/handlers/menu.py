@@ -22,7 +22,7 @@ async def admin_menu(callback_query: types.callback_query):
                                         reply_markup=inline_kb_admin)
 
 
-@dp.callback_query((F.data.in_(callBackData.back_to_main_menu))
+@dp.callback_query((F.data == callBackData.back_to_main_menu)
                    & (F.from_user.id.in_({*ADMIN_ID, *USERS_ID})))
 async def back_to_main(callback_query: types.callback_query):
     await bot.edit_message_reply_markup(chat_id=callback_query.from_user.id,
