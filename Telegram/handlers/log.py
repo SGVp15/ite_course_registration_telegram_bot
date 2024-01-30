@@ -1,7 +1,9 @@
+import os
+
 from aiogram import types, F
 from aiogram.types import FSInputFile
 
-from Config.config import SELLERS, LOG_FILE, WEBINAR_LOG
+from Config.config import SELLERS, LOG_FILE, WEBINAR_LOG, LOG_BACKUP
 from Telegram.Call_Back_Data import callBackData
 from Telegram.config import USERS_ID, ADMIN_ID
 from Telegram.keybords.inline import inline_kb_main
@@ -11,6 +13,9 @@ from Zoom.queue_zoom import get_queue, clear_queue
 
 
 def is_empty_file(file) -> bool:
+    if not os.path.exists(file):
+        with open(file=file, mode="w", encoding='utf-8') as f:
+            f.write('')
     with open(file=file, mode="r", encoding='utf-8') as f:
         s = f.read()
     return len(s) <= 10
@@ -32,13 +37,14 @@ async def get_file(callback_query: types.callback_query):
     elif query == callBackData.get_log:
         file = FSInputFile(LOG_FILE, 'log_file.txt')
 
-    # try:
-    #     if is_empty_file(file):
-    #         await bot.answer_callback_query(chat_id=callback_query.from_user.id, text=f'✅ Файл пустой',
-    #                                         reply_markup=inline_kb_main)
-    # except UnicodeDecodeError:
-    #     ...
-    await bot.send_document(chat_id=callback_query.from_user.id, document=file, reply_markup=inline_kb_main)
+    try:
+        if is_empty_file(file.path):
+            await bot.send_message(chat_id=callback_query.from_user.id, text=f'✅ Файл пустой',
+                                   reply_markup=inline_kb_main)
+        else:
+            await bot.send_document(chat_id=callback_query.from_user.id, document=file, reply_markup=inline_kb_main)
+    except UnicodeDecodeError:
+        ...
 
 
 @dp.callback_query((F.data == callBackData.get_registration_webinar)
@@ -62,5 +68,13 @@ async def clear_queue_file(callback_query: types.callback_query):
 
 @dp.callback_query((F.data == callBackData.clear_log) & (F.from_user.id.in_({*ADMIN_ID})))
 async def clear_log_file(callback_query: types.callback_query):
-    # TODO create function
+    try:
+        with open(file=LOG_FILE, mode="r", encoding='utf-8') as f:
+            s = f.read()
+        with open(file=LOG_BACKUP, mode="a", encoding='utf-8') as f:
+            f.write(s + '\n')
+        with open(file=LOG_FILE, mode="w", encoding='utf-8') as f:
+            f.write('')
+    except Exception:
+        ...
     await bot.send_message(chat_id=callback_query.from_user.id, text='clear_log Ok', reply_markup=inline_kb_main)
