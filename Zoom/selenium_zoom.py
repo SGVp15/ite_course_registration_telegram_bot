@@ -23,7 +23,7 @@ async def registration_user_zoom_link(user: User) -> bool:
     # options.add_argument("--disable-accelerated-2d-canvas")
     # options.add_argument("--disable-gpu")
     options.add_argument("--start-maximized")
-    # options.add_argument("--headless")
+    options.add_argument("--headless")
     # options.add_argument('headless')
     options.add_argument('--ignore-certificate-errors')
     # options.add_argument('--start-maximized')
