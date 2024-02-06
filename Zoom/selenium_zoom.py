@@ -80,7 +80,7 @@ async def registration_user_zoom_link(user: User) -> bool:
                 with open(FILE_XPATH_BTN_ZOOM_REGISTRATION, mode='r', encoding='utf-8') as f:
                     xpath = f.read()
             except FileNotFoundError:
-                xpath = '/html/body/div[4]/div/div[2]/div/div/div/div/div[1]/div[4]/div/button'
+                xpath = '//div[@class="btn-register mgb-lg mgt-sm"]//button'
 
             driver.find_element(By.XPATH, xpath).click()
         except web_error:

@@ -24,9 +24,9 @@ def get_list_users_from_string(s: str) -> list[User]:
     url = parsing_for_pattern(row=s, pattern=fr'\s*({PATTERN_REGISTRATION_URL})\s*')
 
     try:
-        webinar_eventsid = re.findall(pattern=fr'\s*{PATTERN_WEBINAR_SESSION_ID}\s*', string=s)[0][1]
+        webinar_events_id = re.findall(pattern=fr'\s*{PATTERN_WEBINAR_SESSION_ID}\s*', string=s)[0][1]
     except IndexError:
-        webinar_eventsid = ''
+        webinar_events_id = ''
 
     rows = s.split('\n')
 
@@ -47,7 +47,7 @@ def get_list_users_from_string(s: str) -> list[User]:
         name = parsing_cyrillic(row)
         try:
             user = User(last_name=name[0], first_name=name[1], email=email, url_registration=url, course=course,
-                        webinar_eventsid=webinar_eventsid, curator_email=curator_email, webinar_name=course_name,
+                        webinar_eventsid=webinar_events_id, curator_email=curator_email, webinar_name=course_name,
                         date=date, teacher=teacher)
             users.append(user)
         except IndexError:
@@ -75,21 +75,20 @@ def refactor_string(row: str) -> str:
 def get_course_info_from_string(s: str) -> tuple:
     s = s.strip()
     try:
-        couse_name = re.findall('(Курс: .*)\n', s)[0]
+        course_name = re.findall('(Курс: .*)\n', s)[0]
     except IndexError:
-        couse_name = ''
+        course_name = ''
     try:
-        couse_teacher = re.findall('(Тренер:.*)\n', s)[0]
+        course_teacher = re.findall('(Тренер:.*)\n', s)[0]
     except IndexError:
-        couse_teacher = ''
+        course_teacher = ''
     try:
-        couse_date = re.findall('(Даты проведения курса:.*)\n', s)[0]
+        course_date = re.findall('(Даты проведения курса:.*)\n', s)[0]
     except IndexError:
-        couse_date = ''
+        course_date = ''
     try:
         rows = s.split('\n')
         course = re.findall(r'(\w+-online)', rows[1].strip())[0]
-        teacher = re.findall(r'Тренер:\s+([А-Яа-я]+)', rows[3].strip())[0]
         date = re.findall(r'Даты проведения курса:\s+([\d.\s\-]+)', rows[2].strip())[0]
         date = date.split('.')
         date = f'{datetime.date.today().strftime("%Y")}-{date[1].strip()}-{date[0].strip()}'
@@ -97,4 +96,4 @@ def get_course_info_from_string(s: str) -> tuple:
     except IndexError:
         course = ''
         date = ''
-    return couse_name, couse_date, couse_teacher, course
+    return course_name, course_date, course_teacher, course
