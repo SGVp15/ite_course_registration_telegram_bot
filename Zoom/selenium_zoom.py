@@ -1,47 +1,64 @@
 import asyncio
 
-import undetected_chromedriver as uc
+from selenium import webdriver
 from selenium.common import NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException
 from selenium.webdriver.common.by import By
+from selenium_stealth import stealth
 
 from Config import FILE_XPATH_BTN_ZOOM_REGISTRATION
 from Contact.Contact import User
 
 
 async def registration_user_zoom_link(user: User) -> bool:
-    options = uc.ChromeOptions()
-    # options.add_argument("--disable-blink-features=AutomationControlled")
-    # options.add_argument("--disable-notifications")
-    # options.add_argument("--disable-popup-blocking")
-    # options.add_argument("--disable-extensions")
-    # options.add_argument("--disable-sync")
-    # options.add_argument("--disable-web-security")
-    # options.add_argument("--disable-default-apps")
-    # options.add_argument("--no-sandbox")
-    # options.add_argument("--disable-setuid-sandbox")
-    # options.add_argument("--disable-dev-shm-usage")
-    # options.add_argument("--disable-accelerated-2d-canvas")
-    # options.add_argument("--disable-gpu")
-    options.add_argument("--start-maximized")
-    options.add_argument("--headless")
-    # options.add_argument('headless')
-    options.add_argument('--ignore-certificate-errors')
-    # options.add_argument('--start-maximized')
-    # options.add_argument('--disable-blink-features=AutomationControlled')
+    options = webdriver.ChromeOptions()
+    options.add_argument("start-maximized")
 
-    # options.setExperimentalOption("useAutomationExtension", false)
-    # options.setExperimentalOption("excludeSwitches",Collections.singletonList("enable-automation"))
-    #
-    # options.add_experimental_option("useAutomationExtension", False)
-    # options.add_experimental_option("excludeSwitches", ["enable-automation"])
-    #
-    # options.add_argument(user_agent)
-    # options.add_argument("--disable-blink-features=AutomationControlled")
+    # options.add_argument("--headless")
 
-    driver = uc.Chrome(
-        executable_path='../chromedriver.exe',
-        chrome_options=options
-    )
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option('useAutomationExtension', False)
+    driver = webdriver.Chrome(options=options)
+    stealth(driver,
+            languages=["en-US", "en"],
+            vendor="Google Inc.",
+            platform="Win32",
+            webgl_vendor="Intel Inc.",
+            renderer="Intel Iris OpenGL Engine",
+            fix_hairline=True,
+            )
+    # options = uc.ChromeOptions()
+    # # options.add_argument("--disable-blink-features=AutomationControlled")
+    # # options.add_argument("--disable-notifications")
+    # # options.add_argument("--disable-popup-blocking")
+    # # options.add_argument("--disable-extensions")
+    # # options.add_argument("--disable-sync")
+    # # options.add_argument("--disable-web-security")
+    # # options.add_argument("--disable-default-apps")
+    # # options.add_argument("--no-sandbox")
+    # # options.add_argument("--disable-setuid-sandbox")
+    # # options.add_argument("--disable-dev-shm-usage")
+    # # options.add_argument("--disable-accelerated-2d-canvas")
+    # # options.add_argument("--disable-gpu")
+    # options.add_argument("--start-maximized")
+    # options.add_argument("--headless")
+    # # options.add_argument('headless')
+    # options.add_argument('--ignore-certificate-errors')
+    # # options.add_argument('--start-maximized')
+    # # options.add_argument('--disable-blink-features=AutomationControlled')
+    #
+    # # options.setExperimentalOption("useAutomationExtension", false)
+    # # options.setExperimentalOption("excludeSwitches",Collections.singletonList("enable-automation"))
+    # #
+    # # options.add_experimental_option("useAutomationExtension", False)
+    # # options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    # #
+    # # options.add_argument(user_agent)
+    # # options.add_argument("--disable-blink-features=AutomationControlled")
+    #
+    # driver = uc.Chrome(
+    #     executable_path='../chromedriver.exe',
+    #     chrome_options=options
+    # )
 
     web_error = (NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException)
 

@@ -6,3 +6,4 @@ Jinja2
 openpyxl
 xlrd
 undetected-chromedriver
+selenium-stealth
