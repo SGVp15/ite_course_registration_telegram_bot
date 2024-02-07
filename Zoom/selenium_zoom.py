@@ -19,7 +19,7 @@ async def registration_user_zoom_link(user: User) -> bool:
     options.add_experimental_option('useAutomationExtension', False)
     driver = webdriver.Chrome(options=options)
     stealth(driver,
-            languages=["ru-RU", "ru"],
+            languages=["en-US", "en"],
             vendor="Google Inc.",
             platform="Win32",
             webgl_vendor="Intel Inc.",
