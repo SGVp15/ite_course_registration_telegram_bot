@@ -33,9 +33,9 @@ async def get_file(callback_query: types.callback_query):
     query = callback_query.data
     file = LOG_FILE
     if query == callBackData.get_seller:
-        file = FSInputFile(SELLERS, 'sellers.txt')
+        file = FSInputFile(SELLERS, filename='sellers.txt')
     elif query == callBackData.get_log:
-        file = FSInputFile(LOG_FILE, 'log_file.txt')
+        file = FSInputFile(LOG_FILE, filename='log_file.txt')
 
     try:
         if is_empty_file(file.path):
@@ -56,8 +56,8 @@ async def get_file_registration_webinar(callback_query: types.callback_query):
         await bot.send_message(chat_id=callback_query.from_user.id, text=f'Очередь Webinar пустая',
                                reply_markup=inline_kb_main)
     else:
-        with open(file, "rb") as f:
-            await bot.send_document(chat_id=callback_query.from_user.id, document=f, reply_markup=inline_kb_main)
+        file = FSInputFile(WEBINAR_LOG, filename='webinar.log')
+        await bot.send_document(chat_id=callback_query.from_user.id, document=file, reply_markup=inline_kb_main)
 
 
 @dp.callback_query((F.data == callBackData.clear_queue) & (F.from_user.id.in_({*ADMIN_ID})))
