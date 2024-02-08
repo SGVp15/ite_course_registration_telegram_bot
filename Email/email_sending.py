@@ -5,15 +5,14 @@ from email.mime.application import MIMEApplication
 
 from os.path import basename
 
-from Config.config import SMTP_SERVER, SMTP_PORT
-from Telegram.config import email_login_password
-from Email.config import EMAIL_LOGIN, EMAIL_PASSWORD
+from Email.config import EMAIL_LOGIN, EMAIL_PASSWORD, email_login_password, SMTP_SERVER, SMTP_PORT
 
 
 class EmailSending:
-    def __init__(self, subject='Вы зарегистрированы на курс', from_email=EMAIL_LOGIN, to='', cc='', bcc='',
+    def __init__(self, files_path: list | None, subject='Вы зарегистрированы на курс', from_email=EMAIL_LOGIN, to='',
+                 cc='', bcc='',
                  text='', html='', smtp_server=SMTP_SERVER, smtp_port=SMTP_PORT,
-                 login=EMAIL_LOGIN, password=EMAIL_PASSWORD, manager=None, files_path=[]):
+                 login=EMAIL_LOGIN, password=EMAIL_PASSWORD, manager=None):
         """
 
         :type text: Plain text Email, if html not support

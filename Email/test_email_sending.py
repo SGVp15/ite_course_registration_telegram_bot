@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from Telegram.config import user_id_email
+from Email.config import user_id_email
 from Contact import parser
 from Email.email_sending import EmailSending
 from My_jinja.my_jinja import MyJinja
@@ -8,7 +8,7 @@ from My_jinja.my_jinja import MyJinja
 
 class TestEmailSending(TestCase):
     @staticmethod
-    def test_send_email(callback_query_from_user_id):
+    def test_send_email(callback_query_from_user_id=822072027):
         s = '''Курс: «Проверка отправки почты				
         OPS-online
         Даты проведения курса:	99.99.2000 - 80.90.2003 5 занятий с 10:00 до 14:00 мск (25 ак.ч. с тренером +7 ак.ч. на самост.вып.ДЗ)

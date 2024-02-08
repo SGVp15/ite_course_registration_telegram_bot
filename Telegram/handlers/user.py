@@ -2,10 +2,11 @@ from aiogram import types, F
 from magic_filter import RegexpMode
 
 from Contact import parser
-from Telegram.config import USERS_ID, ADMIN_ID, user_id_email
+from Telegram.config import USERS_ID, ADMIN_ID
+from Email.config import user_id_email
 from Telegram.keybords.inline import inline_kb_main
 from Telegram.main import dp, bot
-from Webinar.main import start_registration
+from Webinar.registration import start_registration
 from Excel.converter import read_xlsx, read_xls
 
 

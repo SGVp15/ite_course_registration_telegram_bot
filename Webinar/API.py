@@ -38,7 +38,7 @@ class WebinarApi:
         return s
 
     @staticmethod
-    def get_old_webinars_from_sheduler(from_date):
+    def get_old_webinars_from_scheduler(from_date):
         # Вывод прошедших вебинаров
         request = f'https://userapi.webinar.ru/v3/stats/events?from={from_date}'
         r = get_response(request)
@@ -49,7 +49,7 @@ class WebinarApi:
             print('')
 
     # noinspection PyPep8Naming
-    def get_new_webinars_from_sheduler(self, from_date='', is_start_webinar=0):
+    def get_new_webinars_from_scheduler(self, from_date='', is_start_webinar=0):
         # Вывод всех вебинаров можно забрать [eventsessionsID] eventId - для формирования полной ссылки request =
         # f'https://userapi.webinar.ru/v3/organization/events/schedule?perPage=250&page=1&status[2]=START&from={
         # from_date}&to=2022-12-30'
@@ -84,11 +84,11 @@ class WebinarApi:
         from_date = now.strftime("%Y-%m-%d+00:00:00")
         is_start_webinar = 0
 
-        events_ids, names = self.get_new_webinars_from_sheduler(from_date, is_start_webinar)
+        events_ids, names = self.get_new_webinars_from_scheduler(from_date, is_start_webinar)
         out = ''
         for eventSessionsID in events_ids:
             event_id = events_ids[eventSessionsID]
-            out += f'{names[eventSessionsID]}'
+            out += f'{names[eventSessionsID]}\n'
             out += self.print_link(eventSessionsID, event_id)
             out += '\n'
             out += ('--' * 70)
