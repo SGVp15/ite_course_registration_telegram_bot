@@ -6,7 +6,8 @@ from email.mime.application import MIMEApplication
 from os.path import basename
 
 from Config.config import SMTP_SERVER, SMTP_PORT
-from Telegram.config import EMAIL_LOGIN, EMAIL_PASSWORD, email_login_password
+from Telegram.config import email_login_password
+from Email.config import EMAIL_LOGIN, EMAIL_PASSWORD
 
 
 class EmailSending:

@@ -1,7 +1,7 @@
 from Contact import parser
 from Email import EmailSending
 from My_jinja import MyJinja
-from Telegram.config import WEBINAR_TOKENS
+from Webinar.config import WEBINAR_TOKENS
 from Webinar import WebinarApi
 from Zoom.queue_zoom import get_old_users, add_to_queue_file
 
