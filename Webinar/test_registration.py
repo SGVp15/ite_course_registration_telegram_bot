@@ -17,4 +17,3 @@ class Test(TestCase):
         '''
         users = parser.get_list_users_from_string(s)
         start_registration(users)
-        # self.fail()
