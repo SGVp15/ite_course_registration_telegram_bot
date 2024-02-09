@@ -11,7 +11,7 @@ def parsing_cyrillic(row) -> list:
     return cyrillic
 
 
-def get_users_from_event_row(s: str) -> list[User]:
+def get_users_from_every_row(s: str) -> list[User]:
     users = []
     for row in s.split('\n'):
         users.extend(get_list_users_from_string(row))

@@ -13,8 +13,8 @@ async def registration_user_zoom_link(user: User) -> bool:
     options = webdriver.ChromeOptions()
     options.add_argument("start-maximized")
 
-    # options.add_argument("--headless")
-
+    options.add_argument("--headless")
+    options.add_argument("--disable-notifications")
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option('useAutomationExtension', False)
     driver = webdriver.Chrome(options=options)

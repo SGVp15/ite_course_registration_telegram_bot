@@ -12,7 +12,7 @@ def start_registration(users):
     webinar_users = [user for user in users if user.webinar_events_id != '']
     for token in WEBINAR_TOKENS:
         webinar_api = WebinarApi(token=token)
-        all_webinar_users.extend(parser.get_users_from_event_row(webinar_api.get_all_registration_url()))
+        all_webinar_users.extend(parser.get_users_from_every_row(webinar_api.get_all_registration_url()))
     new_webinar_users = [user for user in webinar_users if user not in all_webinar_users]
 
     if new_webinar_users:
@@ -24,7 +24,7 @@ def start_registration(users):
         all_webinar_users = []
         for token in WEBINAR_TOKENS:
             webinar_api = WebinarApi(token=token)
-            all_webinar_users.extend(parser.get_users_from_event_row(webinar_api.get_all_registration_url()))
+            all_webinar_users.extend(parser.get_users_from_every_row(webinar_api.get_all_registration_url()))
         # add link to new_webinar_users
         for user in new_webinar_users:
             for old_user in all_webinar_users:
@@ -38,15 +38,17 @@ def start_registration(users):
             template_text = MyJinja(template_file='course_registration.txt')
             text = template_text.create_document(user)
             if user.manager_email != '':
-                # TODO: bag send email
-                EmailSending(subject=user.webinar_name, from_email='сourse@itexpert.ru', to=user.email,
-                             cc=user.curator_email,
-                             bcc=user.manager_email,
-                             text=text,
-                             html=html,
-                             manager=user.manager_email).send_email()
+                smtp = EmailSending(subject=user.webinar_name,
+                                    to=user.email,
+                                    cc=user.curator_email,
+                                    bcc=user.manager_email,
+                                    text=text,
+                                    html=html,
+                                    manager=user.manager_email, )
+                smtp.send_email()
             else:
-                EmailSending(subject=user.webinar_name, from_email='сourse@itexpert.ru', to=user.email,
+                EmailSending(subject=user.webinar_name,
+                             to=user.email,
                              cc=user.curator_email,
                              text=text,
                              html=html).send_email()

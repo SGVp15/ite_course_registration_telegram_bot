@@ -28,7 +28,8 @@ class TestEmailSending(TestCase):
         template_text = MyJinja(template_file='course_registration.txt')
         text = template_text.create_document(user)
 
-        return EmailSending(subject=user.webinar_name, to=user.manager_email,
+        return EmailSending(subject=user.webinar_name,
+                            to=user.manager_email,
                             text=text,
                             html=html,
                             files_path=['./Email/template_email/course_registration.html', ]

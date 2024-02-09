@@ -2,7 +2,7 @@ import os
 
 from Config.config import QUEUE, OLD_USERS
 from Contact.Contact import User
-from Contact.parser import get_users_from_event_row
+from Contact.parser import get_users_from_every_row
 
 
 # class Queue:
@@ -41,7 +41,7 @@ def add_to_queue_file(users: list[User], file: str = QUEUE):
 def get_users_from_queue_file(file=QUEUE) -> list[User]:
     with open(file=file, mode='r', encoding='utf-8') as f:
         s = f.read()
-    return get_users_from_event_row(s)
+    return get_users_from_every_row(s)
 
 
 # @staticmethod
@@ -65,5 +65,5 @@ def get_old_users() -> list[User]:
     if os.path.exists(OLD_USERS):
         with open(OLD_USERS, encoding='utf-8', mode='r') as file:
             s = file.read()
-        return get_users_from_event_row(s)
+        return get_users_from_every_row(s)
     return []

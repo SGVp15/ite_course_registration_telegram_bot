@@ -9,7 +9,7 @@ from Email.config import EMAIL_LOGIN, EMAIL_PASSWORD, email_login_password, SMTP
 
 
 class EmailSending:
-    def __init__(self, files_path: list | None, subject='Вы зарегистрированы на курс', from_email=EMAIL_LOGIN, to='',
+    def __init__(self, files_path: list = None, subject='Вы зарегистрированы на курс', from_email=EMAIL_LOGIN, to='',
                  cc='', bcc='',
                  text='', html='', smtp_server=SMTP_SERVER, smtp_port=SMTP_PORT,
                  login=EMAIL_LOGIN, password=EMAIL_PASSWORD, manager=None):
