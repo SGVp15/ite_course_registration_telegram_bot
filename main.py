@@ -7,7 +7,7 @@ from Telegram.main import start_bot
 async def main():
     tasks = [
         start_bot(),
-        # run_clicker(),
+        run_clicker(),
     ]
     await asyncio.gather(*tasks)
 
