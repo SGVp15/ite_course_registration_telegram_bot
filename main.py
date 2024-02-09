@@ -15,3 +15,4 @@ async def main():
 if __name__ == '__main__':
     print('course registration bot start')
     asyncio.run(main())
+# git pull https://github.com/SGVp15/course_registration_telegram_bot | python main.py
