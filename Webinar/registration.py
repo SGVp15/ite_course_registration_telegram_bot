@@ -38,14 +38,13 @@ def start_registration(users):
             template_text = MyJinja(template_file='course_registration.txt')
             text = template_text.create_document(user)
             if user.manager_email != '':
-                smtp = EmailSending(subject=user.webinar_name,
-                                    to=user.email,
-                                    cc=user.curator_email,
-                                    bcc=user.manager_email,
-                                    text=text,
-                                    html=html,
-                                    manager=user.manager_email, )
-                smtp.send_email()
+                EmailSending(subject=user.webinar_name,
+                             to=user.email,
+                             cc=user.curator_email,
+                             bcc=user.manager_email,
+                             text=text,
+                             html=html,
+                             manager=user.manager_email).send_email()
             else:
                 EmailSending(subject=user.webinar_name,
                              to=user.email,
