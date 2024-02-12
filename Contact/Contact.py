@@ -3,11 +3,11 @@ import re
 
 class User:
     def __init__(self, last_name: str, first_name: str, email: str, url_registration: str = '', course: str = '',
-                 webinar_eventsid: str = '', curator_email='', webinar_name='', link='', date='', teacher='',
+                 webinar_events_id: str = '', curator_email='', webinar_name='', link='', date='', teacher='',
                  manager_email=''):
         """
 
-        :type webinar_eventsid: String from https://events.Webinar.ru/event/999146969
+        :type webinar_events_id: String from https://events.Webinar.ru/event/999146969
         """
         self.first_name = first_name.title()
         self.last_name = last_name.title()
@@ -16,7 +16,7 @@ class User:
         self.course = course
         self.date = date
         self.role = 'GUEST'
-        self.webinar_events_id = webinar_eventsid
+        self.webinar_events_id = webinar_events_id
         self.curator_email = curator_email
         self.manager_email = manager_email
         self.link = link

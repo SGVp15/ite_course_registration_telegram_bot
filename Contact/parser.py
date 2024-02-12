@@ -47,7 +47,7 @@ def get_list_users_from_string(s: str) -> list[User]:
         name = parsing_cyrillic(row)
         try:
             user = User(last_name=name[0], first_name=name[1], email=email, url_registration=url, course=course,
-                        webinar_eventsid=webinar_events_id, curator_email=curator_email, webinar_name=course_name,
+                        webinar_events_id=webinar_events_id, curator_email=curator_email, webinar_name=course_name,
                         date=date, teacher=teacher)
             users.append(user)
         except IndexError:

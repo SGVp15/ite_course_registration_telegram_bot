@@ -49,7 +49,7 @@ class Test(TestCase):
         """
         users = get_list_users_from_string(s)
         test_user = User(last_name='Григорьева', first_name='Сабина', email='asdasdqdq@stadasdep.ru',
-                         url_registration='', webinar_eventsid='999146969')
+                         url_registration='', webinar_events_id='999146969')
         print(users[0])
         print(test_user)
         if users[0] != test_user:
@@ -60,7 +60,7 @@ class Test(TestCase):
             0]
 
         user = User(last_name='Григорьева', first_name='Сабина', email='s_grigoreva@step.ru',
-                    url_registration='', webinar_eventsid='999146969')
+                    url_registration='', webinar_events_id='999146969')
         if test_user != user:
             self.fail()
 
@@ -73,7 +73,7 @@ class Test(TestCase):
             0]
 
         user = User(last_name='Савушкин', first_name='Григорий', email='g.savushkin@itexpert.ru',
-                    webinar_eventsid='569285096')
+                    webinar_events_id='569285096')
         if test_user != user:
             self.fail()
 

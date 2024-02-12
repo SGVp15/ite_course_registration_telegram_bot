@@ -37,19 +37,17 @@ class WebinarApi:
             s += f"{row['secondName']}, {row['name']}, {row['email']}, {base}/{events_id}/{row['url']}\n"
         return s
 
-    @staticmethod
-    def get_old_webinars_from_scheduler(from_date):
+    def get_old_webinars_from_scheduler(self, from_date):
         # Вывод прошедших вебинаров
         request = f'https://userapi.webinar.ru/v3/stats/events?from={from_date}'
-        r = get_response(request)
+        r = self.get_response(request)
         for row in r:
             print('[name] = ', row['eventSessions'][0]['name'])
             print('[eventSessionsId] = ', row['eventSessions'][0]['id'])
             # pprint(row)
             print('')
 
-    # noinspection PyPep8Naming
-    def get_new_webinars_from_scheduler(self, from_date='', is_start_webinar=0):
+    def get_new_webinars_from_scheduler(self, from_date: str = None, is_start_webinar=0):
         # Вывод всех вебинаров можно забрать [eventsessionsID] eventId - для формирования полной ссылки request =
         # f'https://userapi.webinar.ru/v3/organization/events/schedule?perPage=250&page=1&status[2]=START&from={
         # from_date}&to=2022-12-30'
@@ -57,20 +55,20 @@ class WebinarApi:
         if is_start_webinar:
             status_start = 'status[2]=START&'
 
-        url = f'https://userapi.webinar.ru/v3/organization/events/schedule?{status_start}from={from_date}'
+        url = f'https://userapi.webinar.ru/v3/organization/events/schedule?{status_start}'
+        if from_date:
+            url += f'from={from_date}'
 
-        if from_date == '':
-            url = f'https://userapi.webinar.ru/v3/organization/events/schedule?{status_start}'
-        # request = "https://userapi.webinar.ru/v3/organization/events/schedule
         response = self.get_response(url=url)
-        eventsId = {}
+        events_id = {}
         name = {}
+
         for row in response:
-            eventSessionsId = row['eventSessions'][0]['id']
-            eventId = row['id']
-            eventsId[eventSessionsId] = eventId
-            name[eventSessionsId] = row['name']
-        return eventsId, name
+            event_sessions_id = row['eventSessions'][0]['id']
+            event_id = row['id']
+            events_id[event_sessions_id] = event_id
+            name[event_sessions_id] = row['name']
+        return events_id, name
 
     # noinspection PyPep8Naming
     def print_link(self, event_sessions_id, event_id):

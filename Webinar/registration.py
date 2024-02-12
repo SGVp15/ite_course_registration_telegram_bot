@@ -1,4 +1,6 @@
-from Contact import parser
+import re
+
+from Contact import parser, User
 from Email import EmailSending
 from My_jinja import MyJinja
 from Webinar.config import WEBINAR_TOKENS
@@ -6,16 +8,24 @@ from Webinar import WebinarApi
 from Zoom.queue_zoom import get_old_users, add_to_queue_file
 
 
-def start_registration(users):
+def start_registration(users: list[User]) -> str:
     text_message = ''
     all_webinar_users = []
     webinar_users = [user for user in users if user.webinar_events_id != '']
     for token in WEBINAR_TOKENS:
         webinar_api = WebinarApi(token=token)
         all_webinar_users.extend(parser.get_users_from_every_row(webinar_api.get_all_registration_url()))
-    new_webinar_users = [user for user in webinar_users if user not in all_webinar_users]
+    new_webinar_users: list[User] = [user for user in webinar_users if user not in all_webinar_users]
 
     if new_webinar_users:
+        for token in WEBINAR_TOKENS:
+            webinar_api = WebinarApi(token=token)
+            events_id, name = webinar_api.get_new_webinars_from_scheduler()
+            if new_webinar_users[0].webinar_events_id not in (None, ''):
+                for user in new_webinar_users:
+                    user.webinar_events_id = events_id
+                    user.webinar_name = name
+
         for token in WEBINAR_TOKENS:
             webinar_api = WebinarApi(token=token)
             response = webinar_api.post_registration_users_list(users=new_webinar_users)
@@ -32,11 +42,8 @@ def start_registration(users):
                     user.link = old_user.url_registration
         # send email
         for user in new_webinar_users:
-            template_html = MyJinja()
-            html = template_html.create_document(user)
-
-            template_text = MyJinja(template_file='course_registration.txt')
-            text = template_text.create_document(user)
+            html = MyJinja().create_document(user)
+            text = MyJinja(template_file='course_registration.txt').create_document(user)
             if user.manager_email != '':
                 EmailSending(subject=user.webinar_name,
                              to=user.email,
