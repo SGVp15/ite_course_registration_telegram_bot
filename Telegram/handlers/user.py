@@ -35,7 +35,7 @@ async def handle_document(message: types.Message):
     # manager emails
     for user in users:
         try:
-            user.manager_email = user_id_email.get(str(message.from_id), '')
+            user.manager_email = user_id_email.get(str(message.from_id.id), '')
         except (AttributeError, KeyError):
             pass
     text = start_registration(users)
@@ -50,7 +50,7 @@ async def add_users_zoom_to_file(message: types.Message):
     users = parser.get_list_users_from_string(message.text)
     for user in users:
         try:
-            user.manager_email = user_id_email.get(str(message.from_id), '')
+            user.manager_email = user_id_email.get(str(message.from_id.id), '')
         except (AttributeError, KeyError):
             pass
     text = start_registration(users)
