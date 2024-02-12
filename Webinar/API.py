@@ -47,7 +47,7 @@ class WebinarApi:
             # pprint(row)
             print('')
 
-    def get_new_webinars_from_scheduler(self, from_date: str = None, is_start_webinar=0):
+    def get_events_ids_and_names_webinars_from_scheduler(self, from_date: str = None, is_start_webinar=0) -> (dict, dict):
         # Вывод всех вебинаров можно забрать [eventsessionsID] eventId - для формирования полной ссылки request =
         # f'https://userapi.webinar.ru/v3/organization/events/schedule?perPage=250&page=1&status[2]=START&from={
         # from_date}&to=2022-12-30'
@@ -60,15 +60,15 @@ class WebinarApi:
             url += f'from={from_date}'
 
         response = self.get_response(url=url)
-        events_id = {}
-        name = {}
+        events_ids = {}
+        names = {}
 
         for row in response:
             event_sessions_id = row['eventSessions'][0]['id']
             event_id = row['id']
-            events_id[event_sessions_id] = event_id
-            name[event_id] = row['name']
-        return events_id, name
+            events_ids[event_sessions_id] = event_id
+            names[event_id] = row['name']
+        return events_ids, names
 
     # noinspection PyPep8Naming
     def print_link(self, event_sessions_id, event_id):
@@ -82,7 +82,7 @@ class WebinarApi:
         from_date = now.strftime("%Y-%m-%d+00:00:00")
         is_start_webinar = 0
 
-        events_ids, names = self.get_new_webinars_from_scheduler(from_date, is_start_webinar)
+        events_ids, names = self.get_events_ids_and_names_webinars_from_scheduler(from_date, is_start_webinar)
         out = ''
         for eventSessionsID in events_ids:
             event_id = events_ids[eventSessionsID]
