@@ -1,10 +1,8 @@
-import re
-
 from Contact import parser, User
 from Email import EmailSending
 from My_jinja import MyJinja
-from Webinar.config import WEBINAR_TOKENS
 from Webinar import WebinarApi
+from Webinar.config import WEBINAR_TOKENS
 from Zoom.queue_zoom import get_old_users, add_to_queue_file
 
 
@@ -20,11 +18,12 @@ def start_registration(users: list[User]) -> str:
     if new_webinar_users:
         for token in WEBINAR_TOKENS:
             webinar_api = WebinarApi(token=token)
-            events_id, name = webinar_api.get_new_webinars_from_scheduler()
-            if new_webinar_users[0].webinar_events_id not in (None, ''):
-                for user in new_webinar_users:
-                    user.webinar_events_id = events_id
-                    user.webinar_name = name
+            events_ids, name = webinar_api.get_new_webinars_from_scheduler()
+            user = new_webinar_users[0]
+            for events_id in events_ids.values():
+                if user.webinar_events_id == str(events_id):
+                    for user in new_webinar_users:
+                        user.webinar_name = name[events_id]
 
         for token in WEBINAR_TOKENS:
             webinar_api = WebinarApi(token=token)

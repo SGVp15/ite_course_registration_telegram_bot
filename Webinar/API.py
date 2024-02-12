@@ -67,7 +67,7 @@ class WebinarApi:
             event_sessions_id = row['eventSessions'][0]['id']
             event_id = row['id']
             events_id[event_sessions_id] = event_id
-            name[event_sessions_id] = row['name']
+            name[event_id] = row['name']
         return events_id, name
 
     # noinspection PyPep8Naming
@@ -86,7 +86,7 @@ class WebinarApi:
         out = ''
         for eventSessionsID in events_ids:
             event_id = events_ids[eventSessionsID]
-            out += f'{names[eventSessionsID]}\n'
+            out += f'{names[event_id]}\n'
             out += self.print_link(eventSessionsID, event_id)
             out += '\n'
             out += ('--' * 70)
