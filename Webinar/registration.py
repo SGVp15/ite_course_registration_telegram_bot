@@ -43,20 +43,13 @@ def start_registration(users: list[User]) -> str:
         for user in new_webinar_users:
             html = MyJinja().create_document(user)
             text = MyJinja(template_file='course_registration.txt').create_document(user)
-            if user.manager_email != '':
-                EmailSending(subject=user.webinar_name,
-                             to=user.email,
-                             cc=user.curator_email,
-                             bcc=user.manager_email,
-                             text=text,
-                             html=html,
-                             manager=user.manager_email).send_email()
-            else:
-                EmailSending(subject=user.webinar_name,
-                             to=user.email,
-                             cc=user.curator_email,
-                             text=text,
-                             html=html).send_email()
+            EmailSending(subject=user.webinar_name,
+                         to=user.email,
+                         cc=user.curator_email,
+                         bcc=user.manager_email,
+                         text=text,
+                         html=html,
+                         manager=user.manager_email).send_email()
 
     # ZOOM add to registration queue
     zoom_users = [user for user in users if user.webinar_events_id == '']
