@@ -1,7 +1,7 @@
 import datetime
 import re
 
-from Config.config import PATTERN_REGISTRATION_URL, PATTERN_WEBINAR_SESSION_ID
+from Config.config import PATTERN_REGISTRATION_URL, PATTERN_WEBINAR_EVENT_ID
 from Contact import User
 
 
@@ -24,7 +24,7 @@ def get_list_users_from_string(s: str) -> list[User]:
     url = parsing_for_pattern(row=s, pattern=fr'\s*({PATTERN_REGISTRATION_URL})\s*')
 
     try:
-        webinar_events_id = re.findall(pattern=fr'\s*{PATTERN_WEBINAR_SESSION_ID}\s*', string=s)[0][1]
+        webinar_events_id = re.findall(pattern=fr'\s*{PATTERN_WEBINAR_EVENT_ID}\s*', string=s)[0][1]
     except IndexError:
         webinar_events_id = ''
 
