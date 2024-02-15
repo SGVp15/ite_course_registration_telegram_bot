@@ -10,7 +10,7 @@ def xlsx_to_txt(input_file, output_file):
 
         # Select the worksheet you want to convert
         sheet_names = wb.sheetnames
-        ws = sheet_names[0]
+        ws = wb[sheet_names[0]]
 
         # Loop through each row in the worksheet
         for row in ws.iter_rows():
