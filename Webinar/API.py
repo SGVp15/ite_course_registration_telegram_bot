@@ -96,7 +96,7 @@ class WebinarApi:
     def post_registration_users_list(self, users: list[Contact], send_email_webinar_api='true'):
         # https://events.webinar.ru/event/999146969/1581189808/edit
         data = {'isAutoEnter': 'true',
-                'sendEmail': 'true'}
+                'sendEmail': 'false'}
         url = ''
         i = 0
         for user in users:
