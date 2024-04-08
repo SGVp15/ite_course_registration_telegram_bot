@@ -24,7 +24,7 @@ class User:
         self.webinar_name = webinar_name
 
     def __str__(self):
-        return f'{self.last_name}\t{self.first_name}\t{self.email}\t{self.url_registration}\t{self.course}'
+        return f'{self.last_name}\t{self.first_name}\t{self.email}\t{self.url_registration}\t{self.course}\t{self.date}'
 
     def __eq__(self, other):
         if self.last_name == other.last_name and self.first_name == other.first_name and self.email == other.email:
