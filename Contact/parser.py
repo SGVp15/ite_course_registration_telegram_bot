@@ -88,8 +88,8 @@ def get_course_info_from_string(s: str) -> tuple:
         course_date = ''
     try:
         rows = s.split('\n')
-        course = re.findall(r'(\w+-online)', rows[1].strip())[0]
-        date = re.findall(r'Даты проведения курса:\s+([\d.\s\-]+)', rows[2].strip())[0]
+        course = 'Курс: 	' + re.findall(r'(\w+-online)', rows[1].strip())[0]
+        date = 'Даты проведения курса:' + re.findall(r'Даты проведения курса:\s+([\d.\s\-]+)', rows[2].strip())[0]
         date = date.split('.')
         date = f'{datetime.date.today().strftime("%Y")}-{date[1].strip()}-{date[0].strip()}'
 
