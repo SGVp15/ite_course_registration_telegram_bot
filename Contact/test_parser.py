@@ -23,6 +23,7 @@ class Test(TestCase):
         users = get_list_users_from_string(s)
         test_user = User(last_name='Савушкин', first_name='Григорий', email='g.savushkin@itexpert.ru',
                          url_registration='https://us06web.zoom.us/meeting/register/tZAscequpz0sGd0hMbssnWyDoB8nDJ4GeHfL')
+        print(users[0])
         print('last_name', users[0].last_name == test_user.last_name)
         print('first_name', users[0].first_name == test_user.first_name)
         print('email', users[0].email == test_user.email)
