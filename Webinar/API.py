@@ -63,12 +63,16 @@ class WebinarApi:
         response = self.get_response(url=url)
         events_ids = {}
         names = {}
-        for row in response:
-            event_sessions_id = row['eventSessions'][0]['id']
-            event_id = row['id']
-            events_ids[event_sessions_id] = event_id
-            names[event_id] = row['name']
-        return events_ids, names
+        try:
+            for row in response:
+                event_sessions_id = row['eventSessions'][0]['id']
+                event_id = row['id']
+                events_ids[event_sessions_id] = event_id
+                names[event_id] = row['name']
+        except TypeError:
+            pass
+        finally:
+            return events_ids, names
 
     # noinspection PyPep8Naming
     def print_link(self, event_sessions_id, event_id):
