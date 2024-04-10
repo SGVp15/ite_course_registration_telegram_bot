@@ -1,3 +1,5 @@
+import os
+
 from aiogram import types, F
 from magic_filter import RegexpMode
 
@@ -18,7 +20,7 @@ async def handle_document(message: types.Message):
     # Download the file
     file = await bot.get_file(file_id)
     file_path = file.file_path
-
+    os.makedirs('./data/documents', exist_ok=True)
     # Read the contents of the file
     await bot.download_file(file_path, destination=f'./data/{file_path}')
     path = f'./data/{file_path}'
