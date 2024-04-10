@@ -28,7 +28,7 @@ def start_registration_webinar(users: list[User]) -> str:
                 token = _token
                 break
 
-    if _token == '':
+    if token == '':
         return 'Проверьте ссылку регистрации'
 
     webinar_api = WebinarApi(token=token)
