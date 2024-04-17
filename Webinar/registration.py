@@ -37,7 +37,7 @@ def start_registration_webinar(users: list[User]) -> str:
 
     for user in users:
         user.webinar_name = webinar_name
-
+    text_message = 'Нет новых слушателей'
     if new_webinar_users:
         response = webinar_api.post_registration_users_list(users=new_webinar_users)
         print(response)
