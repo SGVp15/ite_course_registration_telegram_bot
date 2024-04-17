@@ -1,3 +1,6 @@
+import os.path
+
+from Config import WEBINAR_HISTORY
 from Contact import parser, User
 from Email import EmailSending
 from My_jinja import MyJinja
@@ -33,6 +36,10 @@ def start_registration_webinar(users: list[User]) -> str:
 
     webinar_api = WebinarApi(token=token)
     all_webinar_users.extend(parser.get_users_from_every_row(webinar_api.get_all_registration_url()))
+    if os.path.exists(WEBINAR_HISTORY):
+        with open(WEBINAR_HISTORY, mode='r', encoding='utf-8') as f:
+            all_webinar_users.extend(parser.get_users_from_every_row(webinar_api.get_all_registration_url()))
+
     new_webinar_users: list[User] = [user for user in webinar_users if user not in all_webinar_users]
 
     for user in users:
@@ -53,17 +60,18 @@ def start_registration_webinar(users: list[User]) -> str:
                     user.link = old_user.url_registration
 
         # send email
-        for user in new_webinar_users:
-            html = MyJinja().create_document(user)
-            text = MyJinja(template_file='course_registration.txt').create_document(user)
-            EmailSending(subject=user.webinar_name,
-                         to=user.email,
-                         cc=user.curator_email,
-                         bcc=user.manager_email,
-                         text=text,
-                         html=html,
-                         manager=user.manager_email).send_email()
-
+        with open(WEBINAR_HISTORY, mode='a', encoding='utf-8') as f:
+            for user in new_webinar_users:
+                html = MyJinja().create_document(user)
+                text = MyJinja(template_file='course_registration.txt').create_document(user)
+                EmailSending(subject=user.webinar_name,
+                             to=user.email,
+                             cc=user.curator_email,
+                             bcc=user.manager_email,
+                             text=text,
+                             html=html,
+                             manager=user.manager_email).send_email()
+                f.write(f'{str(user)}\n')
         text_message = ''
         text_message += f'{users[0].webinar_name}\nДобавил:\n'
         for user in new_webinar_users:
