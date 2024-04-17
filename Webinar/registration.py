@@ -60,6 +60,7 @@ def start_registration_webinar(users: list[User]) -> str:
                     user.link = old_user.url_registration
 
         # send email
+
         with open(WEBINAR_HISTORY, mode='a', encoding='utf-8') as f:
             for user in new_webinar_users:
                 html = MyJinja().create_document(user)
