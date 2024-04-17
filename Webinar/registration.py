@@ -64,10 +64,10 @@ def start_registration_webinar(users: list[User]) -> str:
                          html=html,
                          manager=user.manager_email).send_email()
 
-    text_message = ''
-    text_message += f'{users[0].webinar_name}\nДобавил:\n'
-    for user in new_webinar_users:
-        text_message += f'{user.last_name} {user.first_name} \n'
+        text_message = ''
+        text_message += f'{users[0].webinar_name}\nДобавил:\n'
+        for user in new_webinar_users:
+            text_message += f'{user.last_name} {user.first_name} \n'
 
     return text_message
 

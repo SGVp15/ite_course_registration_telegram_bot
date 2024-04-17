@@ -55,4 +55,4 @@ async def add_users_zoom_to_file(message: types.Message):
     if users is None:
         await message.answer('Контакт не корректен', reply_markup=inline_kb_main)
     else:
-        await message.reply(f'Добавил в очередь {text}', reply_markup=inline_kb_main)
+        await message.reply(text, reply_markup=inline_kb_main)
