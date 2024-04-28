@@ -17,3 +17,4 @@ PATTERN_WEBINAR_EVENT_ID = r'https://(my.mts-link.ru|events.webinar.ru)/\w+/(.*?
 PATTERN_ZOOM_URL = r'\s*(https://.*zoom.us/.*\S+)'
 # -----------------------------------------------------------------------------------------------------------------------
 FILE_XPATH_BTN_ZOOM_REGISTRATION = './Config/xpath_btn_registration_zoom.txt'
+WEBINAR_HISTORY = './data/.webinar_history.txt'
