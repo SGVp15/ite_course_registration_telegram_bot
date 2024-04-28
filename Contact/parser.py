@@ -19,6 +19,9 @@ def get_users_from_every_row(s: str) -> list[User]:
 
 
 def get_list_users_from_string(s: str) -> list[User]:
+    if type(s) is not str:
+        raise TypeError('Input string must be string')
+
     s = refactor_string(s)
     course_name, date, teacher, course = get_course_info_from_string(s)
     url = parsing_for_pattern(row=s, pattern=fr'\s*({PATTERN_REGISTRATION_URL})\s*')
