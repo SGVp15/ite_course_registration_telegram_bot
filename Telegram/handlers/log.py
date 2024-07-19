@@ -4,7 +4,7 @@ from aiogram import types, F
 from aiogram.types import FSInputFile
 
 from Config.config import SELLERS, LOG_FILE, WEBINAR_LOG, LOG_BACKUP
-from Telegram.Call_Back_Data import callBackData
+from Telegram.Call_Back_Data import CallBackData
 from Telegram.config import USERS_ID, ADMIN_ID
 from Telegram.keybords.inline import inline_kb_main
 from Telegram.main import dp, bot
@@ -21,20 +21,20 @@ def is_empty_file(file) -> bool:
     return len(s) <= 10
 
 
-@dp.callback_query((F.data == callBackData.show_queue)
+@dp.callback_query((F.data == CallBackData.show_queue)
                    & F.from_user.id.in_({*ADMIN_ID, *USERS_ID}))
 async def show_queue(callback_query: types.callback_query):
     await bot.send_message(chat_id=callback_query.from_user.id, text=get_queue(), reply_markup=inline_kb_main)
 
 
-@dp.callback_query(F.data.in_({callBackData.get_log, callBackData.get_seller})
+@dp.callback_query(F.data.in_({CallBackData.get_log, CallBackData.get_seller})
                    & F.from_user.id.in_({*ADMIN_ID, *USERS_ID}))
 async def get_file(callback_query: types.callback_query):
     query = callback_query.data
     file = LOG_FILE
-    if query == callBackData.get_seller:
+    if query == CallBackData.get_seller:
         file = FSInputFile(SELLERS, filename='sellers.txt')
-    elif query == callBackData.get_log:
+    elif query == CallBackData.get_log:
         file = FSInputFile(LOG_FILE, filename='log_file.txt')
 
     try:
@@ -47,7 +47,7 @@ async def get_file(callback_query: types.callback_query):
         ...
 
 
-@dp.callback_query((F.data == callBackData.get_registration_webinar)
+@dp.callback_query((F.data == CallBackData.get_registration_webinar)
                    & (F.from_user.id.in_({*ADMIN_ID, *USERS_ID})))
 async def get_file_registration_webinar(callback_query: types.callback_query):
     file = WEBINAR_LOG
@@ -60,13 +60,13 @@ async def get_file_registration_webinar(callback_query: types.callback_query):
         await bot.send_document(chat_id=callback_query.from_user.id, document=file, reply_markup=inline_kb_main)
 
 
-@dp.callback_query((F.data == callBackData.clear_queue) & (F.from_user.id.in_({*ADMIN_ID})))
+@dp.callback_query((F.data == CallBackData.clear_queue) & (F.from_user.id.in_({*ADMIN_ID})))
 async def clear_queue_file(callback_query: types.callback_query):
     clear_queue()
     await bot.send_message(chat_id=callback_query.from_user.id, text='clear_queue  Ok', reply_markup=inline_kb_main)
 
 
-@dp.callback_query((F.data == callBackData.clear_log) & (F.from_user.id.in_({*ADMIN_ID})))
+@dp.callback_query((F.data == CallBackData.clear_log) & (F.from_user.id.in_({*ADMIN_ID})))
 async def clear_log_file(callback_query: types.callback_query):
     try:
         with open(file=LOG_FILE, mode="r", encoding='utf-8') as f:

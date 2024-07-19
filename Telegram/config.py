@@ -8,3 +8,4 @@ ADMIN_ID = [822072027, ]
 # USERS_ID = list(user_id_email.keys())
 USERS_ID = [167572883, 263161488, 5226450762]
 
+DOCUMENTS = './data/documents/'
