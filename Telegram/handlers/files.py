@@ -45,3 +45,12 @@ async def delete_file(callback_query: types.callback_query):
     else:
         await bot.send_message(chat_id=callback_query.from_user.id, text=f'Файл {file_name} не существует',
                                reply_markup=get_list_files_keyboard())
+
+
+@dp.callback_query(F.data.in_({CallBackData.show_list_file}) & F.from_user.id.in_({*ADMIN_ID, *USERS_ID}))
+async def show_list_files(callback_query: types.callback_query):
+    await bot.send_message(
+        chat_id=callback_query.from_user.id,
+        text='Список файлов',
+        reply_markup=get_list_files_keyboard()
+    )
