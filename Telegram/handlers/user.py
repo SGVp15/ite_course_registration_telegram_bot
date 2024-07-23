@@ -4,7 +4,7 @@ from aiogram import types, F
 from magic_filter import RegexpMode
 
 from Contact import parser
-from Telegram.config import USERS_ID, ADMIN_ID
+from Telegram.config import USERS_ID, ADMIN_ID, DOCUMENTS
 from Email.config import user_id_email
 from Telegram.keybords.inline import inline_kb_main
 from Telegram.main import dp, bot
@@ -20,7 +20,7 @@ async def handle_document(message: types.Message):
     # Download the file
     file = await bot.get_file(file_id)
     file_path = file.file_path
-    os.makedirs('./data/documents', exist_ok=True)
+    os.makedirs(DOCUMENTS, exist_ok=True)
     # Read the contents of the file
     await bot.download_file(file_path, destination=f'./data/{file_path}')
     path = f'./data/{file_path}'

@@ -5,8 +5,6 @@ from Contact.Contact import User
 from Contact.parser import get_users_from_every_row
 
 
-# class Queue:
-# @staticmethod
 def delete_duplicates_in_queue_file(file=QUEUE):
     with open(file=file, mode='r', encoding='utf-8') as f:
         s = f.read()
@@ -19,7 +17,6 @@ def delete_duplicates_in_queue_file(file=QUEUE):
         f.write('\n'.join(end_rows) + '\n')
 
 
-# @staticmethod
 def del_user_from_temp_file(file=QUEUE):
     with open(file=file, mode='r', encoding='utf-8') as f:
         s = f.read()
@@ -29,7 +26,6 @@ def del_user_from_temp_file(file=QUEUE):
         f.write(s)
 
 
-# @staticmethod
 def add_to_queue_file(users: list[User], file: str = QUEUE):
     with open(file=file, mode='a', encoding='utf-8') as f:
         for user in users:
@@ -37,20 +33,17 @@ def add_to_queue_file(users: list[User], file: str = QUEUE):
     delete_duplicates_in_queue_file()
 
 
-# @staticmethod
 def get_users_from_queue_file(file=QUEUE) -> list[User]:
     with open(file=file, mode='r', encoding='utf-8') as f:
         s = f.read()
     return get_users_from_every_row(s)
 
 
-# @staticmethod
 def clear_queue(file=QUEUE):
     with open(file, mode='w', encoding='utf-8') as file:
         file.write('')
 
 
-# @staticmethod
 def get_queue(file_path=QUEUE) -> str:
     with open(file_path, mode='r', encoding='utf-8') as file_path:
         s = file_path.read().strip()
@@ -60,7 +53,6 @@ def get_queue(file_path=QUEUE) -> str:
             return s
 
 
-# @staticmethod
 def get_old_users() -> list[User]:
     if os.path.exists(OLD_USERS):
         with open(OLD_USERS, encoding='utf-8', mode='r') as file:

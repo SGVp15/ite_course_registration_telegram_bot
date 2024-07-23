@@ -4,7 +4,7 @@ from datetime import datetime
 import requests
 
 import Contact
-from Webinar.config import WEBINAR_TOKENS
+from Webinar.config import WEBINAR_TOKENS, WEBINAR_REGISTRATION_FILE
 
 
 class WebinarApi:
@@ -126,7 +126,7 @@ class WebinarApi:
 
 
 def get_all_registration_url():
-    with open('./data/webinar_registration.txt', encoding='utf_8', mode='w') as f:
+    with open(WEBINAR_REGISTRATION_FILE, encoding='utf_8', mode='w') as f:
         for token in WEBINAR_TOKENS:
             w = WebinarApi(token=token)
             f.write(w.get_all_registration_url())
