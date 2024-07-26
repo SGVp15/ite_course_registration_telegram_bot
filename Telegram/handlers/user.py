@@ -4,12 +4,12 @@ from aiogram import types, F
 from magic_filter import RegexpMode
 
 from Contact import parser
-from Telegram.config import USERS_ID, ADMIN_ID, DOCUMENTS
 from Email.config import user_id_email
+from Excel.converter import read_xlsx, read_xls
+from Telegram.config import USERS_ID, ADMIN_ID, PATH_DOWNLOAD_FILE
 from Telegram.keybords.inline import inline_kb_main
 from Telegram.main import dp, bot
 from Webinar.registration import start_registration
-from Excel.converter import read_xlsx, read_xls
 
 
 @dp.message(F.document & (F.from_user.id.in_({*ADMIN_ID, *USERS_ID})))
@@ -19,11 +19,12 @@ async def handle_document(message: types.Message):
 
     # Download the file
     file = await bot.get_file(file_id)
+
     file_path = file.file_path
-    os.makedirs(DOCUMENTS, exist_ok=True)
+    path = os.path.join(PATH_DOWNLOAD_FILE, file_path)
+
     # Read the contents of the file
-    await bot.download_file(file_path, destination=f'./data/{file_path}')
-    path = f'./data/{file_path}'
+    await bot.download_file(file_path, destination=path)
     s = ''
     if path.endswith('.xls'):
         s = read_xls(path)

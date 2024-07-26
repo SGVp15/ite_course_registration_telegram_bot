@@ -11,3 +11,7 @@ ADMIN_ID = [822072027, ]
 USERS_ID = [167572883, 263161488, 5226450762]
 
 DOCUMENTS = os.path.join(os.getcwd(), 'data', 'documents')
+PATH_DOWNLOAD_FILE: str = os.path.join(os.getcwd(), 'data')
+
+os.makedirs(DOCUMENTS, exist_ok=True)
+os.makedirs(PATH_DOWNLOAD_FILE, exist_ok=True)
