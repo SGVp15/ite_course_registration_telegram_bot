@@ -13,7 +13,7 @@ OLD_USERS = './data/users.txt'
 # -----------------------------------------------------------------------------------------------------------------------
 PATTERN_URL = r'https://[^\s]+'
 # 'https://events.webinar.ru/ITExpert/569285096/1bd05f2176c42f9208556acf5e594f32'
-PATTERN_WEBINAR_EVENT_ID = r'https://(my.mts-link.ru|events.webinar.ru)/\w+/(.*?)/'
+PATTERN_WEBINAR_EVENT_ID = r'https://(my.mts-link.ru|events.webinar.ru)/\w+/(\d+)/*'
 PATTERN_ZOOM_URL = r'\s*(https://.*zoom.us/.*\S+)'
 # -----------------------------------------------------------------------------------------------------------------------
 FILE_XPATH_BTN_ZOOM_REGISTRATION = './Config/xpath_btn_registration_zoom.txt'
