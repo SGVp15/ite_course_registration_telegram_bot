@@ -1,7 +1,7 @@
 import datetime
 import re
 
-from Config.config import PATTERN_REGISTRATION_URL, PATTERN_WEBINAR_EVENT_ID
+from Config.config import PATTERN_URL, PATTERN_WEBINAR_EVENT_ID
 from Contact import User
 
 
@@ -24,12 +24,12 @@ def get_list_users_from_string(s: str) -> list[User]:
 
     s = refactor_string(s)
     course_name, date, teacher, course = get_course_info_from_string(s)
-    url = parsing_for_pattern(row=s, pattern=fr'\s*({PATTERN_REGISTRATION_URL})\s*')
+    first_url = parsing_for_pattern(string=s, pattern=PATTERN_URL)
 
     try:
-        webinar_events_id = re.findall(pattern=fr'\s*{PATTERN_WEBINAR_EVENT_ID}\s*', string=s)[0][1]
+        first_webinar_events_id = re.findall(pattern=PATTERN_WEBINAR_EVENT_ID, string=first_url)[0][1]
     except IndexError:
-        webinar_events_id = ''
+        first_webinar_events_id = ''
 
     rows = s.split('\n')
 
@@ -39,6 +39,20 @@ def get_list_users_from_string(s: str) -> list[User]:
         row = re.sub(r'(\S*@\S*)', '', row)
         if not emails:
             continue
+
+        webinar_events_id = ''
+        url = ''
+
+        url = parsing_for_pattern(string=row, pattern=PATTERN_URL)
+        if url:
+            try:
+                webinar_events_id = re.findall(pattern=PATTERN_WEBINAR_EVENT_ID, string=first_url)[0][1]
+            except IndexError:
+                webinar_events_id = ''
+        else:
+            url = first_url
+            webinar_events_id = first_webinar_events_id
+
         curator_email = ''
         if len(emails) > 1:
             curator_email = emails[1]
@@ -50,7 +64,8 @@ def get_list_users_from_string(s: str) -> list[User]:
         name = parsing_cyrillic(row)
         try:
             user = User(last_name=name[0], first_name=name[1], email=email, url_registration=url, course=course,
-                        webinar_events_id=webinar_events_id, curator_email=curator_email, webinar_name=course_name,
+                        webinar_events_id=webinar_events_id, curator_email=curator_email,
+                        webinar_name=course_name,
                         date=date, teacher=teacher)
             users.append(user)
         except IndexError:
@@ -58,11 +73,11 @@ def get_list_users_from_string(s: str) -> list[User]:
     return users
 
 
-def parsing_for_pattern(row: str, pattern: str) -> str:
-    s = refactor_string(row)
-    urls = re.findall(fr'\s*{pattern}\s*', s)
+def parsing_for_pattern(string: str, pattern: str) -> str:
+    s = refactor_string(string)
+    urls = re.findall(pattern, s)
     try:
-        url = str(urls[0])
+        url = urls[0]
     except IndexError:
         url = ''
     return url
