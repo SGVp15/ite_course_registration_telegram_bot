@@ -40,9 +40,6 @@ def get_list_users_from_string(s: str) -> list[User]:
         if not emails:
             continue
 
-        webinar_events_id = ''
-        url = ''
-
         url = parsing_for_pattern(string=row, pattern=PATTERN_URL)
         if url:
             try:
