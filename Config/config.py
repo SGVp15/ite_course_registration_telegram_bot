@@ -1,15 +1,19 @@
-# -----------------------------------------------------------------------------------------------------------------------
-QUEUE = './data/queue.txt'
-LOG_FILE = './data/.log.txt'
-LOG_BACKUP = './data/.history.txt'
-COURSES_FILE = './data/.courses.txt'
-COURSES_FILE_BACKUP = './data/.courses_backup.txt'
-SELLERS = './data/.seller.txt'
-LOG_PROGRAM = './logs.txt'
-WEBINAR_LOG = './data/webinar_registration.txt'
+import os
 
-IMPORT_FILE = './data/input.txt'
-OLD_USERS = './data/users.txt'
+DATA_DIR = os.path.join(os.getcwd(), 'data')
+os.makedirs(DATA_DIR, exist_ok=True)
+# -----------------------------------------------------------------------------------------------------------------------
+QUEUE = os.path.join(DATA_DIR, 'queue.txt')
+LOG_FILE = os.path.join(DATA_DIR, '.log.txt')
+LOG_BACKUP = os.path.join(DATA_DIR, '.history.txt')
+COURSES_FILE = os.path.join(DATA_DIR, '.courses.txt')
+COURSES_FILE_BACKUP = os.path.join(DATA_DIR, '.courses_backup.txt')
+SELLERS = os.path.join(DATA_DIR, '.seller.txt')
+LOG_PROGRAM = os.path.join(DATA_DIR, './logs.txt')
+WEBINAR_LOG = os.path.join(DATA_DIR, 'webinar_registration.txt')
+
+IMPORT_FILE = os.path.join(DATA_DIR, 'input.txt')
+OLD_USERS = os.path.join(DATA_DIR, 'users.txt')
 
 # -----------------------------------------------------------------------------------------------------------------------
 # https://events.webinar.ru/ITExpert/569285096/1bd05f2176c42f9208556acf5e594f32
@@ -22,4 +26,4 @@ PATTERN_ZOOM_URL = r"\s*(https://.*zoom.us/\S+)"
 # -----------------------------------------------------------------------------------------------------------------------
 
 FILE_XPATH_BTN_ZOOM_REGISTRATION = './Config/xpath_btn_registration_zoom.txt'
-WEBINAR_HISTORY = './data/.webinar_history.txt'
+WEBINAR_HISTORY = os.path.join(DATA_DIR, '.webinar_history.txt')
