@@ -1,7 +1,5 @@
 Добрый день, {{user.last_name }} {{ user.first_name }}.
 Вы зарегистрированы на {{ user.webinar_name }}
-{{ user.date }}
-{{ user.teacher }}
 
 Ссылка для подключения: {{ user.link }}
 
