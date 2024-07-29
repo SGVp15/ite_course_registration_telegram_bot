@@ -14,6 +14,9 @@ async def main():
 
 
 if __name__ == '__main__':
-    log.warning('course registration bot start')
-    asyncio.run(main())
+    try:
+        log.info('course registration bot START')
+        asyncio.run(main())
+    finally:
+        log.error('course registration bot STOP')
 # git pull https://github.com/SGVp15/course_registration_telegram_bot | python main.py
