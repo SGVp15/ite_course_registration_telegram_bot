@@ -42,10 +42,10 @@ class WebinarApi:
         request = f'https://userapi.webinar.ru/v3/stats/events?from={from_date}'
         r = self.get_response(request)
         for row in r:
-            print('[name] = ', row['eventSessions'][0]['name'])
-            print('[eventSessionsId] = ', row['eventSessions'][0]['id'])
-            # pprint(row)
-            print('')
+            log.info('[name] = ', row['eventSessions'][0]['name'])
+            log.info('[eventSessionsId] = ', row['eventSessions'][0]['id'])
+            # plog.info(row)
+            log.info('')
 
     def get_events_ids_and_names_webinars_from_scheduler(self, from_date: str = None, is_start_webinar=0) -> (
             dict, dict):
@@ -108,7 +108,7 @@ class WebinarApi:
             if (i + 1) % 40 == 0:
                 r = requests.post(url, headers=self.headers, data=data)
                 # [{"participationId":752414983,"email":"g.savushkin@itexpert.ru","link":"https:\/\/my.mts-link.ru\/81296985\/569285096\/7ca38749207b4313ca9c9a420fefcdee"}]
-                print(r.text)
+                log.info(r.text)
                 i = 0
                 time.sleep(0.5)
                 data = {'isAutoEnter': 'true',
@@ -121,7 +121,7 @@ class WebinarApi:
             i = i + 1
         r = requests.post(url, headers=self.headers, data=data)
         # [{"participationId":752414983,"email":"g.savushkin@itexpert.ru","link":"https:\/\/my.mts-link.ru\/81296985\/569285096\/7ca38749207b4313ca9c9a420fefcdee"}]
-        print(r.text)
+        log.info(r.text)
         return r.text
 
 

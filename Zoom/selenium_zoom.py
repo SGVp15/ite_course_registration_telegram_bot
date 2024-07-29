@@ -1,4 +1,5 @@
 import asyncio
+import logging
 
 from selenium import webdriver
 from selenium.common import NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException
@@ -7,6 +8,7 @@ from selenium_stealth import stealth
 
 from Config import FILE_XPATH_BTN_ZOOM_REGISTRATION
 from Contact.Contact import User
+from Utils.log import log
 
 
 async def registration_user_zoom_link(user: User) -> bool:
@@ -57,7 +59,7 @@ async def registration_user_zoom_link(user: User) -> bool:
         try:
             await fill_form(user)
             await asyncio.sleep(5)
-            print('fill_form_ok')
+            log.info('fill_form_ok')
 
             try:
                 with open(FILE_XPATH_BTN_ZOOM_REGISTRATION, mode='r', encoding='utf-8') as f:

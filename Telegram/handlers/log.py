@@ -3,7 +3,7 @@ import os
 from aiogram import types, F
 from aiogram.types import FSInputFile
 
-from Config.config import SELLERS, LOG_FILE, WEBINAR_LOG, LOG_BACKUP
+from Config.config import SELLERS, LOG_FILE, WEBINAR_LOG, LOG_BACKUP, SYSTEMLOG
 from Telegram.Call_Back_Data import CallBackData
 from Telegram.config import USERS_ID, ADMIN_ID
 from Telegram.keybords.inline import inline_kb_main
@@ -27,7 +27,7 @@ async def show_queue(callback_query: types.callback_query):
     await bot.send_message(chat_id=callback_query.from_user.id, text=get_queue(), reply_markup=inline_kb_main)
 
 
-@dp.callback_query(F.data.in_({CallBackData.get_log, CallBackData.get_seller})
+@dp.callback_query(F.data.in_({CallBackData.get_log, CallBackData.get_seller,CallBackData.get_log_program})
                    & F.from_user.id.in_({*ADMIN_ID, *USERS_ID}))
 async def get_file(callback_query: types.callback_query):
     query = callback_query.data
@@ -36,6 +36,8 @@ async def get_file(callback_query: types.callback_query):
         file = FSInputFile(SELLERS, filename='sellers.txt')
     elif query == CallBackData.get_log:
         file = FSInputFile(LOG_FILE, filename='log_file.txt')
+    elif query == CallBackData.get_log_program:
+        file = FSInputFile(SYSTEMLOG, filename='systemlog.txt')
 
     try:
         if is_empty_file(file.path):

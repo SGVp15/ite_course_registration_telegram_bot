@@ -4,6 +4,7 @@ from Config import WEBINAR_HISTORY
 from Contact import parser, User
 from Email import EmailSending
 from My_jinja import MyJinja
+from Utils.log import log
 from Webinar import WebinarApi
 from Webinar.config import WEBINAR_TOKENS
 from Zoom.queue_zoom import get_old_users, add_to_queue_file
@@ -47,7 +48,7 @@ def start_registration_webinar(users: list[User]) -> str:
     text_message = 'Нет новых слушателей'
     if new_webinar_users:
         response = webinar_api.post_registration_users_list(users=new_webinar_users)
-        print(response)
+        log.info(response)
 
         # get all_webinar_users
         all_webinar_users = []

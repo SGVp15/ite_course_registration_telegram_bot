@@ -6,6 +6,7 @@ from email.mime.application import MIMEApplication
 from os.path import basename
 
 from Email.config import EMAIL_LOGIN, EMAIL_PASSWORD, email_login_password, SMTP_SERVER, SMTP_PORT
+from Utils.log import log
 
 
 class EmailSending:
@@ -80,5 +81,5 @@ class EmailSending:
         smtp.login(self.user, self.password)
         smtp.sendmail(from_addr=self.from_email, to_addrs=self.to_address, msg=msg.as_string())
         smtp.quit()
-        print(f'Email send {self.to_address}')
+        log.info(f'Email send {self.to_address}')
         return f'Email send {self.to_address}'
