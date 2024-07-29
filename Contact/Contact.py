@@ -1,6 +1,3 @@
-import re
-
-
 class User:
     def __init__(self, last_name: str, first_name: str, email: str, url_registration: str = '', course: str = '',
                  webinar_events_id: str = '', curator_email='', webinar_name='', link='', date='', teacher='',

@@ -1,5 +1,4 @@
 import asyncio
-import logging
 
 from selenium import webdriver
 from selenium.common import NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException

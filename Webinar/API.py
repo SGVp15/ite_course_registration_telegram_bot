@@ -4,6 +4,7 @@ from datetime import datetime
 import requests
 
 import Contact
+from Utils.log import log
 from Webinar.config import WEBINAR_TOKENS, WEBINAR_REGISTRATION_FILE
 
 
