@@ -8,6 +8,7 @@ from Telegram.Call_Back_Data import CallBackData
 from Telegram.config import USERS_ID, ADMIN_ID
 from Telegram.keybords.inline import inline_kb_main
 from Telegram.main import dp, bot
+from Utils.log import log
 from Webinar.API import get_all_registration_url
 from Zoom.queue_zoom import get_queue, clear_queue
 
@@ -46,7 +47,7 @@ async def get_file(callback_query: types.callback_query):
         else:
             await bot.send_document(chat_id=callback_query.from_user.id, document=file, reply_markup=inline_kb_main)
     except UnicodeDecodeError:
-        ...
+        log.error('UnicodeDecodeError')
 
 
 @dp.callback_query((F.data == CallBackData.get_registration_webinar)
