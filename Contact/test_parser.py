@@ -4,7 +4,7 @@ from Contact import User
 from parser import get_list_users_from_string
 
 
-class TestParserGET_LIST_USERS_FROM_STRING(TestCase):
+class TestParser_get_list_users_from_string(TestCase):
     def test_webinar_url(self):
         s = """		Курс:	«ИТ-поддержка: практики ITIL® 4 в действии» Онлайн						
         		OPS-online						
