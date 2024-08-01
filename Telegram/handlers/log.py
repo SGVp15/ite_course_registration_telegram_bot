@@ -3,7 +3,7 @@ import os
 from aiogram import types, F
 from aiogram.types import FSInputFile
 
-from Config.config import SELLERS, LOG_FILE, WEBINAR_LOG, LOG_BACKUP, SYSTEMLOG
+from Config.config import SELLERS, LOG_FILE, WEBINAR_LOG, LOG_BACKUP, SYSTEM_LOG
 from Telegram.Call_Back_Data import CallBackData
 from Telegram.config import USERS_ID, ADMIN_ID
 from Telegram.keybords.inline import inline_kb_main
@@ -46,7 +46,7 @@ async def get_file(callback_query: types.callback_query):
     elif query == CallBackData.get_log:
         file_path = LOG_FILE
     elif query == CallBackData.get_log_program:
-        file_path = SYSTEMLOG
+        file_path = SYSTEM_LOG
 
     file = FSInputFile(file_path, filename=os.path.basename(file_path))
 

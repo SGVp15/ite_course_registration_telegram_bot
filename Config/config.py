@@ -30,4 +30,4 @@ PATTERN_ZOOM_URL = r"\s*(https://.*zoom.us/\S+)"
 FILE_XPATH_BTN_ZOOM_REGISTRATION = './Config/xpath_btn_registration_zoom.txt'
 WEBINAR_HISTORY = os.path.join(DATA_DIR, '.webinar_history.txt')
 
-SYSTEMLOG = os.path.join(DATA_DIR, 'systemlog.txt')
+SYSTEM_LOG = os.path.join(DATA_DIR, 'system_log.txt')

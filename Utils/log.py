@@ -1,8 +1,8 @@
 import logging
 
-from Config import SYSTEMLOG
+from Config import SYSTEM_LOG
 
-file_log = logging.FileHandler(SYSTEMLOG)
+file_log = logging.FileHandler(SYSTEM_LOG)
 console_out = logging.StreamHandler()
 
 
