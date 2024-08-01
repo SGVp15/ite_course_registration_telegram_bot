@@ -30,15 +30,13 @@ async def show_queue(callback_query: types.callback_query):
     await bot.send_message(chat_id=callback_query.from_user.id, text=get_queue(), reply_markup=inline_kb_main)
 
 
-@dp.callback_query(F.data.in_({
-    CallBackData.get_log,
-    CallBackData.get_seller,
-    CallBackData.get_log_program,
-})
-                   & F.from_user.id.in_({
-    *ADMIN_ID,
-    *USERS_ID,
-}))
+@dp.callback_query(F.data.in_({CallBackData.get_log,
+                               CallBackData.get_seller,
+                               CallBackData.get_log_program,
+                               })
+                   & F.from_user.id.in_({*ADMIN_ID,
+                                         *USERS_ID,
+                                         }))
 async def get_file(callback_query: types.callback_query):
     query = callback_query.data
 
