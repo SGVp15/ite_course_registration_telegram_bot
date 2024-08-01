@@ -11,7 +11,7 @@ LOG_BACKUP = os.path.join(DATA_DIR, '.history.txt')
 COURSES_FILE = os.path.join(DATA_DIR, '.courses.txt')
 COURSES_FILE_BACKUP = os.path.join(DATA_DIR, '.courses_backup.txt')
 SELLERS = os.path.join(DATA_DIR, '.seller.txt')
-LOG_PROGRAM = os.path.join(DATA_DIR, './logs.txt')
+LOG_PROGRAM = os.path.join(DATA_DIR, 'logs.txt')
 WEBINAR_LOG = os.path.join(DATA_DIR, 'webinar_registration.txt')
 
 IMPORT_FILE = os.path.join(DATA_DIR, 'input.txt')
