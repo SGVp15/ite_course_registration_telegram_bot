@@ -34,13 +34,16 @@ async def show_queue(callback_query: types.callback_query):
                    & F.from_user.id.in_({*ADMIN_ID, *USERS_ID}))
 async def get_file(callback_query: types.callback_query):
     query = callback_query.data
-    file = LOG_FILE
+
+    file_path = ''
     if query == CallBackData.get_seller:
-        file = FSInputFile(SELLERS, filename='sellers.txt')
+        file_path = SELLERS
     elif query == CallBackData.get_log:
-        file = FSInputFile(LOG_FILE, filename='log_file.txt')
+        file_path = LOG_FILE
     elif query == CallBackData.get_log_program:
-        file = FSInputFile(SYSTEMLOG, filename='system_log.txt')
+        file_path = SYSTEMLOG
+
+    file = FSInputFile(file_path, filename=os.path.basename(file_path))
 
     try:
         if is_empty_file(file.path):
