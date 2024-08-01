@@ -15,13 +15,13 @@ from Zoom.queue_zoom import get_queue, clear_queue
 
 def is_empty_file(file) -> bool:
     if not os.path.exists(file):
-        return False
+        return True
     try:
         with open(file=file, mode="r", encoding='utf-8') as f:
             s = f.read()
             return len(s) <= 10
-    except TypeError:
-        return True
+    except UnicodeDecodeError:
+        return False
 
 
 @dp.callback_query((F.data == CallBackData.show_queue)
@@ -30,7 +30,7 @@ async def show_queue(callback_query: types.callback_query):
     await bot.send_message(chat_id=callback_query.from_user.id, text=get_queue(), reply_markup=inline_kb_main)
 
 
-@dp.callback_query(F.data.in_({CallBackData.get_log, CallBackData.get_seller,CallBackData.get_log_program})
+@dp.callback_query(F.data.in_({CallBackData.get_log, CallBackData.get_seller, CallBackData.get_log_program})
                    & F.from_user.id.in_({*ADMIN_ID, *USERS_ID}))
 async def get_file(callback_query: types.callback_query):
     query = callback_query.data
