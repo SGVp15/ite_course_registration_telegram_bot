@@ -19,7 +19,7 @@ def is_empty_file(file) -> bool:
     try:
         with open(file=file, mode="r", encoding='utf-8') as f:
             s = f.read()
-            return len(s) <= 10
+            return len(s) <= 1
     except UnicodeDecodeError:
         return False
 
