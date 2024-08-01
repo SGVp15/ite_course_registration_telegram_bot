@@ -40,7 +40,7 @@ async def get_file(callback_query: types.callback_query):
     elif query == CallBackData.get_log:
         file = FSInputFile(LOG_FILE, filename='log_file.txt')
     elif query == CallBackData.get_log_program:
-        file = FSInputFile(SYSTEMLOG, filename='systemlog.txt')
+        file = FSInputFile(SYSTEMLOG, filename='system_log.txt')
 
     try:
         if is_empty_file(file.path):
