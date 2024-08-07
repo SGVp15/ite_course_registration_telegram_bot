@@ -90,25 +90,28 @@ def refactor_string(row: str) -> str:
 def get_course_info_from_string(s: str) -> tuple:
     s = s.strip()
     try:
-        course_name = re.findall('(Курс:.*)\n', s)[0]
+        course_name = re.findall('(Курс:.*)\n', s)[0].strip()
     except IndexError:
         course_name = ''
     try:
-        course_teacher = re.findall('(Тренер:.*)\n', s)[0]
+        course_teacher = re.findall('(Тренер:.*)\n', s)[0].strip()
     except IndexError:
         course_teacher = ''
     try:
         course_date = re.findall('(Даты проведения курса:.*)\n', s)[0]
     except IndexError:
         course_date = ''
-    try:
-        rows = s.split('\n')
-        course = 'Курс: ' + re.findall(r'(\w+-online)', rows[1].strip())[0]
-        date = 'Даты проведения курса: ' + re.findall(r'Даты проведения курса:\s+([\d.\s\-]+)', rows[2].strip())[0]
-        date = date.split('.')
-        date = f'{datetime.date.today().strftime("%Y")}-{date[1].strip()}-{date[0].strip()}'
 
+    rows = s.split('\n')
+    try:
+        course = 'Курс: ' + re.findall(r'(\w+-online)', rows[1].strip())[0]
     except IndexError:
         course = ''
-        date = ''
+
+    # try:
+        # date = 'Даты проведения курса: ' + re.findall(r'Даты проведения курса:\s+([\d.\s\-]+)', rows[2].strip())[0]
+        # date = date.split('.')
+        # date = f'{datetime.date.today().strftime("%Y")}-{date[1].strip()}-{date[0].strip()}'
+    # except IndexError:
+        # date = ''
     return course_name, course_date, course_teacher, course
