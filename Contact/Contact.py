@@ -22,7 +22,7 @@ class User:
             pass
 
         self.date_start = ''
-        self.date_end = ''
+        self.date_stop = ''
 
         try:
             self.date_start = re.findall(r'\d\d\.\d\d\.\d\d\d\d', date)[0]
