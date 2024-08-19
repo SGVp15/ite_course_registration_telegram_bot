@@ -23,11 +23,13 @@ def get_list_users_from_string(s: str) -> list[User]:
         raise TypeError('Input string must be string')
 
     s = refactor_string(s)
-    course_name, date, teacher, course = get_course_info_from_string(s)
+    course_name, date, teacher = get_course_info_from_string(s)
     first_url = parsing_for_pattern(string=s, pattern=PATTERN_URL)
 
+    webinar_name = ''
     try:
         first_webinar_events_id = re.findall(pattern=PATTERN_WEBINAR_EVENT_ID, string=first_url)[0][1]
+        webinar_name = course_name
     except IndexError:
         first_webinar_events_id = ''
 
@@ -60,9 +62,9 @@ def get_list_users_from_string(s: str) -> list[User]:
         row = re.sub(r'[^A-Za-z А-Яа-яЁё]+', '', row)
         name = parsing_cyrillic(row)
         try:
-            user = User(last_name=name[0], first_name=name[1], email=email, url_registration=url, course=course,
+            user = User(last_name=name[0], first_name=name[1], email=email, url_registration=url, course=course_name,
                         webinar_events_id=webinar_events_id, curator_email=curator_email,
-                        webinar_name=course_name,
+                        webinar_name=webinar_name,
                         date=date, teacher=teacher)
             users.append(user)
         except IndexError:
@@ -102,16 +104,10 @@ def get_course_info_from_string(s: str) -> tuple:
     except IndexError:
         course_date = ''
 
-    rows = s.split('\n')
-    try:
-        course = 'Курс: ' + re.findall(r'(\w+-online)', rows[1].strip())[0]
-    except IndexError:
-        course = ''
-
+    # rows = s.split('\n')
     # try:
-        # date = 'Даты проведения курса: ' + re.findall(r'Даты проведения курса:\s+([\d.\s\-]+)', rows[2].strip())[0]
-        # date = date.split('.')
-        # date = f'{datetime.date.today().strftime("%Y")}-{date[1].strip()}-{date[0].strip()}'
+    #     course = 'Курс: ' + re.findall(r'(\w+-online)', rows[1].strip())[0]
     # except IndexError:
-        # date = ''
-    return course_name, course_date, course_teacher, course
+    #     course = ''
+
+    return course_name, course_date, course_teacher  # , course
