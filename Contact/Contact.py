@@ -22,8 +22,8 @@ class User:
             self.abs_course = ''
 
         try:
-            self.date_start = re.findall(r'\d\d\.\d\d\.\d\d\d\d', date)[0]
-            self.date_stop = re.findall(r'\d\d\.\d\d\.\d\d\d\d', date)[-1]
+            self.date_start = re.findall(r'\d{2}\.\d{2}\.\d{4}', date)[0]
+            self.date_stop = re.findall(r'\d{2}\.\d{2}\.\d{4}', date)[-1]
         except IndexError:
             self.date_start = ''
             self.date_stop = ''
