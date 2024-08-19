@@ -44,9 +44,11 @@ class TestParser_get_list_users_from_string(TestCase):
         test_user_2 = User(last_name='Лолофа', first_name='Александра', email='ololyaaa@sib.ru',
                            url_registration='https://us06web.zoom.us/meeting/register/tZA')
 
-        self.assertEqual(len(get_list_users_from_string(s)), 2)
-        self.assertEqual(get_list_users_from_string(s)[0], test_user)
-        self.assertEqual(get_list_users_from_string(s)[1], test_user_2)
+        users = get_list_users_from_string(s)
+        self.assertEqual(len(users), 2)
+        self.assertEqual(users[0], test_user)
+        self.assertEqual(users[1], test_user_2)
+        print(users[0])
 
     def test_type(self):
         self.assertRaises(TypeError, get_list_users_from_string, 1)

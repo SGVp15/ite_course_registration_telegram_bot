@@ -1,3 +1,6 @@
+import re
+
+
 class User:
     def __init__(self, last_name: str, first_name: str, email: str, url_registration: str = '', course: str = '',
                  webinar_events_id: str = '', curator_email='', webinar_name='', link='', date='', teacher='',
@@ -12,6 +15,21 @@ class User:
         self.url_registration = url_registration
         self.course = course
         self.date = date
+        self.abs_course = ''
+        try:
+            self.abs_course = re.findall(r'(\w+-online)', course)[0]
+        except IndexError:
+            pass
+
+        self.date_start = ''
+        self.date_end = ''
+
+        try:
+            self.date_start = re.findall(r'\d\d\.\d\d\.\d\d\d\d', date)[0]
+            self.date_stop = re.findall(r'\d\d\.\d\d\.\d\d\d\d', date)[-1]
+        except IndexError:
+            pass
+
         self.role = 'GUEST'
         self.webinar_events_id = webinar_events_id
         self.curator_email = curator_email
@@ -21,7 +39,13 @@ class User:
         self.webinar_name = webinar_name
 
     def __str__(self):
-        return f'{self.last_name}\t{self.first_name}\t{self.email}\t{self.url_registration}\t{self.course}\t{self.date}'
+        return (f'\t{self.date_start}-{self.date_stop}'
+                f'\t{self.abs_course} [{self.teacher}]'
+                f'\t{self.last_name}'
+                f'\t{self.first_name}'
+                f'\t{self.email}'
+                f'\t{self.url_registration}\t'
+                f'')
 
     def __eq__(self, other):
         if self.last_name == other.last_name and self.first_name == other.first_name and self.email == other.email:

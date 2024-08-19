@@ -90,15 +90,15 @@ def refactor_string(row: str) -> str:
 def get_course_info_from_string(s: str) -> tuple:
     s = s.strip()
     try:
-        course_name = re.findall('(Курс:.*)\n', s)[0].strip()
+        course_name = re.findall('Курс:(.*)\n', s)[0].strip()
     except IndexError:
         course_name = ''
     try:
-        course_teacher = re.findall('(Тренер:.*)\n', s)[0].strip()
+        course_teacher = re.findall('Тренер:(.*)\n', s)[0].strip()
     except IndexError:
         course_teacher = ''
     try:
-        course_date = re.findall('(Даты проведения курса:.*)\n', s)[0]
+        course_date = re.findall('Даты проведения курса:(.*)\n', s)[0].strip()
     except IndexError:
         course_date = ''
 
