@@ -4,7 +4,7 @@ import re
 class User:
     def __init__(self, last_name: str, first_name: str, email: str, url_registration: str = '', course: str = '',
                  webinar_events_id: str = '', curator_email='', webinar_name='', link='', date='', teacher='',
-                 manager_email=''):
+                 manager_email='', abs_course=''):
         """
 
         :type webinar_events_id: String from https://events.Webinar.ru/event/999146969
@@ -15,11 +15,7 @@ class User:
         self.url_registration = url_registration
         self.course = course
         self.date = date
-
-        try:
-            self.abs_course = re.findall(r'(\w+-online)', course)[0]
-        except IndexError:
-            self.abs_course = ''
+        self.abs_course = abs_course
 
         try:
             self.date_start = re.findall(r'\d{2}\.\d{2}\.\d{4}', date)[0]
@@ -37,7 +33,7 @@ class User:
         self.webinar_name = webinar_name
 
     def __str__(self):
-        return (f'\t{self.date_start}-{self.date_stop}'
+        return (f'{self.date_start}-{self.date_stop}'
                 f'\t{self.abs_course} [{self.teacher}]'
                 f'\t{self.last_name}'
                 f'\t{self.first_name}'

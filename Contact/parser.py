@@ -23,7 +23,7 @@ def get_list_users_from_string(s: str) -> list[User]:
         raise TypeError('Input string must be string')
 
     s = refactor_string(s)
-    course_name, date, teacher = get_course_info_from_string(s)
+    abs_course, course_name, date, teacher = get_course_info_from_string(s)
     first_url = parsing_for_pattern(string=s, pattern=PATTERN_URL)
 
     webinar_name = ''
@@ -65,7 +65,7 @@ def get_list_users_from_string(s: str) -> list[User]:
             user = User(last_name=name[0], first_name=name[1], email=email, url_registration=url, course=course_name,
                         webinar_events_id=webinar_events_id, curator_email=curator_email,
                         webinar_name=webinar_name,
-                        date=date, teacher=teacher)
+                        date=date, teacher=teacher, abs_course=abs_course)
             users.append(user)
         except IndexError:
             pass
@@ -92,15 +92,19 @@ def refactor_string(row: str) -> str:
 def get_course_info_from_string(s: str) -> tuple:
     s = s.strip()
     try:
-        course_name = re.findall('Курс:(.*)\n', s)[0].strip()
+        abs_course = re.findall(r'(\w+-online)', s)[0].strip()
+    except IndexError:
+        abs_course = ''
+    try:
+        course_name = re.findall('Курс:(.*)[\n\t]', s)[0].strip()
     except IndexError:
         course_name = ''
     try:
-        course_teacher = re.findall('Тренер:(.*)\n', s)[0].strip()
+        course_teacher = re.findall('Тренер:(.*)[\n\t]', s)[0].strip()
     except IndexError:
         course_teacher = ''
     try:
-        course_date = re.findall('Даты проведения курса:(.*)\n', s)[0].strip()
+        course_date = re.findall('Даты проведения курса:(.*)[\n\t]', s)[0].strip()
     except IndexError:
         course_date = ''
 
@@ -110,4 +114,4 @@ def get_course_info_from_string(s: str) -> tuple:
     # except IndexError:
     #     course = ''
 
-    return course_name, course_date, course_teacher  # , course
+    return abs_course, course_name, course_date, course_teacher  # , course
