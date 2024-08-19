@@ -15,20 +15,18 @@ class User:
         self.url_registration = url_registration
         self.course = course
         self.date = date
-        self.abs_course = ''
+
         try:
             self.abs_course = re.findall(r'(\w+-online)', course)[0]
         except IndexError:
-            pass
-
-        self.date_start = ''
-        self.date_stop = ''
+            self.abs_course = ''
 
         try:
             self.date_start = re.findall(r'\d\d\.\d\d\.\d\d\d\d', date)[0]
             self.date_stop = re.findall(r'\d\d\.\d\d\.\d\d\d\d', date)[-1]
         except IndexError:
-            pass
+            self.date_start = ''
+            self.date_stop = ''
 
         self.role = 'GUEST'
         self.webinar_events_id = webinar_events_id
