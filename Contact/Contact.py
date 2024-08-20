@@ -34,7 +34,7 @@ class User:
 
     def __str__(self):
         return (
-            f'\tКурс:{self.abs_course} '
+            f'Курс:{self.abs_course}'
             f'\tТренер:{self.teacher}'
             f'\tДаты проведения курса:{self.date}'
             f'\t{self.last_name}'

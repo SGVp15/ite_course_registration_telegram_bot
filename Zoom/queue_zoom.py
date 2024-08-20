@@ -13,11 +13,11 @@ class Queue:
 
     def save_queue(self):
         self.del_duplicates_users()
-        pickle.dump(self.users, open(self.file, 'wb'))
+        pickle.dump(self.users, open(file=self.file, mode='wb'))
 
     def load_queue(self):
         if os.path.exists(self.file):
-            self.users: [Contact] = pickle.load(open(self.file, 'rb'))
+            self.users: [Contact] = pickle.load(open(file=self.file, mode='rb'))
 
     def add_users(self, new_users: [Contact]):
         self.users.extend(new_users)
@@ -42,17 +42,17 @@ def clear_queue():
 
 def get_queue(file_path=QUEUE) -> [Contact]:
     if os.path.exists(file_path):
-        return pickle.load(open(file_path, 'rb'))
+        return pickle.load(open(file=file_path, mode='rb'))
     return []
 
 
 def load_old_users() -> [Contact]:
     if os.path.exists(OLD_USERS):
-        return pickle.load(open(OLD_USERS, 'rb'))
+        return pickle.load(open(file=OLD_USERS, mode='rb'))
     return []
 
 
 def save_old_users(user):
     users = load_old_users()
     users.append(user)
-    pickle.dump(users, open(OLD_USERS, 'wb'))
+    pickle.dump(users, open(file=OLD_USERS, mode='wb'))
