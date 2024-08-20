@@ -31,7 +31,7 @@ async def show_queue(callback_query: types.callback_query):
     if users := get_queue():
         text = f'Очередь:\n'
         for user in users:
-            text += f'{str(user)}\n'
+            text += f'{user.abs_course} {user.last_name} {user.first_name} {user.email}\n'
     await bot.send_message(chat_id=callback_query.from_user.id, text=text, reply_markup=inline_kb_main)
 
 
