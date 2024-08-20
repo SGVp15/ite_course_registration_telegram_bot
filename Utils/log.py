@@ -1,6 +1,6 @@
 import logging
 
-from Config import SYSTEM_LOG
+from Config import SYSTEM_LOG, LOG_FILE, LOG_BACKUP
 
 file_log = logging.FileHandler(SYSTEM_LOG)
 console_out = logging.StreamHandler()
@@ -18,3 +18,10 @@ def configure_logging(level=logging.INFO):
 
 configure_logging()
 log = logging.getLogger(__name__)
+
+
+def backup_logs():
+    with open(file=LOG_FILE, mode="r", encoding='utf-8') as f:
+        s = f.read()
+    with open(file=LOG_BACKUP, mode="a", encoding='utf-8') as f:
+        f.write(s + '\n')

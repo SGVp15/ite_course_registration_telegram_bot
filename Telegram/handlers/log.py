@@ -3,12 +3,12 @@ import os
 from aiogram import types, F
 from aiogram.types import FSInputFile
 
-from Config.config import SELLERS, LOG_FILE, WEBINAR_LOG, LOG_BACKUP, SYSTEM_LOG
+from Config.config import SELLERS, LOG_FILE, WEBINAR_LOG, SYSTEM_LOG
 from Telegram.Call_Back_Data import CallBackData
 from Telegram.config import USERS_ID, ADMIN_ID
 from Telegram.keybords.inline import inline_kb_main
 from Telegram.main import dp, bot
-from Utils.log import log
+from Utils.log import log, backup_logs
 from Webinar.API import get_all_registration_url
 from Zoom.queue_zoom import get_queue, clear_queue
 
@@ -87,10 +87,7 @@ async def clear_queue_file(callback_query: types.callback_query):
 @dp.callback_query((F.data == CallBackData.clear_log) & (F.from_user.id.in_({*ADMIN_ID})))
 async def clear_log_file(callback_query: types.callback_query):
     try:
-        with open(file=LOG_FILE, mode="r", encoding='utf-8') as f:
-            s = f.read()
-        with open(file=LOG_BACKUP, mode="a", encoding='utf-8') as f:
-            f.write(s + '\n')
+        backup_logs()
         with open(file=LOG_FILE, mode="w", encoding='utf-8') as f:
             f.write('')
     except Exception:
