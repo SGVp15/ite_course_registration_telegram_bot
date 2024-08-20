@@ -100,18 +100,12 @@ def get_course_info_from_string(s: str) -> tuple:
     except IndexError:
         course_name = ''
     try:
-        course_teacher = re.findall('Тренер:(.*)[\n\t]', s)[0].strip()
+        teacher = re.findall('Тренер:(.*)[\n\t]', s)[0].strip()
     except IndexError:
-        course_teacher = ''
+        teacher = ''
     try:
         course_date = re.findall('Даты проведения курса:(.*)[\n\t]', s)[0].strip()
     except IndexError:
         course_date = ''
 
-    # rows = s.split('\n')
-    # try:
-    #     course = 'Курс: ' + re.findall(r'(\w+-online)', rows[1].strip())[0]
-    # except IndexError:
-    #     course = ''
-
-    return abs_course, course_name, course_date, course_teacher  # , course
+    return abs_course, course_name, course_date, teacher

@@ -15,7 +15,7 @@ LOG_PROGRAM = os.path.join(DATA_DIR, 'logs.txt')
 WEBINAR_LOG = os.path.join(DATA_DIR, 'webinar_registration.txt')
 
 IMPORT_FILE = os.path.join(DATA_DIR, 'input.txt')
-OLD_USERS = os.path.join(DATA_DIR, 'users.txt')
+OLD_USERS = os.path.join(DATA_DIR, 'users.pk')
 
 # -----------------------------------------------------------------------------------------------------------------------
 # https://events.webinar.ru/ITExpert/569285096/1bd05f2176c42f9208556acf5e594f32

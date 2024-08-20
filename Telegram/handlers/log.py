@@ -27,7 +27,12 @@ def is_empty_file(file) -> bool:
 @dp.callback_query((F.data == CallBackData.show_queue)
                    & F.from_user.id.in_({*ADMIN_ID, *USERS_ID}))
 async def show_queue(callback_query: types.callback_query):
-    await bot.send_message(chat_id=callback_query.from_user.id, text=get_queue(), reply_markup=inline_kb_main)
+    text = 'Очередь пустая'
+    if users := get_queue():
+        text = f'Очередь:\n'
+        for user in users:
+            text += f'{str(user)}\n'
+    await bot.send_message(chat_id=callback_query.from_user.id, text=text, reply_markup=inline_kb_main)
 
 
 @dp.callback_query(F.data.in_({CallBackData.get_log,

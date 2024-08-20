@@ -7,7 +7,7 @@ from My_jinja import MyJinja
 from Utils.log import log
 from Webinar import WebinarApi
 from Webinar.config import WEBINAR_TOKENS
-from Zoom.queue_zoom import get_old_users, add_to_queue_file
+from Zoom.queue_zoom import load_old_users, Queue
 
 
 def start_registration(users: list[User]) -> str:
@@ -86,9 +86,9 @@ def start_registration_zoom(users: list[User]) -> str:
     zoom_users = [user for user in users if user.webinar_events_id == '']
     new_zoom_users = []
     if zoom_users:
-        old_zoom_users = get_old_users()
+        old_zoom_users = load_old_users()
         new_zoom_users = [user for user in zoom_users if user not in old_zoom_users]
-        add_to_queue_file(new_zoom_users)
+        Queue().add_users(new_zoom_users)
 
     text_message = ''
     text_message += f'{users[0].course}\nДобавил:\n'

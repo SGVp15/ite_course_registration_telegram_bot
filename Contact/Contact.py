@@ -33,13 +33,14 @@ class User:
         self.webinar_name = webinar_name
 
     def __str__(self):
-        return (f'{self.date_start}-{self.date_stop}'
-                f'\t{self.abs_course} [{self.teacher}]'
-                f'\t{self.last_name}'
-                f'\t{self.first_name}'
-                f'\t{self.email}'
-                f'\t{self.url_registration}\t'
-                f'')
+        return (
+            f'\tКурс:{self.abs_course} '
+            f'\tТренер:{self.teacher}'
+            f'\tДаты проведения курса:{self.date}'
+            f'\t{self.last_name}'
+            f'\t{self.first_name}'
+            f'\t{self.email}'
+            f'\t{self.url_registration}')
 
     def __eq__(self, other):
         if self.last_name == other.last_name and self.first_name == other.first_name and self.email == other.email:

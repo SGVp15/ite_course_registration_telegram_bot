@@ -1,61 +1,59 @@
 import os
+import pickle
 
 from Config.config import QUEUE, OLD_USERS
-from Contact.Contact import User
-from Contact.parser import get_users_from_every_row
+from Contact import Contact
 
 
-def delete_duplicates_in_queue_file(file=QUEUE):
-    with open(file=file, mode='r', encoding='utf-8') as f:
-        s = f.read()
-    rows = s.split('\n')
-    end_rows = []
-    for row in rows:
-        if row not in end_rows and row != '':
-            end_rows.append(row)
-    with open(file=file, mode='w', encoding='utf-8') as f:
-        f.write('\n'.join(end_rows) + '\n')
+class Queue:
+    def __init__(self, file=QUEUE):
+        self.file = file
+        self.users: [Contact] = []
+        self.load_queue()
+
+    def save_queue(self):
+        self.del_duplicates_users()
+        pickle.dump(self.users, open(self.file, 'wb'))
+
+    def load_queue(self):
+        if os.path.exists(self.file):
+            self.users: [Contact] = pickle.load(open(self.file, 'rb'))
+
+    def add_users(self, new_users: [Contact]):
+        self.users.extend(new_users)
+        self.save_queue()
+
+    def del_duplicates_users(self):
+        users = []
+        for user in self.users:
+            if user not in users:
+                users.append(user)
+        self.users = users
+        self.save_queue()
+
+    def del_user(self, user):
+        self.users.remove(user)
+        self.save_queue()
 
 
-def del_user_from_temp_file(file=QUEUE):
-    with open(file=file, mode='r', encoding='utf-8') as f:
-        s = f.read()
-    s = s.split('\n')
-    s = '\n'.join(s[1:])
-    with open(file=file, mode='w', encoding='utf-8') as f:
-        f.write(s)
+def clear_queue():
+    if os.path.exists(QUEUE):
+        os.remove(QUEUE)
 
 
-def add_to_queue_file(users: list[User], file: str = QUEUE):
-    with open(file=file, mode='a', encoding='utf-8') as f:
-        for user in users:
-            f.write(str(user) + '\n')
-    delete_duplicates_in_queue_file()
-
-
-def get_users_from_queue_file(file=QUEUE) -> list[User]:
-    with open(file=file, mode='r', encoding='utf-8') as f:
-        s = f.read()
-    return get_users_from_every_row(s)
-
-
-def clear_queue(file=QUEUE):
-    with open(file, mode='w', encoding='utf-8') as file:
-        file.write('')
-
-
-def get_queue(file_path=QUEUE) -> str:
-    with open(file_path, mode='r', encoding='utf-8') as file_path:
-        s = file_path.read().strip()
-        if s == '':
-            return 'Очередь пустая!\n'
-        else:
-            return s
-
-
-def get_old_users() -> list[User]:
-    if os.path.exists(OLD_USERS):
-        with open(OLD_USERS, encoding='utf-8', mode='r') as file:
-            s = file.read()
-        return get_users_from_every_row(s)
+def get_queue(file_path=QUEUE) -> [Contact]:
+    if os.path.exists(file_path):
+        return pickle.load(open(file_path, 'rb'))
     return []
+
+
+def load_old_users() -> [Contact]:
+    if os.path.exists(OLD_USERS):
+        return pickle.load(open(OLD_USERS, 'rb'))
+    return []
+
+
+def save_old_users(user):
+    users = load_old_users()
+    users.append(user)
+    pickle.dump(users, open(OLD_USERS, 'wb'))
