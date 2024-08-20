@@ -5,7 +5,7 @@ os.makedirs(DATA_DIR, exist_ok=True)
 
 # -----------------------------------------------------------------------------------------------------------------------
 
-QUEUE = os.path.join(DATA_DIR, 'queue.txt')
+QUEUE = os.path.join(DATA_DIR, 'queue.pk')
 LOG_FILE = os.path.join(DATA_DIR, '.log.txt')
 LOG_BACKUP = os.path.join(DATA_DIR, '.history.txt')
 COURSES_FILE = os.path.join(DATA_DIR, '.courses.txt')
