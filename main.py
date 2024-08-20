@@ -1,3 +1,4 @@
+from selenium import webdriver
 import asyncio
 
 from Utils.log import log
@@ -14,6 +15,9 @@ async def main():
 
 
 if __name__ == '__main__':
+
+    driver = webdriver.Chrome()
+    driver.close()
     try:
         log.info('course registration bot START')
         asyncio.run(main())

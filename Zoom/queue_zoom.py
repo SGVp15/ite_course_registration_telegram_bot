@@ -29,7 +29,6 @@ class Queue:
             if user not in users:
                 users.append(user)
         self.users = users
-        self.save_queue()
 
     def del_user(self, user):
         self.users.remove(user)
