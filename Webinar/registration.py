@@ -25,10 +25,10 @@ def start_registration_webinar(users: list[User]) -> str:
     webinar_name = ''
     for _token in WEBINAR_TOKENS:
         webinar_api = WebinarApi(token=_token)
-        events_ids, name = webinar_api.get_events_ids_and_names_webinars_from_scheduler()
+        events_ids, names, description = webinar_api.get_events_ids_and_names_webinars_from_scheduler()
         for events_id in events_ids.values():
             if users[0].webinar_events_id == str(events_id):
-                webinar_name = name[events_id]
+                webinar_name = names[events_id]
                 token = _token
                 break
 

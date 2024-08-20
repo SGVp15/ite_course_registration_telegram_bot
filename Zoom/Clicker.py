@@ -25,13 +25,12 @@ async def run_clicker():
             log.info(f'[ INFO ] {user}')
             if await registration_user_zoom_link(user):
                 save_old_users(user)
-
-                write_user_to_log(f'{datetime.now().date()} {datetime.now().time().strftime("%H:%M:%S")}\t{user}\n')
+                write_user_to_log(user)
                 log.info(f'[ OK ] {user}')
                 my_queue.del_user(user)
             await asyncio.sleep(60 * 1)
 
 
-def write_user_to_log(s):
+def write_user_to_log(user):
     with open(LOG_FILE, 'a', encoding='utf-8') as f:
-        f.write(s)
+        f.write(f'{datetime.now().date()} {datetime.now().time().strftime("%H:%M:%S")}\t{user}\n')

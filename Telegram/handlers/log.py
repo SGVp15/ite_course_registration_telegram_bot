@@ -86,10 +86,7 @@ async def clear_queue_file(callback_query: types.callback_query):
 
 @dp.callback_query((F.data == CallBackData.clear_log) & (F.from_user.id.in_({*ADMIN_ID})))
 async def clear_log_file(callback_query: types.callback_query):
-    try:
-        backup_logs()
-        with open(file=LOG_FILE, mode="w", encoding='utf-8') as f:
-            f.write('')
-    except Exception:
-        ...
+    backup_logs()
+    if os.path.exists(LOG_FILE):
+        os.remove(LOG_FILE)
     await bot.send_message(chat_id=callback_query.from_user.id, text='clear_log Ok', reply_markup=inline_kb_main)
