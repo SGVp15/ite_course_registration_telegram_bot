@@ -37,9 +37,7 @@ class User:
             f'Курс:{self.abs_course}'
             f'\tТренер:{self.teacher}'
             f'\tДаты проведения курса:{self.date}'
-            f'\t{self.last_name}'
-            f'\t{self.first_name}'
-            f'\t{self.email}'
+            f'\t{self.last_name} {self.first_name} {self.email}'
             f'\t{self.url_registration}')
 
     def __eq__(self, other):

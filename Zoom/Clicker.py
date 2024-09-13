@@ -2,6 +2,7 @@ import asyncio
 from datetime import datetime
 
 from Config.config import LOG_FILE
+from Contact import Contact
 from Utils.log import log
 from Zoom.queue_zoom import Queue, load_old_users, save_old_users
 from Zoom.selenium_zoom import registration_user_zoom_link
@@ -12,7 +13,7 @@ async def run_clicker():
     while True:
         my_queue = Queue()
         try:
-            user = my_queue.users[0]
+            user: Contact = my_queue.users[0]
         except IndexError:
             await asyncio.sleep(5)
             continue
