@@ -85,7 +85,7 @@ class WebinarApi:
         sorted(rows)
         return '\n'.join(rows)
 
-    def get_all_registration_url(self):
+    def get_all_registration_url(self) -> str:
         now = datetime.now()
         from_date = now.strftime("%Y-%m-%d+00:00:00")
         is_start_webinar = 0
@@ -96,11 +96,10 @@ class WebinarApi:
         for eventSessionsID in events_ids:
             event_id = events_ids[eventSessionsID]
             out += (f'{names[event_id]}\n'
-                    f'{self.print_link(eventSessionsID, event_id)}\n'
-                    f'{description[event_id]}\n'
-                    f'{('--' * 70)}'
-                    f'\n'
-                    f'')
+                    f'{self.print_link(eventSessionsID, event_id)}\n')
+            if description:
+                out += f'{description[event_id]}\n'
+            out += f'{('--' * 70)}\n'
         return out
 
     def post_registration_users_list(self, users: list[Contact], send_email_webinar_api='true'):
