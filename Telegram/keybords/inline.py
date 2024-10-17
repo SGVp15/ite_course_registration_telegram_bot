@@ -12,7 +12,7 @@ inline_kb_main = InlineKeyboardMarkup(inline_keyboard=[
 
     [InlineKeyboardButton(text='📦 Скачать файл Продавцы', callback_data=CallBackData.get_seller), ],
     [InlineKeyboardButton(text='📒 Показать входящие файлы', callback_data=CallBackData.show_list_file), ],
-    [InlineKeyboardButton(text='??? Показать очередь Zoom ???', callback_data=CallBackData.show_queue), ],
+    [InlineKeyboardButton(text='🧑‍💻 Показать очередь Zoom', callback_data=CallBackData.show_queue), ],
     [InlineKeyboardButton(text='📩 ️ Отправить тестовое письмо', callback_data=CallBackData.send_test_email), ],
 
     [InlineKeyboardButton(text='>> ZOOM >>', callback_data=CallBackData.zoom_menu), ],
