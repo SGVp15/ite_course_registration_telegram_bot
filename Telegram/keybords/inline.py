@@ -28,7 +28,7 @@ inline_kb_zoom = InlineKeyboardMarkup(inline_keyboard=[
 ])
 
 inline_kb_admin = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='📒  Скачать Логи Программные', callback_data=CallBackData.get_log_program), ],
+    [InlineKeyboardButton(text='📒 Скачать Логи Программные', callback_data=CallBackData.get_log_program), ],
 
     [InlineKeyboardButton(text='☠️ Очистить очередь регистрации', callback_data=CallBackData.clear_queue), ],
     [InlineKeyboardButton(text='☠️ Удалить Логи регистрации', callback_data=CallBackData.clear_log), ],
