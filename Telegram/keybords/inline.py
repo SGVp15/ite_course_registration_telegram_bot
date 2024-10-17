@@ -7,10 +7,10 @@ from Telegram.config import DOCUMENTS
 
 inline_btn_logs = InlineKeyboardButton(text='Скачать Логи', callback_data=CallBackData.download_logs)
 inline_kb_main = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='📩 Скачать логи ZOOM', callback_data=CallBackData.get_log), ],
-    [InlineKeyboardButton(text='📩 Скачать логи Webinar', callback_data=CallBackData.get_registration_webinar), ],
+    [InlineKeyboardButton(text='📄 Скачать Логи ZOOM', callback_data=CallBackData.get_log), ],
+    [InlineKeyboardButton(text='📄 Скачать логи Webinar', callback_data=CallBackData.get_registration_webinar), ],
 
-    [InlineKeyboardButton(text='📒  Скачать файл Продавцы', callback_data=CallBackData.get_seller), ],
+    [InlineKeyboardButton(text='📦 Скачать файл Продавцы', callback_data=CallBackData.get_seller), ],
     [InlineKeyboardButton(text='📒 Показать входящие файлы', callback_data=CallBackData.show_list_file), ],
     [InlineKeyboardButton(text='??? Показать очередь Zoom ???', callback_data=CallBackData.show_queue), ],
     [InlineKeyboardButton(text='📩 ️ Отправить тестовое письмо', callback_data=CallBackData.send_test_email), ],
