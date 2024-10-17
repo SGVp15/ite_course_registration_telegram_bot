@@ -20,18 +20,20 @@ inline_kb_main = InlineKeyboardMarkup(inline_keyboard=[
 ])
 
 inline_kb_zoom = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='<< Назад <<', callback_data=CallBackData.back_to_main_menu), ],
     [InlineKeyboardButton(text='💻 Конференции ZOOM', url='https://zoom.us/meeting#/'), ],
     [InlineKeyboardButton(text='📹 Записи ZOOM', url='https://zoom.us/recording/'), ],
     [InlineKeyboardButton(text='📒 Отчеты', url='https://zoom.us/account/report/user'), ],
+    [InlineKeyboardButton(text='🔙 Назад', callback_data=CallBackData.back_to_main_menu), ],
+
 ])
 
 inline_kb_admin = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='<< Назад <<', callback_data=CallBackData.back_to_main_menu), ],
     [InlineKeyboardButton(text='📒  Скачать Логи Программные', callback_data=CallBackData.get_log_program), ],
 
     [InlineKeyboardButton(text='☠️ Очистить очередь регистрации', callback_data=CallBackData.clear_queue), ],
     [InlineKeyboardButton(text='☠️ Удалить Логи регистрации', callback_data=CallBackData.clear_log), ],
+    [InlineKeyboardButton(text='🔙 Назад', callback_data=CallBackData.back_to_main_menu), ],
+
 ])
 
 
