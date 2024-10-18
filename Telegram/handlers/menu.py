@@ -10,7 +10,7 @@ from Telegram.main import dp, bot
 @dp.callback_query((F.data == CallBackData.zoom_menu)
                    & (F.from_user.id.in_({*ADMIN_ID, *USERS_ID})))
 async def zoom_menu(callback_query: CallbackQuery):
-    await callback_query.message.edit_text(
+    await bot.edit_message_text(
         text=' [ ZOOM ] ',
         chat_id=callback_query.from_user.id,
         message_id=callback_query.message.message_id,
@@ -20,7 +20,7 @@ async def zoom_menu(callback_query: CallbackQuery):
 @dp.callback_query((F.data == CallBackData.admin_menu)
                    & (F.from_user.id.in_({*ADMIN_ID})))
 async def admin_menu(callback_query: CallbackQuery):
-    await callback_query.message.edit_text(
+    await bot.edit_message_text(
         text=' [ ADMIN ] ',
         chat_id=callback_query.from_user.id,
         message_id=callback_query.message.message_id,
