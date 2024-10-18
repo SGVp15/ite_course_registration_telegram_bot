@@ -1,4 +1,5 @@
-from aiogram import types, F
+from aiogram import F
+from aiogram.types import CallbackQuery
 
 from Telegram.Call_Back_Data import CallBackData
 from Telegram.config import ADMIN_ID, USERS_ID
@@ -8,8 +9,9 @@ from Telegram.main import dp, bot
 
 @dp.callback_query((F.data == CallBackData.zoom_menu)
                    & (F.from_user.id.in_({*ADMIN_ID, *USERS_ID})))
-async def zoom_menu(callback_query: types.callback_query):
-    await callback_query.message.edit_message_reply_markup(
+async def zoom_menu(callback_query: CallbackQuery):
+    await callback_query.message.edit_text(
+        text=' [ ZOOM ] ',
         chat_id=callback_query.from_user.id,
         message_id=callback_query.message.message_id,
         reply_markup=inline_kb_zoom)
@@ -17,8 +19,9 @@ async def zoom_menu(callback_query: types.callback_query):
 
 @dp.callback_query((F.data == CallBackData.admin_menu)
                    & (F.from_user.id.in_({*ADMIN_ID})))
-async def admin_menu(callback_query: types.callback_query):
-    await bot.edit_message_reply_markup(
+async def admin_menu(callback_query: CallbackQuery):
+    await callback_query.message.edit_text(
+        text=' [ ADMIN ] ',
         chat_id=callback_query.from_user.id,
         message_id=callback_query.message.message_id,
         reply_markup=inline_kb_admin)
@@ -26,7 +29,7 @@ async def admin_menu(callback_query: types.callback_query):
 
 @dp.callback_query((F.data == CallBackData.back_to_main_menu)
                    & (F.from_user.id.in_({*ADMIN_ID, *USERS_ID})))
-async def back_to_main(callback_query: types.callback_query):
+async def back_to_main(callback_query: CallbackQuery):
     await bot.edit_message_reply_markup(
         chat_id=callback_query.from_user.id,
         message_id=callback_query.message.message_id,
