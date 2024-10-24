@@ -37,7 +37,7 @@ class ChromedriverAutoupdate:
             driver.quit()
             return 'OK'
         except SessionNotCreatedException as e:
-            print('chromedriver元件版本調整中')
+            print('SessionNotCreatedException chromedriver')
             f = e.msg.find('Current browser version is') + 27
             t = e.msg.find('with binary path') - 1
             os.remove('chromedriver.exe')
