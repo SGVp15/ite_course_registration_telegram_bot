@@ -7,10 +7,13 @@ from selenium_stealth import stealth
 
 from Config import FILE_XPATH_BTN_ZOOM_REGISTRATION
 from Contact.Contact import User
+from Utils.chromedriver_autoupdate import ChromedriverAutoupdate
 from Utils.log import log
 
 
 async def registration_user_zoom_link(user: User) -> bool:
+    ChromedriverAutoupdate(operatingSystem="win").check()
+
     options = webdriver.ChromeOptions()
     options.add_argument("start-maximized")
 
