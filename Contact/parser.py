@@ -28,7 +28,7 @@ def get_list_users_from_string(s: str) -> list[User]:
 
     webinar_name = ''
     try:
-        first_webinar_events_id = re.findall(pattern=PATTERN_WEBINAR_EVENT_ID, string=first_url)[0]
+        first_webinar_events_id = re.findall(pattern=PATTERN_WEBINAR_EVENT_ID, string=first_url)[0][1]
         webinar_name = course_name
     except IndexError:
         first_webinar_events_id = ''
@@ -45,7 +45,7 @@ def get_list_users_from_string(s: str) -> list[User]:
         url = parsing_for_pattern(string=row, pattern=PATTERN_URL)
         if url:
             try:
-                webinar_events_id = re.findall(pattern=PATTERN_WEBINAR_EVENT_ID, string=first_url)[0]
+                webinar_events_id = re.findall(pattern=PATTERN_WEBINAR_EVENT_ID, string=first_url)[0][1]
             except IndexError:
                 webinar_events_id = ''
         else:
