@@ -5,23 +5,14 @@ from parser import get_list_users_from_string
 
 
 class TestParser_get_list_users_from_string(TestCase):
-    # def test_webinar_url(self):
-    #     s = """		Курс:	«ИТ-поддержка: практики ITIL® 4 в действии» Онлайн
-    #     		OPS-online
-    #     	Даты проведения курса:	11.12.2023 - 15.12.2023 5 занятий с 10:00 до 14:00 мск (25 ак.ч. с тренером +7 ак.ч. на самост.вып.ДЗ)
-    #     	Тренер:	Сапегин Степан Борисович
-    #     	Место проведения:	Webinar_1
-    #     	Идентификатор конференции:	+
-    #     	Код доступа:
-    #     	Ссылка для регистрации:	https://events.webinar.ru/event/999146969/1581189808/edit
-    #     №	ФИО		Организация		Должность		e-mail
-    #     1	РЛРФАЙАйащршйа Сабина Рфв			(Сервис-менеджер,		asdqdq@asdep.ru
-    #
-    #             """
-    #     self.assertEqual(len(get_list_users_from_string(s)), 1)
-    #     self.assertEqual(get_list_users_from_string(s)[0],
-    #                      User(last_name='РЛРФАЙАйащршйа', first_name='Сабина', email='asdqdq@asdep.ru',
-    #                           url_registration='', webinar_events_id='999146969'))
+    def test_webinar_url(self):
+        s = """https://my.mts-link.ru/j/ITExpert/2007951276
+                Савушкин Григорий g.savushkin@itexpert.ru
+                """
+        self.assertEqual(len(get_list_users_from_string(s)), 1)
+        self.assertEqual(get_list_users_from_string(s)[0],
+                         User(last_name='Савушкин', first_name='Григорий', email='g.savushkin@itexpert.ru',
+                              url_registration='', webinar_events_id='2007951276'))
 
     # def test_zoom_url(self):
     #     s = '''	Курс: 	«ITIL® 4. Совместное создание ценности и организация взаимодействия поставщиков и потребителей» Онлайн
@@ -63,7 +54,6 @@ class TestParser_get_list_users_from_string(TestCase):
         test_user = User(last_name='Савушкин', first_name='Григорий', email='g.savushkin@itexpert.ru',
                          url_registration='https://us06web.zoom.us/meeting/register/tZAscequpz0sGd0hMbssnWyDoB8nDJ4GeHfL')
 
-
         users = get_list_users_from_string(s)
         self.assertEqual(len(users), 1)
         self.assertEqual(users[0], test_user)
@@ -73,3 +63,8 @@ class TestParser_get_list_users_from_string(TestCase):
         self.assertRaises(TypeError, get_list_users_from_string, 1)
         self.assertRaises(TypeError, get_list_users_from_string, ['asfs', ])
         self.assertRaises(TypeError, get_list_users_from_string, ('asd',))
+
+
+# class Test(TestCase):
+#     def test_get_list_users_from_string(self):
+#         self.fail()
