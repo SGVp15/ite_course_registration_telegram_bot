@@ -46,18 +46,18 @@ async def registration_user_zoom_link(user: User) -> bool:
         fill_element('question_email', contact.email)
         await asyncio.sleep(0.5)
 
-    driver.get(url=user.url_registration)
-    await asyncio.sleep(1)
+    # driver.get(url=user.url_registration)
     # Accept Cookies and fill form
-    for i in range(3):
-        try:
-            driver.find_element(value='onetrust-accept-btn-handler').click()
-            await asyncio.sleep(0.5)
-        except web_error:
-            await asyncio.sleep(1)
+    # for i in range(3):
+    #     try:
+    #         driver.find_element(value='onetrust-accept-btn-handler').click()
+    #         await asyncio.sleep(0.5)
+    #     except web_error:
+    #         await asyncio.sleep(1)
 
     for i in range(3):
         driver.get(url=user.url_registration)
+        await asyncio.sleep(1)
         try:
             await fill_form(user)
             await asyncio.sleep(5)
