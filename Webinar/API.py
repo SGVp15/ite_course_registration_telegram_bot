@@ -98,7 +98,10 @@ class WebinarApi:
             out += (f'{names[event_id]}\n'
                     f'{self.print_link(eventSessionsID, event_id)}\n')
             if description:
-                out += f'{description[event_id]}\n'
+                try:
+                    out += f'{description[event_id]}\n'
+                except KeyError:
+                    pass
             out += f'{('--' * 70)}\n'
         return out
 

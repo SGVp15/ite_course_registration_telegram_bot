@@ -39,7 +39,7 @@ def start_registration_webinar(users: list[User]) -> str:
     all_webinar_users.extend(parser.get_users_from_every_row(webinar_api.get_all_registration_url()))
     if os.path.exists(WEBINAR_HISTORY):
         with open(WEBINAR_HISTORY, mode='r', encoding='utf-8') as f:
-            all_webinar_users.extend(parser.get_users_from_every_row(webinar_api.get_all_registration_url()))
+            all_webinar_users.extend(parser.get_users_from_every_row(f.read()))
 
     new_webinar_users: list[User] = [user for user in webinar_users if user not in all_webinar_users]
 
