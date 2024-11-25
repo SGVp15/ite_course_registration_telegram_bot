@@ -18,10 +18,11 @@ class WebinarApi:
         Content-Type: application/x-www-form-urlencoded
     };
     """
-    base_url = 'https://userapi.webinar.ru/v3'
+
     def __init__(self, token):
         self.token = token
         self.headers = {'x-auth-token': self.token, 'Content-Type': 'application/x-www-form-urlencoded'}
+        self.base_url = 'https://userapi.webinar.ru/v3'
 
     def get_response(self, url: str):
         r = requests.get(url, headers=self.headers)
@@ -56,6 +57,7 @@ class WebinarApi:
         if from_date is None:
             now = datetime.now()
             from_date = now.strftime("%Y-%m-%d+00:00:00")
+
         status_start = ''
         if is_start_webinar:
             status_start = 'status[2]=START&'
@@ -92,7 +94,7 @@ class WebinarApi:
         for eventSessionsID in events_ids:
             event_id = events_ids[eventSessionsID]
             out_str += (f'{names[event_id]}\n'
-                    f'{self.print_link(eventSessionsID, event_id)}\n')
+                        f'{self.print_link(eventSessionsID, event_id)}\n')
             if description:
                 try:
                     out_str += f'{description[event_id]}\n'
