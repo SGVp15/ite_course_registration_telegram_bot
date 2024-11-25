@@ -1,7 +1,7 @@
 import os.path
 
 from Config import WEBINAR_HISTORY
-from Contact import parser, User
+from Contact import parser, User, Contact
 from Email import EmailSending
 from My_jinja import MyJinja
 from Utils.log import log
@@ -61,24 +61,29 @@ def start_registration_webinar(users: list[User]) -> str:
                     user.link = old_user.url_registration
 
         # send email
-        with open(WEBINAR_HISTORY, mode='a', encoding='utf-8') as f:
-            for user in new_webinar_users:
-                html = MyJinja().create_document(user)
-                text = MyJinja(template_file='course_registration.txt').create_document(user)
-                EmailSending(subject=user.webinar_name,
-                             to=user.email,
-                             cc=user.curator_email,
-                             bcc=user.manager_email,
-                             text=text,
-                             html=html,
-                             manager=user.manager_email).send_email()
-                f.write(f'{str(user)}\n')
+        send_email(new_webinar_users)
+
         text_message = ''
         text_message += f'{users[0].webinar_name}\nДобавил:\n'
         for user in new_webinar_users:
             text_message += f'{user.last_name} {user.first_name} \n'
 
     return text_message
+
+
+def send_email(users: [Contact]):
+    with open(WEBINAR_HISTORY, mode='a', encoding='utf-8') as f:
+        for user in users:
+            html = MyJinja().create_document(user)
+            text = MyJinja(template_file='course_registration.txt').create_document(user)
+            EmailSending(subject=user.webinar_name,
+                         to=user.email,
+                         cc=user.curator_email,
+                         bcc=user.manager_email,
+                         text=text,
+                         html=html,
+                         manager=user.manager_email).send_email()
+            f.write(f'{str(user)}\n')
 
 
 def start_registration_zoom(users: list[User]) -> str:
@@ -91,7 +96,7 @@ def start_registration_zoom(users: list[User]) -> str:
         Queue().add_users(new_zoom_users)
 
     text_message = ''
-    text_message += f'{users[0].course}\nДобавил:\n'
+    text_message += f'{users[0].course}\nДобавил в очередь:\n'
 
     for user in new_zoom_users:
         text_message += f'{user.last_name} {user.first_name} \n'
