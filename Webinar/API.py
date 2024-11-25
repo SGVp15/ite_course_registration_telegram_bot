@@ -9,6 +9,7 @@ from Webinar.config import WEBINAR_TOKENS, WEBINAR_REGISTRATION_FILE
 
 
 class WebinarApi:
+    base = 'https://events.webinar.ru/ITExpert'
     """
     url: https://userapi.webinar.ru/v3/eventsessions/{eventsessionsID}/participations?page=1&perPage=50,
     method: GET,
@@ -28,14 +29,13 @@ class WebinarApi:
         r = requests.get(url, headers=self.headers)
         return r.json()
 
-    def get_url_client(self, event_sessions_id, events_id: str) -> str:
+    def get_url_clients(self, event_sessions_id, events_id: str) -> str:
         # Вывод всех слушателей можно забрать индивидуальные ссылки url
         request = f'{self.base_url}/eventsessions/{event_sessions_id}/participations'
-        base = 'https://events.webinar.ru/ITExpert'
         r = self.get_response(request)
         s = ''
         for row in r:
-            s += f"{row['secondName']}, {row['name']}, {row['email']}, {base}/{events_id}/{row['url']}\n"
+            s += f"{row['secondName']}, {row['name']}, {row['email']}, {self.base}/{events_id}/{row['url']}\n"
         return s
 
     def get_old_webinars_from_scheduler(self, from_date):
@@ -82,7 +82,7 @@ class WebinarApi:
             return events_ids, names, description
 
     def print_link(self, event_sessions_id, event_id):
-        s = self.get_url_client(event_sessions_id, event_id)
+        s = self.get_url_clients(event_sessions_id, event_id)
         rows = s.split('\n')
         sorted(rows)
         return '\n'.join(rows)
