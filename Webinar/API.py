@@ -28,7 +28,6 @@ class WebinarApi:
         r = requests.get(url, headers=self.headers)
         return r.json()
 
-    # noinspection PyPep8Naming
     def get_url_client(self, event_sessions_id, events_id: str) -> str:
         # Вывод всех слушателей можно забрать индивидуальные ссылки url
         request = f'{self.base_url}/eventsessions/{event_sessions_id}/participations'
@@ -51,9 +50,9 @@ class WebinarApi:
     def get_events_ids_and_names_webinars_from_scheduler(self, from_date: str = None, is_start_webinar=0) -> (dict,
                                                                                                               dict,
                                                                                                               dict):
-        # Вывод всех вебинаров можно забрать [eventsessionsID] eventId - для формирования полной ссылки request =
-        # f'{base_url}/organization/events/schedule?perPage=250&page=1&status[2]=START&from={
-        # from_date}&to=2022-12-30'
+        """ Вывод всех вебинаров можно забрать [eventsessionsID] eventId - для формирования полной ссылки request =
+        f'{base_url}/organization/events/schedule?perPage=250&page=1&status[2]=START&from={from_date}&to=2022-12-30'
+        """
         if from_date is None:
             now = datetime.now()
             from_date = now.strftime("%Y-%m-%d+00:00:00")
