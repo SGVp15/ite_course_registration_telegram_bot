@@ -21,7 +21,7 @@ def start_registration(users: list[User]) -> str:
 def start_registration_webinar(users: list[User]) -> str:
     all_webinar_users = []
     webinar_users = [user for user in users if user.webinar_events_id != '']
-    token = ''
+    token = None
     webinar_name = ''
     for _token in WEBINAR_TOKENS:
         webinar_api = WebinarApi(token=_token)
@@ -32,8 +32,8 @@ def start_registration_webinar(users: list[User]) -> str:
                 token = _token
                 break
 
-    if token == '':
-        return '\n\nПроверьте ссылку регистрации !!!'
+    if token is None:
+        return '\n\nПроверьте ссылку регистрации или api токен !'
 
     webinar_api = WebinarApi(token=token)
     all_webinar_users.extend(parser.get_users_from_every_row(webinar_api.get_all_registration_url()))
