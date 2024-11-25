@@ -53,7 +53,7 @@ class WebinarApi:
         """ Вывод всех вебинаров можно забрать [eventsessionsID] eventId - для формирования полной ссылки request =
         f'{base_url}/organization/events/schedule?perPage=250&page=1&status[2]=START&from={from_date}&to=2022-12-30'
         """
-        if from_date is None:
+        if not from_date:
             now = datetime.now()
             from_date = now.strftime("%Y-%m-%d+00:00:00")
 
