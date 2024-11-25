@@ -51,7 +51,7 @@ class WebinarApi:
                                                                                                               dict,
                                                                                                               dict):
         """ Вывод всех вебинаров можно забрать [eventsessionsID] eventId - для формирования полной ссылки request =
-        f'{base_url}/organization/events/schedule?perPage=250&page=1&status[2]=START&from={from_date}&to=2022-12-30'
+        f'https://userapi.webinar.ru/v3/organization/events/schedule?perPage=250&page=1&status[2]=START&from={from_date}&to=2022-12-30'
         """
         if not from_date:
             now = datetime.now()
@@ -94,11 +94,12 @@ class WebinarApi:
             event_id = events_ids[eventSessionsID]
             out_str += (f'{names[event_id]}\n'
                         f'{self.print_link(eventSessionsID, event_id)}\n')
-            if description:
-                try:
+
+            try:
+                if description[event_id]:
                     out_str += f'{description[event_id]}\n'
-                except KeyError:
-                    pass
+            except KeyError:
+                pass
             out_str += f'{('--' * 70)}\n'
         return out_str
 
