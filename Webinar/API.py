@@ -130,6 +130,21 @@ class WebinarApi:
         log.info(r.text)
         return r.text
 
+    def get_records_today(self, id_record):
+        # {{webinar_url_base}}/records?from=2024-11-26&to=2024-11-27
+        now = datetime.now()
+        now.strftime('%Y-%m-%d')
+        url = f'{self.base_url}/records/?from=&{now.strftime('Y-m-d')}'
+        r = requests.get(url, headers=self.headers)
+        return
+
+    def post_record_to_conversions(self, id_record):
+        # {{webinar_url_base}}/records/1165356647/conversions
+        data = {"view": "none"}
+        url = f'{self.base_url}/records/{id_record}/conversions'
+        r = requests.post(url, headers=self.headers, data=data)
+        return r.text
+
 
 def get_all_registration_url():
     with open(WEBINAR_REGISTRATION_FILE, encoding='utf_8', mode='w') as f:
