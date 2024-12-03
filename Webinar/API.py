@@ -131,7 +131,7 @@ class WebinarApi:
         log.info(r.text)
         return r.text
 
-    def get_records_list(self, from_date=datetime.now(), to_date=None) -> str:
+    def get_records_list(self, from_date=datetime.now(), to_date=None) -> [dict]:
         # {{webinar_url_base}}/records?from=2024-11-26&to=2024-11-27
         if not from_date:
             from_date = datetime(year=2024, month=12, day=2)
@@ -142,8 +142,8 @@ class WebinarApi:
         to_date = to_date.strftime('%Y-%m-%d')
 
         url = f'{self.base_url}/records?from={from_date}&to={to_date}'
-        r = requests.get(url, headers=self.headers)
-        return r.text
+        r = self.get_response(url)
+        return r
 
     def post_record_to_conversions(self, id_record):
         # {{webinar_url_base}}/records/1165356647/conversions

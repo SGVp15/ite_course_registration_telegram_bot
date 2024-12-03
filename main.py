@@ -6,6 +6,7 @@ from Telegram.main import start_bot
 from Utils.chromedriver_autoupdate import ChromedriverAutoupdate
 from Utils.git_update import git_update
 from Utils.log import log
+from Webinar.sheduler_records import scheduler_record_to_conversions
 from Zoom.Clicker import run_clicker
 
 
@@ -14,6 +15,7 @@ async def main():
         git_update(),
         start_bot(),
         run_clicker(),
+        scheduler_record_to_conversions(),
     ]
     await asyncio.gather(*tasks)
 
