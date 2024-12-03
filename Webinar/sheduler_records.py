@@ -5,8 +5,8 @@ from Webinar import WebinarApi
 from Webinar.config import WEBINAR_TOKENS
 
 
-async def scheduler_record_to_conversions():
-    log.info('run')
+async def scheduler_converter_records():
+    log.info('scheduler_record_to_conversions run')
     while True:
         for token in WEBINAR_TOKENS:
             webinar_api = WebinarApi(token)
