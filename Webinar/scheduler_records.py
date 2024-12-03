@@ -15,5 +15,5 @@ async def scheduler_converter_records():
                 for r in records:
                     record_id = r.get('id')
                     if record_id:
-                        webinar_api.post_record_to_conversions(record_id)
+                        log.info(f'Record {record_id} to converter = {webinar_api.post_record_to_conversions(record_id)}')
         await asyncio.sleep(10 * 60)
