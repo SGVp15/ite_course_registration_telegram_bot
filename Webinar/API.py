@@ -1,5 +1,5 @@
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import requests
 
@@ -22,7 +22,8 @@ class WebinarApi:
 
     def __init__(self, token):
         self.token = token
-        self.headers = {'x-auth-token': self.token, 'Content-Type': 'application/x-www-form-urlencoded'}
+        self.headers = {'x-auth-token': self.token,
+                        'Content-Type': 'application/x-www-form-urlencoded'}
         self.base_url = 'https://userapi.webinar.ru/v3'
 
     def get_response(self, url: str):
@@ -130,13 +131,19 @@ class WebinarApi:
         log.info(r.text)
         return r.text
 
-    def get_records_today(self, id_record):
+    def get_records_list(self, from_date=datetime.now(), to_date=None) -> str:
         # {{webinar_url_base}}/records?from=2024-11-26&to=2024-11-27
-        now = datetime.now()
-        now.strftime('%Y-%m-%d')
-        url = f'{self.base_url}/records/?from=&{now.strftime('Y-m-d')}'
+        if not from_date:
+            from_date = datetime(year=2024, month=12, day=2)
+        if not to_date:
+            to_date = from_date + timedelta(days=1)
+
+        from_date = from_date.strftime('%Y-%m-%d')
+        to_date = to_date.strftime('%Y-%m-%d')
+
+        url = f'{self.base_url}/records?from={from_date}&to={to_date}'
         r = requests.get(url, headers=self.headers)
-        return
+        return r.text
 
     def post_record_to_conversions(self, id_record):
         # {{webinar_url_base}}/records/1165356647/conversions
