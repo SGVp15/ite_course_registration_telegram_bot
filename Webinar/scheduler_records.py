@@ -6,7 +6,7 @@ from Webinar.config import WEBINAR_TOKENS
 
 
 async def scheduler_converter_records():
-    log.info('scheduler_record_to_conversions run')
+    log.warning('scheduler_record_to_conversions run')
     while True:
         for token in WEBINAR_TOKENS:
             webinar_api = WebinarApi(token)
@@ -16,5 +16,5 @@ async def scheduler_converter_records():
                     record_id = r.get('id')
                     if record_id:
                         response = webinar_api.post_record_to_conversions(record_id)
-                        log.info(f'Record {record_id} to converter = {response}')
+                        log.info(f'[Records] {record_id} to converter = {response}')
         await asyncio.sleep(10 * 60)
