@@ -146,8 +146,9 @@ class WebinarApi:
         return r
 
     def post_record_to_conversions(self, id_record) -> (int, dict):
-        # {{webinar_url_base}}/records/1165356647/conversions
-        data = {"view": "none"}
+        # {{webinar_url_base}}/r,ecords/1165356647/conversions
+        data = {"quality": "1080",
+                "view": "none_novideo"}
         url = f'{self.base_url}/records/{id_record}/conversions'
         r = requests.post(url, headers=self.headers, data=data)
         return r.status_code, r.json()
