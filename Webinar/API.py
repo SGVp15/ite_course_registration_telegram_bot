@@ -132,7 +132,41 @@ class WebinarApi:
         return r.text
 
     def get_records_list(self, from_date=datetime.now(), to_date=None) -> [dict]:
-        # {{webinar_url_base}}/records?from=2024-11-26&to=2024-11-27
+        """https://help.mts-link.ru/article/19658
+        {{webinar_url_base}}/records?from=2024-11-26&to=2024-11-27
+
+        ОБЯЗАТЕЛЬНЫЕ ПАРАМЕТРЫ
+from — дата начала периода выборки.
+Формат: yyyy-mm-dd hh:mm:ss.
+Без этого параметра запрос отработает от текущей даты и времени.
+
+ДОПОЛНИТЕЛЬНЫЕ ПАРАМЕТРЫ
+id — ID онлайн-записи. Можно посмотреть запросом GET /fileSystem/files?parent=parentID, где parentID - идентификатор папки "Записи";
+
+period — период выборки. Значения:
+- day —  день;
+- week —  неделя;
+- month — месяц;
+- year — год.
+Значение по умолчанию: текущая дата и время.
+
+to — дата окончания периода выборки.
+Формат: yyyy-mm-dd hh:mm:ss.
+По умолчанию: from + 1 год.
+
+userId — ID сотрудника Организации.
+Ограничивает выборку вебинарами одного из сотрудников команды.
+ID можно получить запросом GET /organization/members.
+
+offset — параметр для пагинации результата. Значения: 0, 10, 20, 30 и т.д.
+
+Внимание!Offset необходим для изменения страницы результатов. При offset 0, будут выведены записи с 1-й по 10-ю. При offset 10, будут записи с 11 по 20 и т.д.
+
+limit — параметр для определения количества отображаемых результатов. Без указания параметра выводиться 10 первых результатов.
+Можно указать любое число в диапазоне от 1 до 500.
+
+        """
+
         if not from_date:
             from_date = datetime(year=2024, month=12, day=2)
         if not to_date:
@@ -145,10 +179,32 @@ class WebinarApi:
         r = self.get_response(url)
         return r
 
-    def post_record_to_conversions(self, id_record) -> (int, dict):
-        # {{webinar_url_base}}/r,ecords/1165356647/conversions
+    def post_record_to_conversions(self, id_record,
+                                   data: dict = {"quality": "1080", "view": "none_novideo"}) -> (int, dict):
+
+        """https://help.mts-link.ru/article/19654
+        {{webinar_url_base}}/r,ecords/1165356647/conversions
+
         data = {"quality": "1080",
                 "view": "none_novideo"}
+
+        quality — качество сконвертированного видео. Значения:
+        - 720 — конвертация в разрешении 1280х720;
+        - 1080 — конвертация в разрешении 1920х1080.
+        Значение по умолчанию: 720.
+
+        view — выбор отображаемой вкладки. На записи может быть как вкладка с чатом, так и вкладка с вопросами. Значения:
+        - chat — отображать в MP4-файле чат, боковую панель и видео ведущих;
+        - questions — отображать в MP4-файле вопросы, боковую панель и видео ведущих;
+        - minichat — отображать в MP4-файле чат и видео ведущих;
+        - minichat_novideo — отображать в MP4-файле только чат;
+        - none — отображать в MP4-файле только видео ведущих;
+        - chat_novideo — отображать в MP4-файле боковую панель и чат;
+        - questions_novideo — отображать в MP4-файле боковую панель и вопросы;
+        - none_novideo — конвертировать MP4-файл без боковой панели, чата, вопросов и видео ведущих.
+        Значение по умолчанию: chat.
+        """
+
         url = f'{self.base_url}/records/{id_record}/conversions'
         r = requests.post(url, headers=self.headers, data=data)
         return r.status_code, r.json()
