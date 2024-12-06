@@ -180,11 +180,12 @@ limit — параметр для определения количества о
         return r
 
     def post_record_to_conversions(self, id_record,
-                                   data: dict = {"quality": "1080", "view": "none_novideo"}) -> (int, dict):
+                                   data: dict | None = None) -> (int, dict):
 
         """https://help.mts-link.ru/article/19654
         {{webinar_url_base}}/r,ecords/1165356647/conversions
 
+        По умолчанию:
         data = {"quality": "1080",
                 "view": "none_novideo"}
 
@@ -204,7 +205,8 @@ limit — параметр для определения количества о
         - none_novideo — конвертировать MP4-файл без боковой панели, чата, вопросов и видео ведущих.
         Значение по умолчанию: chat.
         """
-
+        if not data:
+            data: dict = {"quality": "1080", "view": "none_novideo"}
         url = f'{self.base_url}/records/{id_record}/conversions'
         r = requests.post(url, headers=self.headers, data=data)
         return r.status_code, r.json()
