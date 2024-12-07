@@ -121,6 +121,7 @@ class WebinarApi:
         for eventSessionsID in events_ids:
             event_id = events_ids[eventSessionsID]
             out_str += (f'{names[event_id]}\n'
+                        f'https://events.webinar.ru/ITExpert/{event_id}\n'
                         f'{self.print_link(eventSessionsID, event_id)}\n')
 
             try:
