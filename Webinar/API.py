@@ -38,10 +38,13 @@ class WebinarApi:
         if url:
             s += f'/{url}'
         s = re.sub('/+$', '', s)
+
         if query:
             s += '?'
         for k, v in query.items():
-            s += f'{str(k)}={str(v)}'
+            s += f'{str(k)}={str(v)}&'
+
+        s = re.sub('&$', '', s)
         s = re.sub('//', '/', s)
         s = re.sub('https:/', 'https://', s)
         return s
@@ -121,7 +124,7 @@ class WebinarApi:
         for eventSessionsID in events_ids:
             event_id = events_ids[eventSessionsID]
             out_str += (f'{names[event_id]}\n'
-                        f'https://events.webinar.ru/ITExpert/{event_id}\n'
+                        f'{self.base}/{event_id}\n'
                         f'{self.print_link(eventSessionsID, event_id)}\n')
 
             try:
@@ -195,8 +198,6 @@ limit — параметр для определения количества о
 
         """
 
-        if not from_date:
-            from_date = datetime(year=2024, month=12, day=2)
         if not to_date:
             to_date = from_date + timedelta(days=1)
 
@@ -204,7 +205,7 @@ limit — параметр для определения количества о
         to_date = to_date.strftime('%Y-%m-%d')
 
         query = {'from': from_date, 'to': to_date}
-        url = self._parser_url('/records', **query),
+        url = self._parser_url('/records', **query)
         r = self.get_request(url)
         return r
 
