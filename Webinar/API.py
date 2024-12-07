@@ -31,18 +31,19 @@ class WebinarApi:
         self.token = token
         self.headers = {'x-auth-token': self.token,
                         'Content-Type': 'application/x-www-form-urlencoded'}
-        self.base_url = 'https://userapi.webinar.ru/v3'
+        self.base_url = 'https://userapi.mts-link.ru/v3'
 
     def _parser_url(self, url: str, **query) -> str:
         s = self.base_url
         if url:
             s += f'/{url}'
-        s = re.sub('/+$', '', s)
+        s = re.sub('\/+$', '', s)
         if query:
             s += '?'
         for k, v in query.items():
             s += f'{str(k)}={str(v)}'
-        s = re.sub('[^:]/{2,}', '/', s)
+        s = re.sub('//', '/', s)
+        s = re.sub('https:/', 'https://', s)
         return s
 
     def get_request(self, url: str) -> dict | None:
@@ -70,7 +71,7 @@ class WebinarApi:
             s += f"{row['secondName']}, {row['name']}, {row['email']}, {self.base}/{events_id}/{row['url']}\n"
         return s
 
-    def get_events_ids_and_names_webinars_from_scheduler(self, from_date: str = None, to_date=datetime | None,
+    def get_events_ids_and_names_webinars_from_scheduler(self, from_date: str = None, to_date: str = '',
                                                          is_start_webinar=False) -> (dict,
                                                                                      dict,
                                                                                      dict):
@@ -85,7 +86,7 @@ class WebinarApi:
         query['from'] = from_date
 
         if to_date:
-            query['to'] = 'to_date'
+            query['to'] = to_date
 
         if is_start_webinar:
             query['status[2]'] = 'START'
