@@ -37,7 +37,7 @@ class WebinarApi:
         s = self.base_url
         if url:
             s += f'/{url}'
-        s = re.sub('\/+$', '', s)
+        s = re.sub('/+$', '', s)
         if query:
             s += '?'
         for k, v in query.items():
