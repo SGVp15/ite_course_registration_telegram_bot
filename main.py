@@ -15,6 +15,7 @@ async def main():
         git_update(),
         start_bot(),
         run_clicker(),
+        scheduler_converter_records(),
     ]
     await asyncio.gather(*tasks)
 

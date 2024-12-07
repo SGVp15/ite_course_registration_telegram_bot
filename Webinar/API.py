@@ -1,3 +1,4 @@
+import re
 import time
 from datetime import datetime, timedelta
 
@@ -19,6 +20,12 @@ class WebinarApi:
         Content-Type: application/x-www-form-urlencoded
     };
     """
+    __requests_exceptions = (
+        requests.exceptions.RequestException,
+        requests.exceptions.ConnectionError,
+        requests.exceptions.Timeout,
+        requests.exceptions.HTTPError,
+    )
 
     def __init__(self, token):
         self.token = token
@@ -26,47 +33,66 @@ class WebinarApi:
                         'Content-Type': 'application/x-www-form-urlencoded'}
         self.base_url = 'https://userapi.webinar.ru/v3'
 
-    def get_response(self, url: str):
-        r = requests.get(url, headers=self.headers)
-        return r.json()
+    def _parser_url(self, url: str, **query) -> str:
+        s = self.base_url
+        if url:
+            s += f'/{url}'
+        s = re.sub('/+$', '', s)
+        if query:
+            s += '?'
+        for k, v in query.items():
+            s += f'{str(k)}={str(v)}'
+        s = re.sub('[^:]/{2,}', '/', s)
+        return s
+
+    def get_request(self, url: str) -> dict | None:
+        try:
+            r = requests.get(url, headers=self.headers)
+            return r.json()
+        except self.__requests_exceptions as e:
+            print(f'requests.exceptions {e}')
+            return None
+
+    def post_request(self, url: str, data) -> dict | None:
+        try:
+            r = requests.post(url, headers=self.headers, data=data)
+            return r.json()
+        except self.__requests_exceptions as e:
+            print(f'requests.exceptions {e}')
+            return None
 
     def get_url_clients(self, event_sessions_id, events_id: str) -> str:
         # Вывод всех слушателей можно забрать индивидуальные ссылки url
-        request = f'{self.base_url}/eventsessions/{event_sessions_id}/participations'
-        r = self.get_response(request)
+        request = self._parser_url(f'/eventsessions/{event_sessions_id}/participations')
+        r = self.get_request(request)
         s = ''
         for row in r:
             s += f"{row['secondName']}, {row['name']}, {row['email']}, {self.base}/{events_id}/{row['url']}\n"
         return s
 
-    def get_old_webinars_from_scheduler(self, from_date):
-        # Вывод прошедших вебинаров
-        request = f'{self.base_url}/stats/events?from={from_date}'
-        r = self.get_response(request)
-        for row in r:
-            log.info('[name] = ', row['eventSessions'][0]['name'])
-            log.info('[eventSessionsId] = ', row['eventSessions'][0]['id'])
-            log.info('')
-
-    def get_events_ids_and_names_webinars_from_scheduler(self, from_date: str = None, is_start_webinar=0) -> (dict,
-                                                                                                              dict,
-                                                                                                              dict):
+    def get_events_ids_and_names_webinars_from_scheduler(self, from_date: str = None, to_date=datetime | None,
+                                                         is_start_webinar=False) -> (dict,
+                                                                                     dict,
+                                                                                     dict):
         """ Вывод всех вебинаров можно забрать [eventsessionsID] eventId - для формирования полной ссылки request =
-        f'https://userapi.webinar.ru/v3/organization/events/schedule?perPage=250&page=1&status[2]=START&from={from_date}&to=2022-12-30'
+        f'https://userapi.webinar.ru/v3/organization/events/schedule?status[2]=START&from={from_date}'
         """
+        query = {}
+
         if not from_date:
             now = datetime.now()
             from_date = now.strftime("%Y-%m-%d+00:00:00")
+        query['from'] = from_date
 
-        status_start = ''
+        if to_date:
+            query['to'] = 'to_date'
+
         if is_start_webinar:
-            status_start = 'status[2]=START&'
+            query['status[2]'] = 'START'
 
-        url = f'{self.base_url}/organization/events/schedule?{status_start}'
-        if from_date:
-            url += f'from={from_date}'
+        url = self._parser_url('/organization/events/schedule', **query)
+        response = self.get_request(url=url)
 
-        response = self.get_response(url=url)
         events_ids = {}
         names = {}
         description = {}
@@ -111,7 +137,7 @@ class WebinarApi:
         url = ''
         i = 0
         for user in users:
-            url = f'{self.base_url}/events/{user.webinar_events_id}/invite'
+            url = self._parser_url(f'/events/{user.webinar_events_id}/invite')
             if (i + 1) % 40 == 0:
                 r = requests.post(url, headers=self.headers, data=data)
                 # [{"participationId":752414983,"email":"g.savushkin@itexpert.ru","link":"https:\/\/my.mts-link.ru\/81296985\/569285096\/7ca38749207b4313ca9c9a420fefcdee"}]
@@ -175,8 +201,9 @@ limit — параметр для определения количества о
         from_date = from_date.strftime('%Y-%m-%d')
         to_date = to_date.strftime('%Y-%m-%d')
 
-        url = f'{self.base_url}/records?from={from_date}&to={to_date}'
-        r = self.get_response(url)
+        query = {'from': from_date, 'to': to_date}
+        url = self._parser_url('/records', **query),
+        r = self.get_request(url)
         return r
 
     def post_record_to_conversions(self, id_record,
@@ -207,9 +234,12 @@ limit — параметр для определения количества о
         """
         if not data:
             data: dict = {"quality": "1080", "view": "none_novideo"}
-        url = f'{self.base_url}/records/{id_record}/conversions'
+        url = self._parser_url(f'/records/{id_record}/conversions')
         r = requests.post(url, headers=self.headers, data=data)
-        return r.status_code, r.json()
+        if requests:
+            return r.status_code, r.json()
+        else:
+            return -1, {}
 
 
 def get_all_registration_url():
