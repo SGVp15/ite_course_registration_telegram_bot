@@ -45,8 +45,7 @@ class WebinarApi:
             s += f'{str(k)}={str(v)}&'
 
         s = re.sub('&$', '', s)
-        s = re.sub('//', '/', s)
-        s = re.sub('https:/', 'https://', s)
+        s = re.sub(r'(?<!:)/+', '/', s)
         return s
 
     def get_request(self, url: str) -> dict | None:
