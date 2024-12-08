@@ -1,6 +1,6 @@
 from unittest import TestCase
+
 from Contact import parser
-from Webinar.config import WEBINAR_TOKENS
 from Webinar.registration import start_registration
 
 

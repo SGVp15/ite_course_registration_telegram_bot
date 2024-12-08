@@ -41,10 +41,10 @@ class WebinarApi:
 
         if query:
             s += '?'
-        for k, v in query.items():
-            s += f'{str(k)}={str(v)}&'
+            for k, v in query.items():
+                s += f'{str(k)}={str(v)}&'
+            s = re.sub('&$', '', s)
 
-        s = re.sub('&$', '', s)
         s = re.sub(r'(?<!:)/+', '/', s)
         return s
 
