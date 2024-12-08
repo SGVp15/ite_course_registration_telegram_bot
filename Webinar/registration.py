@@ -6,7 +6,7 @@ from Email import EmailSending
 from My_jinja import MyJinja
 from Utils.log import log
 from Webinar import WebinarApi
-from Webinar.config import WEBINAR_TOKENS
+from Webinar.config import WEBINAR_TOKENS, WEBINAR_REGISTRATION_FILE
 from Zoom.queue_zoom import load_old_users, Queue
 
 
@@ -102,3 +102,10 @@ def start_registration_zoom(users: list[User]) -> str:
         text_message += f'{user.last_name} {user.first_name} \n'
 
     return text_message
+
+
+def write_all_registration_url_to_file():
+    with open(WEBINAR_REGISTRATION_FILE, encoding='utf_8', mode='w') as f:
+        for token in WEBINAR_TOKENS:
+            w = WebinarApi(token=token)
+            f.write(w.get_all_registration_url())

@@ -9,7 +9,7 @@ from Telegram.config import USERS_ID, ADMIN_ID
 from Telegram.keybords.inline import inline_kb_main
 from Telegram.main import dp, bot
 from Utils.log import log, backup_logs
-from Webinar.API import get_all_registration_url
+from Webinar.registration import write_all_registration_url_to_file
 from Zoom.queue_zoom import get_queue, clear_queue
 
 
@@ -69,7 +69,7 @@ async def get_file(callback_query: types.callback_query):
                    & (F.from_user.id.in_({*ADMIN_ID, *USERS_ID})))
 async def get_file_registration_webinar(callback_query: types.callback_query):
     file = WEBINAR_LOG
-    get_all_registration_url()
+    write_all_registration_url_to_file()
     if is_empty_file(file):
         await bot.send_message(chat_id=callback_query.from_user.id, text=f'Очередь Webinar пустая',
                                reply_markup=inline_kb_main)

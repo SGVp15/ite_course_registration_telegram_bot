@@ -6,7 +6,6 @@ import requests
 
 import Contact
 from Utils.log import log
-from Webinar.config import WEBINAR_TOKENS, WEBINAR_REGISTRATION_FILE
 
 
 class WebinarApi:
@@ -242,10 +241,3 @@ limit — параметр для определения количества о
             return r.status_code, r.json()
         else:
             return -1, {}
-
-
-def get_all_registration_url():
-    with open(WEBINAR_REGISTRATION_FILE, encoding='utf_8', mode='w') as f:
-        for token in WEBINAR_TOKENS:
-            w = WebinarApi(token=token)
-            f.write(w.get_all_registration_url())
