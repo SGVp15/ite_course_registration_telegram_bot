@@ -234,7 +234,7 @@ limit — параметр для определения количества о
         Значение по умолчанию: chat.
         """
         if not data:
-            data: dict = {"quality": "1080", "view": "none_novideo"}
+            data: dict = {"quality": "1080", "view": "none"}
         url = self._parser_url(f'/records/{id_record}/conversions')
         r = requests.post(url, headers=self.headers, data=data)
         if requests:
