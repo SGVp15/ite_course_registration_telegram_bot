@@ -12,6 +12,10 @@ from Telegram.main import dp, bot
 from Webinar.registration import start_registration
 
 
+def add_seller_account(s):
+    return f'{s}\nСавушкин\tГригорий\tg.savushkin@itexpert.ru'
+
+
 @dp.message(F.document & (F.from_user.id.in_({*ADMIN_ID, *USERS_ID})))
 async def handle_document(message: types.Message):
     # Get the file ID from the document object
@@ -33,7 +37,7 @@ async def handle_document(message: types.Message):
     elif path.endswith('.txt'):
         with open(path, encoding='utf-8', mode='r') as f:
             s = f.read()
-            s += f'\nСавушкин\tГригорий\tg.savushkin@itexpert.ru'
+            s = add_seller_account(s)
 
     users = parser.get_list_users_from_string(s)
     # manager emails
@@ -49,7 +53,7 @@ async def handle_document(message: types.Message):
     & (F.from_user.id.in_({*ADMIN_ID, *USERS_ID}))
 )
 async def add_users_zoom_to_file(message: types.Message):
-    users = parser.get_list_users_from_string(f'{message.text}\nСавушкин\tГригорий\tg.savushkin@itexpert.ru')
+    users = parser.get_list_users_from_string(add_seller_account(message.text))
     for user in users:
         user.manager_email = user_id_email.get(str(message.from_user.id), '')
 
