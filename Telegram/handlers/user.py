@@ -33,7 +33,7 @@ async def handle_document(message: types.Message):
     elif path.endswith('.txt'):
         with open(path, encoding='utf-8', mode='r') as f:
             s = f.read()
-            s += f'\n Савушкин Григорий g.savushkin@itexpert.ru'
+            s += f'\nСавушкин\tГригорий\tg.savushkin@itexpert.ru'
 
     users = parser.get_list_users_from_string(s)
     # manager emails
@@ -49,8 +49,7 @@ async def handle_document(message: types.Message):
     & (F.from_user.id.in_({*ADMIN_ID, *USERS_ID}))
 )
 async def add_users_zoom_to_file(message: types.Message):
-    message.text += f'\n Савушкин Григорий g.savushkin@itexpert.ru'
-    users = parser.get_list_users_from_string(message.text)
+    users = parser.get_list_users_from_string(f'{message.text}\nСавушкин\tГригорий\tg.savushkin@itexpert.ru')
     for user in users:
         user.manager_email = user_id_email.get(str(message.from_user.id), '')
 
