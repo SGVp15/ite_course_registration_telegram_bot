@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 from Contact import User
-from parser import get_list_users_from_string
+from parser import get_list_users_from_string, refactor_string
 
 
 class TestParser_get_list_users_from_string(TestCase):
@@ -28,8 +28,6 @@ class TestParser_get_list_users_from_string(TestCase):
                   1	Савушкин Григорий Михайлович						g.savushkin@itexpert.ru ite@itexpert.ru
                   2    Лолофа Александра Лолофаафаца						ololyaaa@sib.ru https://us06web.zoom.us/meeting/register/tZA
                   '''
-
-
 
         users = get_list_users_from_string(s)
         self.assertEqual(len(users), 2)
@@ -63,7 +61,6 @@ class TestParser_get_list_users_from_string(TestCase):
         self.assertRaises(TypeError, get_list_users_from_string, 1)
         self.assertRaises(TypeError, get_list_users_from_string, ['asfs', ])
         self.assertRaises(TypeError, get_list_users_from_string, ('asd',))
-
 
 # class Test(TestCase):
 #     def test_get_list_users_from_string(self):
