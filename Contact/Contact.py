@@ -3,8 +3,9 @@ import re
 
 class User:
     def __init__(self, last_name: str, first_name: str, email: str, url_registration: str = '', course: str = '',
-                 webinar_events_id: str = '', curator_email='', webinar_name='', link='', date='', teacher='',
-                 manager_email='', abs_course=''):
+                 webinar_events_id: str | None = '', curator_email: str | None = '', webinar_name: str | None = '',
+                 link: str | None = '', date: str | None = '', teacher: str | None = '',
+                 manager_email: str | None = '', abs_course=''):
         """
 
         :type webinar_events_id: String from https://events.Webinar.ru/event/999146969

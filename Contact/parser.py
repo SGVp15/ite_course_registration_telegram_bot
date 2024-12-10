@@ -37,9 +37,9 @@ def get_list_users_from_string(s: str) -> list[User]:
 
     users = []
     for row in rows:
-        emails = re.findall(r'(\S*@\S*)', row)
+        emails_in_row = re.findall(r'(\S*@\S*)', row)
         row = re.sub(r'(\S*@\S*)', '', row)
-        if not emails:
+        if not emails_in_row:
             continue
 
         url = parsing_for_pattern(string=row, pattern=PATTERN_URL)
@@ -53,9 +53,9 @@ def get_list_users_from_string(s: str) -> list[User]:
             webinar_events_id = first_webinar_events_id
 
         curator_email = ''
-        if len(emails) > 1:
-            curator_email = emails[1]
-        email = emails[0]
+        if len(emails_in_row) > 1:
+            curator_email = emails_in_row[1]
+        email = emails_in_row[0]
         email = re.sub(r'[^@\w_\-.]', '', email.lower())
 
         row = re.sub(r'(\S*@\S*)', '', row)
