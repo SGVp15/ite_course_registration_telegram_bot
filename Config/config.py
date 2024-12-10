@@ -21,7 +21,7 @@ OLD_USERS = os.path.join(DATA_DIR, 'users.pk')
 # https://us06web.zoom.us/meeting/register/tZAscequpz0sGd0hMbssnWyDoB8nDJ4GeHfL
 
 PATTERN_URL = r'https://\S+'
-PATTERN_WEBINAR_EVENT_ID = r'https:\/\/(?:my.mts-link.ru\/j|events.webinar\.ru)\/\w+\/(\d+)'
+PATTERN_WEBINAR_EVENT_ID = r'https:\/\/(?:my.mts-link\.ru\/j|events.webinar\.ru)\/\w+\/(\d+)'
 PATTERN_ZOOM_URL = r"\s*(https://.*zoom.us/\S+)"
 
 # -----------------------------------------------------------------------------------------------------------------------
