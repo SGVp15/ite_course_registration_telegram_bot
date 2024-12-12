@@ -24,12 +24,17 @@ async def run_clicker():
             my_queue.del_user(user)
         else:
             log.info(f'[ INFO ] {user}')
-            if await registration_user_zoom_link(user):
-                save_old_users(user)
-                write_user_to_log(user)
-                log.info(f'[ OK ] {user}')
-                my_queue.del_user(user)
-            await asyncio.sleep(60 * 1)
+            try:
+                is_registration = await registration_user_zoom_link(user)
+                if is_registration:
+                    save_old_users(user)
+                    write_user_to_log(user)
+                    log.info(f'[ OK ] {user}')
+                    my_queue.del_user(user)
+                await asyncio.sleep(60 * 1)
+            except Exception as e:
+                log.error(e)
+
 
 
 def write_user_to_log(user):

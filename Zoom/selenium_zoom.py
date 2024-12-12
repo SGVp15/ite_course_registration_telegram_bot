@@ -4,6 +4,8 @@ from selenium import webdriver
 from selenium.common import NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException, \
     InvalidArgumentException
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 from selenium_stealth import stealth
 
 from Config import FILE_XPATH_BTN_ZOOM_REGISTRATION
@@ -34,7 +36,12 @@ async def registration_user_zoom_link(user: User) -> bool:
     web_error = (
         NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException,
         InvalidArgumentException)
-    web_error = Exception
+    # web_error = Exception
+
+    def find_element(self, by, value, timeout=10):
+        wait = WebDriverWait(self.driver, timeout)
+        return wait.until(EC.presence_of_element_located((by, value)))
+
     async def fill_form(contact: User):
         def fill_element(find_element='question_last_name', text=''):
             element = driver.find_element(value=find_element)
