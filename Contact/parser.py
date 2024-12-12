@@ -51,6 +51,8 @@ def get_list_users_from_string(s: str) -> list[User]:
         else:
             url = first_url
             webinar_events_id = first_webinar_events_id
+        if not url:
+            return None
 
         curator_email = ''
         if len(emails_in_row) > 1:
