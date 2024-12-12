@@ -34,7 +34,7 @@ async def registration_user_zoom_link(user: User) -> bool:
     web_error = (
         NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException,
         InvalidArgumentException)
-
+    web_error = Exception
     async def fill_form(contact: User):
         def fill_element(find_element='question_last_name', text=''):
             element = driver.find_element(value=find_element)
