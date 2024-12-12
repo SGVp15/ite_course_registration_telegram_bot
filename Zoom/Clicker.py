@@ -34,6 +34,7 @@ async def run_clicker():
                 await asyncio.sleep(60 * 1)
             except Exception as e: # DELETE!!!
                 log.error(e)
+                await asyncio.sleep(10)
 
 
 
