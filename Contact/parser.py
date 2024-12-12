@@ -36,41 +36,40 @@ def get_list_users_from_string(s: str) -> list[User]:
     rows = s.split('\n')
 
     users = []
-    for row in rows:
-        emails_in_row = re.findall(r'(\S*@\S*)', row)
-        row = re.sub(r'(\S*@\S*)', '', row)
-        if not emails_in_row:
-            continue
+    if first_url:
+        for row in rows:
+            emails_in_row = re.findall(r'(\S*@\S*)', row)
+            row = re.sub(r'(\S*@\S*)', '', row)
+            if not emails_in_row:
+                continue
 
-        url = parsing_for_pattern(string=row, pattern=PATTERN_URL)
-        if url:
+            url = parsing_for_pattern(string=row, pattern=PATTERN_URL)
+            if url:
+                try:
+                    webinar_events_id = re.findall(pattern=PATTERN_WEBINAR_EVENT_ID, string=first_url)[0]
+                except IndexError:
+                    webinar_events_id = ''
+            else:
+                url = first_url
+                webinar_events_id = first_webinar_events_id
+
+            curator_email = ''
+            if len(emails_in_row) > 1:
+                curator_email = emails_in_row[1]
+            email = emails_in_row[0]
+            email = re.sub(r'[^@\w_\-.]', '', email.lower())
+
+            row = re.sub(r'(\S*@\S*)', '', row)
+            row = re.sub(r'[^A-Za-z А-Яа-яЁё]+', '', row)
+            name = parsing_cyrillic(row)
             try:
-                webinar_events_id = re.findall(pattern=PATTERN_WEBINAR_EVENT_ID, string=first_url)[0]
+                user = User(last_name=name[0], first_name=name[1], email=email, url_registration=url, course=course_name,
+                            webinar_events_id=webinar_events_id, curator_email=curator_email,
+                            webinar_name=webinar_name,
+                            date=date, teacher=teacher, abs_course=abs_course)
+                users.append(user)
             except IndexError:
-                webinar_events_id = ''
-        else:
-            url = first_url
-            webinar_events_id = first_webinar_events_id
-        if not url:
-            return None
-
-        curator_email = ''
-        if len(emails_in_row) > 1:
-            curator_email = emails_in_row[1]
-        email = emails_in_row[0]
-        email = re.sub(r'[^@\w_\-.]', '', email.lower())
-
-        row = re.sub(r'(\S*@\S*)', '', row)
-        row = re.sub(r'[^A-Za-z А-Яа-яЁё]+', '', row)
-        name = parsing_cyrillic(row)
-        try:
-            user = User(last_name=name[0], first_name=name[1], email=email, url_registration=url, course=course_name,
-                        webinar_events_id=webinar_events_id, curator_email=curator_email,
-                        webinar_name=webinar_name,
-                        date=date, teacher=teacher, abs_course=abs_course)
-            users.append(user)
-        except IndexError:
-            pass
+                pass
     return users
 
 

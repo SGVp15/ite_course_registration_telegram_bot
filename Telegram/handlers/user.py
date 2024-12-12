@@ -54,11 +54,12 @@ async def handle_document(message: types.Message):
 )
 async def add_users_zoom_to_file(message: types.Message):
     users = parser.get_list_users_from_string(add_seller_account(message.text))
-    for user in users:
-        user.manager_email = user_id_email.get(str(message.from_user.id), '')
+    if users:
+        for user in users:
+            user.manager_email = user_id_email.get(str(message.from_user.id), '')
 
-    text = start_registration(users)
-    if users is None:
+        text = start_registration(users)
+    if not users:
         await message.answer('Контакт не корректен', reply_markup=inline_kb_main)
     else:
         await message.reply(text, reply_markup=inline_kb_main)

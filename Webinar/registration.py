@@ -39,7 +39,9 @@ def start_registration_webinar(users: list[User]) -> str:
     all_webinar_users.extend(parser.get_users_from_every_row(webinar_api.get_all_registration_url()))
     if os.path.exists(WEBINAR_HISTORY):
         with open(WEBINAR_HISTORY, mode='r', encoding='utf-8') as f:
-            all_webinar_users.extend(parser.get_users_from_every_row(f.read()))
+            users_history = parser.get_users_from_every_row(f.read())
+            if users_history:
+                all_webinar_users.extend(users_history)
 
     new_webinar_users: list[User] = [user for user in webinar_users if user not in all_webinar_users]
 
@@ -61,7 +63,7 @@ def start_registration_webinar(users: list[User]) -> str:
                     user.link = old_user.url_registration
 
         # send email
-        send_email(new_webinar_users)
+        send_emails(new_webinar_users)
 
         text_message = ''
         text_message += f'{users[0].webinar_name}\nДобавил:\n'
@@ -71,7 +73,7 @@ def start_registration_webinar(users: list[User]) -> str:
     return text_message
 
 
-def send_email(users: [Contact]):
+def send_emails(users: [Contact]):
     with open(WEBINAR_HISTORY, mode='a', encoding='utf-8') as f:
         for user in users:
             html = MyJinja().create_document(user)
