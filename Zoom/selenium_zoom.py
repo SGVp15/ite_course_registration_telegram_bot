@@ -1,7 +1,8 @@
 import asyncio
 
 from selenium import webdriver
-from selenium.common import NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException
+from selenium.common import NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException, \
+    InvalidArgumentException
 from selenium.webdriver.common.by import By
 from selenium_stealth import stealth
 
@@ -30,7 +31,9 @@ async def registration_user_zoom_link(user: User) -> bool:
             renderer="Intel Iris OpenGL Engine",
             fix_hairline=True,
             )
-    web_error = (NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException)
+    web_error = (
+        NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException,
+        InvalidArgumentException)
 
     async def fill_form(contact: User):
         def fill_element(find_element='question_last_name', text=''):
