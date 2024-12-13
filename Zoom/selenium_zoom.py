@@ -4,8 +4,6 @@ from selenium import webdriver
 from selenium.common import NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException, \
     InvalidArgumentException
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium_stealth import stealth
 
 from Config import FILE_XPATH_BTN_ZOOM_REGISTRATION
@@ -36,34 +34,18 @@ async def registration_user_zoom_link(user: User) -> bool:
     web_error = (
         NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException,
         InvalidArgumentException)
-    # web_error = Exception
-
-    def find_element(self, by, value, timeout=10):
-        wait = WebDriverWait(self.driver, timeout)
-        return wait.until(EC.presence_of_element_located((by, value)))
 
     async def fill_form(contact: User):
-        def fill_element(find_element='question_last_name', text=''):
-            element = driver.find_element(value=find_element)
+        async def fill_element(find_element='question_last_name', text=''):
+            element = driver.find_element(by=By.ID, value=find_element)
             element.clear()
             element.send_keys(text)
+            await asyncio.sleep(0.5)
 
         await asyncio.sleep(1)
-        fill_element('question_first_name', contact.first_name)
-        await asyncio.sleep(0.5)
-        fill_element('question_last_name', contact.last_name)
-        await asyncio.sleep(0.5)
-        fill_element('question_email', contact.email)
-        await asyncio.sleep(0.5)
-
-    # driver.get(url=user.url_registration)
-    # Accept Cookies and fill form
-    # for i in range(3):
-    #     try:
-    #         driver.find_element(value='onetrust-accept-btn-handler').click()
-    #         await asyncio.sleep(0.5)
-    #     except web_error:
-    #         await asyncio.sleep(1)
+        await fill_element('question_first_name', contact.first_name)
+        await fill_element('question_last_name', contact.last_name)
+        await fill_element('question_email', contact.email)
 
     for i in range(3):
         driver.get(url=user.url_registration)
