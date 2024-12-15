@@ -1,4 +1,5 @@
 import asyncio
+from email.policy import default
 
 from Utils.log import log
 from Webinar import WebinarApi
@@ -14,7 +15,10 @@ async def scheduler_converter_records():
             records: [dict] = webinar_api.get_records_list()
             if records:
                 for r in records:
-                    record_id = r.get('id')
+                    try:
+                        record_id = r.get('id', default=None)
+                    except (TypeError, AttributeError):
+                        record_id = None
                     if record_id and record_id not in record_id_list:
                         code, response = webinar_api.post_record_to_conversions(record_id)
                         if code == 200:
