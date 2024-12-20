@@ -3,3 +3,4 @@
 /chromedriver.exe
 *.pk
 /venv/
+.idea
