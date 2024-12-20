@@ -1,0 +1,2377 @@
+[2024-08-07 12:08:02.886]       main:18  INFO    - course registration bot START
+[2024-08-07 12:08:02.889] dispatcher:527 INFO    - Start polling
+[2024-08-07 12:08:02.889]    Clicker:11  WARNING - webdriver run
+[2024-08-07 12:08:03.247] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-08-07 12:08:28.808] dispatcher:172 INFO    - Update id=644014456 is handled. Duration 375 ms by bot id=1799745048
+[2024-08-07 12:10:55.128]        API:125 INFO    - [{"participationId":891181423,"email":"g.savushkin@itexpert.ru","link":"https:\/\/my.mts-link.ru\/j\/ITExpert\/393825003\/2b7eec622623854ba6c0d28a6747ab05"}]
+[2024-08-07 12:10:55.130] registration:51  INFO    - [{"participationId":891181423,"email":"g.savushkin@itexpert.ru","link":"https:\/\/my.mts-link.ru\/j\/ITExpert\/393825003\/2b7eec622623854ba6c0d28a6747ab05"}]
+[2024-08-07 12:11:00.239] email_sending:84  INFO    - Email send ['g.savushkin@itexpert.ru', 'g.savushkin@itexpert.ru']
+[2024-08-07 12:11:00.386] dispatcher:172 INFO    - Update id=644014457 is handled. Duration 13577 ms by bot id=1799745048
+[2024-08-07 12:13:55.512] dispatcher:554 INFO    - Polling stopped
+[2024-08-07 12:13:55.514] dispatcher:359 INFO    - Polling stopped for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-08-07 12:13:55.515]       main:21  ERROR   - course registration bot STOP
+[2024-08-19 15:54:09.113]       main:18  INFO    - course registration bot START
+[2024-08-19 15:54:09.118] dispatcher:527 INFO    - Start polling
+[2024-08-19 15:54:09.118]    Clicker:11  WARNING - webdriver run
+[2024-08-19 15:54:09.346] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-08-19 16:38:45.330]       main:18  INFO    - course registration bot START
+[2024-08-19 16:38:45.335] dispatcher:527 INFO    - Start polling
+[2024-08-19 16:38:45.335]    Clicker:11  WARNING - webdriver run
+[2024-08-19 16:39:57.904]       main:18  INFO    - course registration bot START
+[2024-08-19 16:39:57.907] dispatcher:527 INFO    - Start polling
+[2024-08-19 16:39:57.908]    Clicker:11  WARNING - webdriver run
+[2024-08-19 16:39:58.129] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-08-19 16:39:58.610] dispatcher:172 INFO    - Update id=644014479 is handled. Duration 313 ms by bot id=1799745048
+[2024-08-19 16:43:53.189]       main:18  INFO    - course registration bot START
+[2024-08-19 16:43:53.192] dispatcher:527 INFO    - Start polling
+[2024-08-19 16:43:53.193]    Clicker:11  WARNING - webdriver run
+[2024-08-19 16:43:53.401] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-08-19 16:43:53.852] dispatcher:172 INFO    - Update id=644014480 is handled. Duration 313 ms by bot id=1799745048
+[2024-08-19 16:49:38.704]       main:18  INFO    - course registration bot START
+[2024-08-19 16:49:38.707] dispatcher:527 INFO    - Start polling
+[2024-08-19 16:49:38.708]    Clicker:11  WARNING - webdriver run
+[2024-08-20 11:52:27.831]       main:18  INFO    - course registration bot START
+[2024-08-20 11:52:27.832] dispatcher:527 INFO    - Start polling
+[2024-08-20 11:52:27.833]    Clicker:11  WARNING - webdriver run
+[2024-08-20 11:52:28.005] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-08-20 11:52:38.719] dispatcher:172 INFO    - Update id=644014481 is handled. Duration 233 ms by bot id=1799745048
+[2024-08-20 11:52:42.088] dispatcher:172 INFO    - Update id=644014482 is handled. Duration 1608 ms by bot id=1799745048
+[2024-08-20 11:52:50.829] dispatcher:172 INFO    - Update id=644014483 is handled. Duration 93 ms by bot id=1799745048
+[2024-08-20 11:53:53.463] dispatcher:172 INFO    - Update id=644014484 is not handled. Duration 15 ms by bot id=1799745048
+[2024-08-20 11:53:53.463] dispatcher:315 ERROR   - Cause exception while process update id=644014484 by bot id=1799745048
+RecursionError: maximum recursion depth exceeded
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\fsm\middleware.py", line 41, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 128, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 123, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 148, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Telegram\handlers\user.py", line 55, in add_users_zoom_to_file
+    text = start_registration(users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Webinar\registration.py", line 18, in start_registration
+    return start_registration_zoom(users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Webinar\registration.py", line 91, in start_registration_zoom
+    Queue().add_users(new_zoom_users)
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 24, in add_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 32, in del_duplicates_users
+    self.save_queue()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Zoom\queue_zoom.py", line 15, in save_queue
+    self.del_duplicates_users()
+RecursionError: maximum recursion depth exceeded
+[2024-08-20 11:54:16.373] dispatcher:554 INFO    - Polling stopped
+[2024-08-20 11:54:16.374] dispatcher:359 INFO    - Polling stopped for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-08-20 11:54:16.375]       main:21  ERROR   - course registration bot STOP
+[2024-08-20 11:55:49.250]       main:18  INFO    - course registration bot START
+[2024-08-20 11:55:49.251] dispatcher:527 INFO    - Start polling
+[2024-08-20 11:55:49.252]    Clicker:11  WARNING - webdriver run
+[2024-08-20 11:55:49.467] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-08-20 11:55:56.830] dispatcher:172 INFO    - Update id=644014485 is handled. Duration 204 ms by bot id=1799745048
+[2024-08-20 11:55:58.660] dispatcher:172 INFO    - Update id=644014486 is handled. Duration 157 ms by bot id=1799745048
+[2024-08-20 11:56:16.198] dispatcher:172 INFO    - Update id=644014487 is handled. Duration 204 ms by bot id=1799745048
+[2024-08-20 11:56:34.520] dispatcher:172 INFO    - Update id=644014488 is handled. Duration 405 ms by bot id=1799745048
+[2024-08-20 11:56:39.581] dispatcher:172 INFO    - Update id=644014489 is handled. Duration 79 ms by bot id=1799745048
+[2024-08-20 11:56:44.327]    Clicker:25  INFO    - [ INFO ] 	Курс:PRMF-online 	Тренер:Белых Мария Геннадиевна	Даты проведения курса:09.09.2024 - 13.09.2024 с 10:00 до 14:00 мск	Савушкин	Григорий	g.savushkin@itexpert.ru	https://us06web.zoom.us/meeting/register/tZYqcuyhqjMvE9dbX9TEvCRDLPSlK002b7dc
+[2024-08-20 11:56:45.833] selenium_manager:149 WARNING - The chromedriver version (123.0.6312.58) detected in PATH at C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\chromedriver.exe might not be compatible with the detected chrome version (127.0.6533.120); currently, chromedriver 127.0.6533.119 is recommended for chrome 127.*, so it is advised to delete the driver in PATH and retry
+[2024-08-20 11:56:49.072] dispatcher:359 INFO    - Polling stopped for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-08-20 11:56:49.072] dispatcher:554 INFO    - Polling stopped
+[2024-08-20 11:56:49.328]       main:21  ERROR   - course registration bot STOP
+[2024-08-20 12:03:21.202] selenium_manager:149 WARNING - The chromedriver version (123.0.6312.58) detected in PATH at C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\chromedriver.exe might not be compatible with the detected chrome version (127.0.6533.120); currently, chromedriver 127.0.6533.119 is recommended for chrome 127.*, so it is advised to delete the driver in PATH and retry
+[2024-08-20 12:04:30.038] selenium_manager:149 WARNING - The chromedriver version (123.0.6312.58) detected in PATH at C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\chromedriver.exe might not be compatible with the detected chrome version (127.0.6533.120); currently, chromedriver 127.0.6533.119 is recommended for chrome 127.*, so it is advised to delete the driver in PATH and retry
+[2024-08-20 12:06:49.229] selenium_manager:149 WARNING - The chromedriver version (123.0.6312.58) detected in PATH at C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\chromedriver.exe might not be compatible with the detected chrome version (127.0.6533.120); currently, chromedriver 127.0.6533.119 is recommended for chrome 127.*, so it is advised to delete the driver in PATH and retry
+[2024-08-20 12:08:07.110] selenium_manager:149 WARNING - The chromedriver version (123.0.6312.58) detected in PATH at C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\chromedriver.exe might not be compatible with the detected chrome version (127.0.6533.120); currently, chromedriver 127.0.6533.119 is recommended for chrome 127.*, so it is advised to delete the driver in PATH and retry
+[2024-08-20 12:08:39.507]       main:22  INFO    - course registration bot START
+[2024-08-20 12:08:39.511] dispatcher:527 INFO    - Start polling
+[2024-08-20 12:08:39.511]    Clicker:11  WARNING - webdriver run
+[2024-08-20 12:08:39.514]    Clicker:25  INFO    - [ INFO ] 	Курс:PRMF-online 	Тренер:Белых Мария Геннадиевна	Даты проведения курса:09.09.2024 - 13.09.2024 с 10:00 до 14:00 мск	Савушкин	Григорий	g.savushkin@itexpert.ru	https://us06web.zoom.us/meeting/register/tZYqcuyhqjMvE9dbX9TEvCRDLPSlK002b7dc
+[2024-08-20 12:08:44.386] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-08-20 12:08:57.460] selenium_zoom:61  INFO    - fill_form_ok
+[2024-08-20 12:09:06.468]    Clicker:30  INFO    - [ OK ] 	Курс:PRMF-online 	Тренер:Белых Мария Геннадиевна	Даты проведения курса:09.09.2024 - 13.09.2024 с 10:00 до 14:00 мск	Савушкин	Григорий	g.savushkin@itexpert.ru	https://us06web.zoom.us/meeting/register/tZYqcuyhqjMvE9dbX9TEvCRDLPSlK002b7dc
+[2024-08-20 12:09:11.949] dispatcher:172 INFO    - Update id=644014490 is handled. Duration 250 ms by bot id=1799745048
+[2024-08-20 12:10:06.482]    Clicker:25  INFO    - [ INFO ] 	Курс:PRMF-online 	Тренер:Белых Мария Геннадиевна	Даты проведения курса:09.09.2024 - 13.09.2024 с 10:00 до 14:00 мск	Рыбалкин	Александр	a.rybalkin@itexpert.ru	https://us06web.zoom.us/meeting/register/tZYqcuyhqjMvE9dbX9TEvCRDLPSlK002b7dc
+[2024-08-20 12:10:25.435] selenium_zoom:61  INFO    - fill_form_ok
+[2024-08-20 12:10:35.905] selenium_zoom:61  INFO    - fill_form_ok
+[2024-08-20 12:10:46.167] selenium_zoom:61  INFO    - fill_form_ok
+[2024-08-20 12:11:54.576]    Clicker:25  INFO    - [ INFO ] 	Курс:PRMF-online 	Тренер:Белых Мария Геннадиевна	Даты проведения курса:09.09.2024 - 13.09.2024 с 10:00 до 14:00 мск	Рыбалкин	Александр	a.rybalkin@itexpert.ru	https://us06web.zoom.us/meeting/register/tZYqcuyhqjMvE9dbX9TEvCRDLPSlK002b7dc
+[2024-08-20 12:12:12.701] selenium_zoom:61  INFO    - fill_form_ok
+[2024-08-20 12:12:22.967] selenium_zoom:61  INFO    - fill_form_ok
+[2024-08-20 12:12:33.208] selenium_zoom:61  INFO    - fill_form_ok
+[2024-08-20 12:13:01.573] dispatcher:554 INFO    - Polling stopped
+[2024-08-20 12:13:01.574] dispatcher:359 INFO    - Polling stopped for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-08-20 12:13:01.577]       main:25  ERROR   - course registration bot STOP
+[2024-08-20 12:14:13.946]       main:22  INFO    - course registration bot START
+[2024-08-20 12:14:13.951] dispatcher:527 INFO    - Start polling
+[2024-08-20 12:14:13.951]    Clicker:11  WARNING - webdriver run
+[2024-08-20 12:14:13.953]    Clicker:25  INFO    - [ INFO ] 	Курс:PRMF-online 	Тренер:Белых Мария Геннадиевна	Даты проведения курса:09.09.2024 - 13.09.2024 с 10:00 до 14:00 мск	Рыбалкин	Александр	a.rybalkin@itexpert.ru	https://us06web.zoom.us/meeting/register/tZYqcuyhqjMvE9dbX9TEvCRDLPSlK002b7dc
+[2024-08-20 12:14:18.900] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-08-20 12:14:19.277] dispatcher:172 INFO    - Update id=644014491 is handled. Duration 296 ms by bot id=1799745048
+[2024-08-20 12:14:32.298] selenium_zoom:61  INFO    - fill_form_ok
+[2024-08-20 12:14:41.926]    Clicker:30  INFO    - [ OK ] 	Курс:PRMF-online 	Тренер:Белых Мария Геннадиевна	Даты проведения курса:09.09.2024 - 13.09.2024 с 10:00 до 14:00 мск	Рыбалкин	Александр	a.rybalkin@itexpert.ru	https://us06web.zoom.us/meeting/register/tZYqcuyhqjMvE9dbX9TEvCRDLPSlK002b7dc
+[2024-08-20 12:14:57.872] dispatcher:554 INFO    - Polling stopped
+[2024-08-20 12:14:57.873] dispatcher:359 INFO    - Polling stopped for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-08-20 12:14:57.874]       main:25  ERROR   - course registration bot STOP
+[2024-08-20 13:37:38.682]       main:22  INFO    - course registration bot START
+[2024-08-20 13:37:38.689] dispatcher:527 INFO    - Start polling
+[2024-08-20 13:37:38.689]    Clicker:11  WARNING - webdriver run
+[2024-08-20 13:37:38.709]    Clicker:25  INFO    - [ INFO ] Курс:PRMF-online	Тренер:Белых Мария Геннадиевна	Даты проведения курса:09.09.2024 - 13.09.2024 с 10:00 до 14:00 мск	Катков	Андрей	a.katkov@itexpert.ru	https://us06web.zoom.us/meeting/register/tZYqcuyhqjMvE9dbX9TEvCRDLPSlK002b7dc
+[2024-08-20 13:37:52.595] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-08-20 13:37:58.531] dispatcher:172 INFO    - Update id=644014514 is handled. Duration 296 ms by bot id=1799745048
+[2024-08-20 13:38:00.821] dispatcher:172 INFO    - Update id=644014515 is handled. Duration 234 ms by bot id=1799745048
+[2024-08-20 13:38:06.103] selenium_zoom:61  INFO    - fill_form_ok
+[2024-08-20 13:38:15.576]    Clicker:30  INFO    - [ OK ] Курс:PRMF-online	Тренер:Белых Мария Геннадиевна	Даты проведения курса:09.09.2024 - 13.09.2024 с 10:00 до 14:00 мск	Катков	Андрей	a.katkov@itexpert.ru	https://us06web.zoom.us/meeting/register/tZYqcuyhqjMvE9dbX9TEvCRDLPSlK002b7dc
+[2024-08-20 13:39:10.353]       main:22  INFO    - course registration bot START
+[2024-08-20 13:39:10.358] dispatcher:527 INFO    - Start polling
+[2024-08-20 13:39:10.359]    Clicker:11  WARNING - webdriver run
+[2024-08-20 13:39:10.571] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-09-13 11:15:04.823] selenium_manager:149 WARNING - The chromedriver version (127.0.6533.119) detected in PATH at C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\chromedriver.exe might not be compatible with the detected chrome version (128.0.6613.138); currently, chromedriver 128.0.6613.137 is recommended for chrome 128.*, so it is advised to delete the driver in PATH and retry
+[2024-09-13 11:15:06.306]       main:22  INFO    - course registration bot START
+[2024-09-13 11:15:06.310] dispatcher:527 INFO    - Start polling
+[2024-09-13 11:15:06.311]    Clicker:12  WARNING - webdriver run
+[2024-09-13 11:15:06.499] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-09-13 11:15:10.622] dispatcher:219 ERROR   - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+[2024-09-13 11:15:10.623] dispatcher:221 WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 1799745048)
+[2024-09-13 11:15:12.128] dispatcher:554 INFO    - Polling stopped
+[2024-09-13 11:15:12.129] dispatcher:359 INFO    - Polling stopped for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-09-13 11:15:12.130]       main:25  ERROR   - course registration bot STOP
+[2024-09-29 23:16:41.123] selenium_manager:149 WARNING - The chromedriver version (127.0.6533.119) detected in PATH at C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\chromedriver.exe might not be compatible with the detected chrome version (129.0.6668.60); currently, chromedriver 129.0.6668.70 is recommended for chrome 129.*, so it is advised to delete the driver in PATH and retry
+[2024-09-29 23:17:35.434]       main:22  INFO    - course registration bot START
+[2024-09-29 23:17:35.438] dispatcher:527 INFO    - Start polling
+[2024-09-29 23:17:35.439]    Clicker:12  WARNING - webdriver run
+[2024-09-29 23:17:35.647] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-09-29 23:19:04.441]       main:22  INFO    - course registration bot START
+[2024-09-29 23:19:04.444] dispatcher:527 INFO    - Start polling
+[2024-09-29 23:19:04.445]    Clicker:12  WARNING - webdriver run
+[2024-09-29 23:19:04.645] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-09-29 23:28:59.490]       main:22  INFO    - course registration bot START
+[2024-09-29 23:28:59.495] dispatcher:527 INFO    - Start polling
+[2024-09-29 23:28:59.496]    Clicker:12  WARNING - webdriver run
+[2024-09-29 23:28:59.717] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-09-29 23:31:13.547]       main:22  INFO    - course registration bot START
+[2024-09-29 23:31:13.552] dispatcher:527 INFO    - Start polling
+[2024-09-29 23:31:13.553]    Clicker:12  WARNING - webdriver run
+[2024-09-29 23:31:13.783] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-10-15 12:24:08.220] selenium_manager:149 WARNING - The chromedriver version (127.0.6533.119) detected in PATH at C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\chromedriver.exe might not be compatible with the detected chrome version (129.0.6668.90); currently, chromedriver 129.0.6668.100 is recommended for chrome 129.*, so it is advised to delete the driver in PATH and retry
+[2024-11-02 11:08:55.785] selenium_manager:149 WARNING - The chromedriver version (127.0.6533.119) detected in PATH at C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\chromedriver.exe might not be compatible with the detected chrome version (130.0.6723.92); currently, chromedriver 130.0.6723.91 is recommended for chrome 130.*, so it is advised to delete the driver in PATH and retry
+[2024-11-02 11:09:22.894]       main:25  INFO    - course registration bot START
+[2024-11-02 11:09:23.728] dispatcher:527 INFO    - Start polling
+[2024-11-02 11:09:23.729]    Clicker:12  WARNING - webdriver run
+[2024-11-02 11:09:24.027] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-11-02 11:11:09.166] dispatcher:554 INFO    - Polling stopped
+[2024-11-02 11:11:09.167] dispatcher:359 INFO    - Polling stopped for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-11-02 11:11:09.169]       main:28  ERROR   - course registration bot STOP
+[2024-11-02 11:11:22.598]       main:25  INFO    - course registration bot START
+[2024-11-02 11:11:23.427] dispatcher:527 INFO    - Start polling
+[2024-11-02 11:11:23.427]    Clicker:12  WARNING - webdriver run
+[2024-11-02 11:11:23.640] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-11-02 11:11:26.323] dispatcher:172 INFO    - Update id=644014998 is handled. Duration 1125 ms by bot id=1799745048
+[2024-11-02 11:11:38.807] dispatcher:554 INFO    - Polling stopped
+[2024-11-02 11:11:38.808] dispatcher:359 INFO    - Polling stopped for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-11-02 11:11:38.809]       main:28  ERROR   - course registration bot STOP
+[2024-11-02 11:12:50.317]       main:25  INFO    - course registration bot START
+[2024-11-02 11:12:51.144] dispatcher:527 INFO    - Start polling
+[2024-11-02 11:12:51.144]    Clicker:12  WARNING - webdriver run
+[2024-11-02 11:12:51.299] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-11-02 11:12:56.047]        API:129 INFO    - [{"participationId":970371777,"email":"g.savushkin@itexpert.ru","link":"https:\/\/my.mts-link.ru\/j\/ITExpert\/2007951276\/99e49438b184d5107d4411bbeade744b"}]
+[2024-11-02 11:12:56.048] registration:51  INFO    - [{"participationId":970371777,"email":"g.savushkin@itexpert.ru","link":"https:\/\/my.mts-link.ru\/j\/ITExpert\/2007951276\/99e49438b184d5107d4411bbeade744b"}]
+[2024-11-02 11:12:58.428] email_sending:84  INFO    - Email send ['g.savushkin@itexpert.ru', 'g.savushkin@itexpert.ru']
+[2024-11-02 11:12:58.632] dispatcher:172 INFO    - Update id=644014999 is handled. Duration 7266 ms by bot id=1799745048
+[2024-11-02 11:13:07.925] dispatcher:172 INFO    - Update id=644015000 is handled. Duration 2750 ms by bot id=1799745048
+[2024-11-02 11:21:01.709] dispatcher:554 INFO    - Polling stopped
+[2024-11-02 11:21:01.724] dispatcher:359 INFO    - Polling stopped for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-11-02 11:21:01.731]       main:28  ERROR   - course registration bot STOP
+[2024-11-02 11:22:00.930]       main:25  INFO    - course registration bot START
+[2024-11-02 11:22:01.791] dispatcher:527 INFO    - Start polling
+[2024-11-02 11:22:01.791]    Clicker:12  WARNING - webdriver run
+[2024-11-02 11:22:01.988] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-11-02 11:22:07.596] dispatcher:172 INFO    - Update id=644015001 is handled. Duration 5547 ms by bot id=1799745048
+[2024-11-02 11:22:34.578] dispatcher:172 INFO    - Update id=644015002 is handled. Duration 202 ms by bot id=1799745048
+[2024-11-02 11:22:36.851] dispatcher:172 INFO    - Update id=644015003 is handled. Duration 78 ms by bot id=1799745048
+[2024-11-02 11:23:02.938]        API:129 INFO    - [{"participationId":970418495,"email":"a.katkov@itexpert.ru","link":"https:\/\/my.mts-link.ru\/j\/ITExpert\/2007951276\/f08665944c77edc4246aac7412869f10"}]
+[2024-11-02 11:23:02.940] registration:51  INFO    - [{"participationId":970418495,"email":"a.katkov@itexpert.ru","link":"https:\/\/my.mts-link.ru\/j\/ITExpert\/2007951276\/f08665944c77edc4246aac7412869f10"}]
+[2024-11-02 11:23:05.313] email_sending:84  INFO    - Email send ['a.katkov@itexpert.ru', 'g.savushkin@itexpert.ru']
+[2024-11-02 11:23:06.311] dispatcher:172 INFO    - Update id=644015004 is handled. Duration 8562 ms by bot id=1799745048
+[2024-11-02 11:23:49.352] dispatcher:554 INFO    - Polling stopped
+[2024-11-02 11:23:49.353] dispatcher:359 INFO    - Polling stopped for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-11-02 11:23:49.355]       main:28  ERROR   - course registration bot STOP
+[2024-11-18 10:50:51.493]       main:25  INFO    - course registration bot START
+[2024-11-18 10:50:55.019] dispatcher:527 INFO    - Start polling
+[2024-11-18 10:50:55.020]    Clicker:12  WARNING - webdriver run
+[2024-11-18 10:50:55.520] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-11-18 10:50:56.444] dispatcher:172 INFO    - Update id=644015104 is not handled. Duration 795 ms by bot id=1799745048
+[2024-11-18 10:50:56.444] dispatcher:315 ERROR   - Cause exception while process update id=644015104 by bot id=1799745048
+TelegramBadRequest: Telegram server says - Bad Request: there is no text in the message to edit
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\fsm\middleware.py", line 41, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 128, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 123, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 148, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Telegram\handlers\menu.py", line 23, in admin_menu
+    await bot.edit_message_text(
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\client\bot.py", line 1543, in edit_message_text
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\client\bot.py", line 492, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 178, in make_request
+    response = self.check_response(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: there is no text in the message to edit
+[2024-11-18 10:51:08.139] dispatcher:554 INFO    - Polling stopped
+[2024-11-18 10:51:08.141] dispatcher:359 INFO    - Polling stopped for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-11-18 10:51:08.145]       main:28  ERROR   - course registration bot STOP
+[2024-11-18 10:51:31.699]       main:25  INFO    - course registration bot START
+[2024-11-18 10:51:33.249] dispatcher:527 INFO    - Start polling
+[2024-11-18 10:51:33.250]    Clicker:12  WARNING - webdriver run
+[2024-11-18 10:51:33.820] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-11-18 10:51:40.197] dispatcher:172 INFO    - Update id=644015105 is not handled. Duration 280 ms by bot id=1799745048
+[2024-11-18 10:51:40.198] dispatcher:315 ERROR   - Cause exception while process update id=644015105 by bot id=1799745048
+TelegramBadRequest: Telegram server says - Bad Request: there is no text in the message to edit
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\fsm\middleware.py", line 41, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 128, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 123, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 148, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Telegram\handlers\menu.py", line 23, in admin_menu
+    await bot.edit_message_text(
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\client\bot.py", line 1543, in edit_message_text
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\client\bot.py", line 492, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 178, in make_request
+    response = self.check_response(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: there is no text in the message to edit
+[2024-11-18 10:51:41.740] dispatcher:172 INFO    - Update id=644015106 is handled. Duration 172 ms by bot id=1799745048
+[2024-11-18 10:51:43.989] dispatcher:172 INFO    - Update id=644015107 is handled. Duration 265 ms by bot id=1799745048
+[2024-11-18 10:51:45.372] dispatcher:172 INFO    - Update id=644015108 is handled. Duration 156 ms by bot id=1799745048
+[2024-11-18 10:51:47.625] dispatcher:172 INFO    - Update id=644015109 is handled. Duration 218 ms by bot id=1799745048
+[2024-11-18 10:51:56.114] dispatcher:172 INFO    - Update id=644015110 is not handled. Duration 6515 ms by bot id=1799745048
+[2024-11-18 10:51:56.115] dispatcher:315 ERROR   - Cause exception while process update id=644015110 by bot id=1799745048
+KeyError: 1052497742
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\fsm\middleware.py", line 41, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 128, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 123, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 148, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Telegram\handlers\log.py", line 72, in get_file_registration_webinar
+    get_all_registration_url()
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Webinar\API.py", line 137, in get_all_registration_url
+    f.write(w.get_all_registration_url())
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\ite_course_registration_telegram_bot\Webinar\API.py", line 101, in get_all_registration_url
+    out += f'{description[event_id]}\n'
+              ~~~~~~~~~~~^^^^^^^^^^
+KeyError: 1052497742
+[2024-11-18 10:58:36.383] dispatcher:554 INFO    - Polling stopped
+[2024-11-18 10:58:36.385] dispatcher:359 INFO    - Polling stopped for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-11-18 10:58:36.386]       main:28  ERROR   - course registration bot STOP
+[2024-11-18 10:59:41.057]       main:25  INFO    - course registration bot START
+[2024-11-18 10:59:41.874] dispatcher:527 INFO    - Start polling
+[2024-11-18 10:59:41.874]    Clicker:12  WARNING - webdriver run
+[2024-11-18 10:59:42.296] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-11-18 11:03:59.430] dispatcher:554 INFO    - Polling stopped
+[2024-11-18 11:03:59.432] dispatcher:359 INFO    - Polling stopped for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-11-18 11:03:59.433]       main:28  ERROR   - course registration bot STOP
+[2024-11-18 11:13:38.915]        API:134 INFO    - [{"participationId":993392885,"email":"g.savushkin@itexpert.ru","link":"https:\/\/my.mts-link.ru\/j\/81296985\/1588102103\/f3c56edeb5037e832e0054020884df30"}]
+[2024-11-18 11:13:38.917] registration:51  INFO    - [{"participationId":993392885,"email":"g.savushkin@itexpert.ru","link":"https:\/\/my.mts-link.ru\/j\/81296985\/1588102103\/f3c56edeb5037e832e0054020884df30"}]
+[2024-11-18 11:13:41.363] email_sending:84  INFO    - Email send ['g.savushkin@itexpert.ru']

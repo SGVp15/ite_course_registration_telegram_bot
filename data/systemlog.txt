@@ -1,0 +1,44 @@
+[2024-07-30 10:03:52.989]       main:18  INFO    - course registration bot START
+[2024-07-30 10:03:52.992] dispatcher:527 INFO    - Start polling
+[2024-07-30 10:03:52.993]    Clicker:11  WARNING - webdriver run
+[2024-07-30 10:03:53.256] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-07-30 10:03:56.793] dispatcher:172 INFO    - Update id=644014368 is handled. Duration 264 ms by bot id=1799745048
+[2024-07-30 10:03:58.462] dispatcher:172 INFO    - Update id=644014369 is handled. Duration 93 ms by bot id=1799745048
+[2024-07-30 10:03:59.510] dispatcher:172 INFO    - Update id=644014370 is handled. Duration 139 ms by bot id=1799745048
+[2024-07-30 10:07:31.154] dispatcher:172 INFO    - Update id=644014371 is handled. Duration 360 ms by bot id=1799745048
+[2024-07-30 10:07:32.658] dispatcher:172 INFO    - Update id=644014372 is handled. Duration 77 ms by bot id=1799745048
+[2024-07-30 10:07:33.733] dispatcher:172 INFO    - Update id=644014373 is handled. Duration 93 ms by bot id=1799745048
+[2024-07-30 10:07:35.190] dispatcher:172 INFO    - Update id=644014374 is handled. Duration 141 ms by bot id=1799745048
+[2024-07-30 10:07:35.842] dispatcher:219 ERROR   - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+[2024-07-30 10:07:35.842] dispatcher:221 WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 1799745048)
+[2024-07-30 10:07:40.996] dispatcher:219 ERROR   - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+[2024-07-30 10:07:40.997] dispatcher:221 WARNING - Sleep for 1.231218 seconds and try again... (tryings = 1, bot id = 1799745048)
+[2024-07-30 10:07:43.916] dispatcher:233 INFO    - Connection established (tryings = 2, bot id = 1799745048)
+[2024-07-30 10:07:43.989] dispatcher:172 INFO    - Update id=644014375 is handled. Duration 63 ms by bot id=1799745048
+[2024-07-30 10:07:45.644] dispatcher:172 INFO    - Update id=644014376 is handled. Duration 422 ms by bot id=1799745048
+[2024-07-30 10:07:46.564] dispatcher:219 ERROR   - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+[2024-07-30 10:07:46.565] dispatcher:221 WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 1799745048)
+[2024-07-30 10:07:52.389] dispatcher:219 ERROR   - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+[2024-07-30 10:07:52.389] dispatcher:221 WARNING - Sleep for 1.508867 seconds and try again... (tryings = 1, bot id = 1799745048)
+[2024-07-30 10:07:59.223] dispatcher:219 ERROR   - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+[2024-07-30 10:07:59.223] dispatcher:221 WARNING - Sleep for 2.054161 seconds and try again... (tryings = 2, bot id = 1799745048)
+[2024-07-30 10:08:07.280] dispatcher:219 ERROR   - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+[2024-07-30 10:08:07.280] dispatcher:221 WARNING - Sleep for 2.626988 seconds and try again... (tryings = 3, bot id = 1799745048)
+[2024-07-30 10:08:16.760] dispatcher:219 ERROR   - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+[2024-07-30 10:08:16.760] dispatcher:221 WARNING - Sleep for 3.323042 seconds and try again... (tryings = 4, bot id = 1799745048)
+[2024-07-30 10:08:24.931] dispatcher:219 ERROR   - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+[2024-07-30 10:08:24.931] dispatcher:221 WARNING - Sleep for 4.291450 seconds and try again... (tryings = 5, bot id = 1799745048)
+[2024-07-30 10:08:34.202] dispatcher:219 ERROR   - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+[2024-07-30 10:08:34.202] dispatcher:221 WARNING - Sleep for 4.897832 seconds and try again... (tryings = 6, bot id = 1799745048)
+[2024-07-30 10:08:39.399] dispatcher:554 INFO    - Polling stopped
+[2024-07-30 10:08:39.400] dispatcher:359 INFO    - Polling stopped for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-07-30 10:08:39.406]       main:21  ERROR   - course registration bot STOP
+[2024-07-31 12:34:27.957]       main:18  INFO    - course registration bot START
+[2024-07-31 12:34:27.959] dispatcher:527 INFO    - Start polling
+[2024-07-31 12:34:27.959]    Clicker:11  WARNING - webdriver run
+[2024-07-31 12:34:28.229] dispatcher:341 INFO    - Run polling for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-07-31 12:34:33.713] dispatcher:172 INFO    - Update id=644014416 is handled. Duration 234 ms by bot id=1799745048
+[2024-07-31 12:34:35.050] dispatcher:172 INFO    - Update id=644014417 is handled. Duration 155 ms by bot id=1799745048
+[2024-07-31 12:34:59.077] dispatcher:554 INFO    - Polling stopped
+[2024-07-31 12:34:59.079] dispatcher:359 INFO    - Polling stopped for bot @itexpert_sender_bot id=1799745048 - 'itexpert_zoom_sender_bot'
+[2024-07-31 12:34:59.081]       main:21  ERROR   - course registration bot STOP
