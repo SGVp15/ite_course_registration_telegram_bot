@@ -16,7 +16,7 @@ async def scheduler_converter_records():
             if records:
                 for r in records:
                     try:
-                        record_id = r.get('id', default=None)
+                        record_id = r.get('id')
                     except (TypeError, AttributeError):
                         record_id = None
                     if record_id and record_id not in record_id_list:
