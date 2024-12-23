@@ -1,7 +1,7 @@
 from unittest import TestCase
 
-from Email.config import user_id_email
 from Contact import parser
+from Email.config import user_id_email
 from Email.email_sending import EmailSending
 from My_jinja.my_jinja import MyJinja
 
