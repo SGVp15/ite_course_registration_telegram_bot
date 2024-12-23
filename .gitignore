@@ -5,4 +5,4 @@
 /venv/
 .idea
 /data/happy_new_year/
-/data/
+./data/system_log.txt
