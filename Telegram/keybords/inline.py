@@ -43,8 +43,8 @@ def get_list_files_keyboard(path=DOCUMENTS) -> [InlineKeyboardButton]:
     for file in files:
         out_buttons.append(
             [
-                InlineKeyboardButton(text=f'⏬ {file}', callback_data=f'file_download_{file}'),
-                InlineKeyboardButton(text=f'🗑 {file}', callback_data=f'file_delete_{file}'),
+                InlineKeyboardButton(text=f'⏬ {file}', callback_data=f'{CallBackData.file_download_}{file}'),
+                InlineKeyboardButton(text=f'🗑 {file}', callback_data=f'{CallBackData.file_delete_}{file}'),
             ]
         )
     out_buttons.append([InlineKeyboardButton(text='<< Back <<', callback_data=CallBackData.back_to_main_menu), ], )
