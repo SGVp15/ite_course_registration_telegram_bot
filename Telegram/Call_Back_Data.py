@@ -13,3 +13,5 @@ class CallBackData:
     clear_course = 'clear_course'
     send_test_email = 'send_test_email'
     show_list_file = 'show_list_file'
+    file_download_ = 'file_download_'
+    file_delete_ = 'file_delete_'
