@@ -6,13 +6,13 @@ from parser import get_list_users_from_string, refactor_string
 
 class TestParser_get_list_users_from_string(TestCase):
     def test_webinar_url(self):
-        s = """https://my.mts-link.ru/j/ITExpert/2007951276
+        s = """https://my.mts-link.ru/j/ITExpert/2108488421
                 Савушкин Григорий g.savushkin@itexpert.ru
                 """
         self.assertEqual(len(get_list_users_from_string(s)), 1)
         self.assertEqual(get_list_users_from_string(s)[0],
                          User(last_name='Савушкин', first_name='Григорий', email='g.savushkin@itexpert.ru',
-                              url_registration='', webinar_events_id='2007951276'))
+                              url_registration='', webinar_events_id='2108488421'))
 
     def test_zoom_url(self):
         s = '''	Курс: 	«ITIL® 4. Совместное создание ценности и организация взаимодействия поставщиков и потребителей» Онлайн
