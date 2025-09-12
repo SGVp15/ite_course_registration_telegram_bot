@@ -12,16 +12,16 @@ from Zoom.Clicker import run_clicker
 
 async def main():
     tasks = [
-        # git_update(),
+        git_update(),
         start_bot(),
-        # run_clicker(),
-        # scheduler_converter_records(),
+        run_clicker(),
+        scheduler_converter_records(),
     ]
     await asyncio.gather(*tasks)
 
 
 if __name__ == '__main__':
-    # ChromedriverAutoupdate(operatingSystem="win").check()
+    ChromedriverAutoupdate(operatingSystem="win").check()
 
     try:
         log.info('course registration bot START')
