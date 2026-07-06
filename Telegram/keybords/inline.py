@@ -15,7 +15,7 @@ inline_kb_main = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='🧑‍💻 Показать очередь Zoom', callback_data=CallBackData.show_queue), ],
     [InlineKeyboardButton(text='📩 ️ Отправить тестовое письмо', callback_data=CallBackData.send_test_email), ],
 
-    [InlineKeyboardButton(text='>> ZOOM >>', callback_data=CallBackData.zoom_menu), ],
+    [InlineKeyboardButton(text='>> ZOOM Kontur Talk>>', callback_data=CallBackData.zoom_menu), ],
     [InlineKeyboardButton(text='>> Admin >>', callback_data=CallBackData.admin_menu), ],
 ])
 
