@@ -1,5 +1,9 @@
 /Webinar/.env_webinar_token
 /.env
+/.env_manager_telegram_id_email
+/.env_telegram_admin
 /chromedriver.exe
 *.pk
 /venv/
+/data/system_log.txt
+/data/systemlog.txt
