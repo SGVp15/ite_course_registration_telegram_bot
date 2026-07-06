@@ -23,6 +23,7 @@ inline_kb_zoom = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='💻 Конференции ZOOM', url='https://zoom.us/meeting#/'), ],
     [InlineKeyboardButton(text='📹 Записи ZOOM', url='https://zoom.us/recording/'), ],
     [InlineKeyboardButton(text='📒 Отчеты', url='https://zoom.us/account/report/user'), ],
+    [InlineKeyboardButton(text='📒 Отчеты Kontur Talk', url='https://itexpert.ktalk.ru/dashboard?section=statistics@reportStat'), ],
     [InlineKeyboardButton(text='🔙 Назад', callback_data=CallBackData.back_to_main_menu), ],
 
 ])
