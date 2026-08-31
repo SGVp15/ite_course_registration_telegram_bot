@@ -17,7 +17,8 @@ async def run_clicker():
             parser_and_registration()
             user: Contact = my_queue.users[0]
         except IndexError:
-            await asyncio.sleep(5)
+            await asyncio.sleep(50)
+            print('asyncio.sleep(50)')
             continue
         print(f'USER: {user}')
         old_users = load_old_users()
