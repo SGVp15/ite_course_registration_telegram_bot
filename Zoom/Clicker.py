@@ -19,7 +19,7 @@ async def run_clicker():
         except IndexError:
             await asyncio.sleep(5)
             continue
-
+        print(f'USER: {user}')
         old_users = load_old_users()
         if user in old_users:
             log.info(f'[ INFO ] [ Есть в логе ] {user}')
