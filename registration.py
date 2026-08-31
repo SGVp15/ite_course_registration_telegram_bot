@@ -18,7 +18,7 @@ def parser_and_registration():
                 s = read_xlsx(path)
             else:
                 continue
-
+            print(path.name)
             # Если файл успешно прочитан
             u = parser.get_list_users_from_string(s)
 
