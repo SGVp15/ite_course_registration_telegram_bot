@@ -1,11 +1,6 @@
-from pathlib import Path
-
 from Contact import parser
 from Excel.converter import read_xls, read_xlsx
-
-
-
-EXCEL_DIR = Path("path/to/excel")
+from root_config import EXCEL_DIR
 
 
 def parser_and_registration():
