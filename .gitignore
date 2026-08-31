@@ -7,4 +7,5 @@
 /venv/
 /data/system_log.txt
 /data/systemlog.txt
-.idea
+*.idea
+/.venv/
