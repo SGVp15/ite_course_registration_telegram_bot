@@ -23,6 +23,7 @@ async def run_clicker():
         old_users = load_old_users()
         if user in old_users:
             log.info(f'[ INFO ] [ Есть в логе ] {user}')
+            print(f'[ INFO ] [ Есть в логе ] {user}')
             my_queue.del_user(user)
         else:
             log.info(f'[ INFO ] {user}')

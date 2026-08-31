@@ -10,6 +10,7 @@ class Queue:
         self.file = file
         self.users: [Contact] = []
         self.load_queue()
+        print(self.users)
 
     def save_queue(self):
         self.del_duplicates_users()
