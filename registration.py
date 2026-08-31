@@ -2,13 +2,14 @@ from pathlib import Path
 
 from Contact import parser
 from Excel.converter import read_xls, read_xlsx
-from Webinar.registration import start_registration
+
 
 
 EXCEL_DIR = Path("path/to/excel")
 
 
 def parser_and_registration():
+    from Webinar.registration import start_registration
     users = []
 
     for path in EXCEL_DIR.iterdir():
@@ -29,13 +30,11 @@ def parser_and_registration():
             if u:
                 users.extend(u)
 
-            # Удаляем только после успешного чтения
             path.unlink()
             print(f"Файл обработан и удалён: {path}")
 
         except Exception as e:
             print(f"Ошибка при обработке {path}: {e}")
-            # Файл НЕ удаляем, чтобы можно было обработать его позже
 
     text = start_registration(users)
     return text
