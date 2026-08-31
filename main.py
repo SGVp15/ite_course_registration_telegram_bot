@@ -13,7 +13,7 @@ from Zoom.Clicker import run_clicker
 async def main():
     tasks = [
         git_update(),
-        # start_bot(),
+        start_bot(),
         run_clicker(),
         # scheduler_converter_records(),
     ]
