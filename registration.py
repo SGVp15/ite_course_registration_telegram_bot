@@ -30,6 +30,7 @@ def parser_and_registration():
 
         except Exception as e:
             print(f"Ошибка при обработке {path}: {e}")
-
-    text = start_registration(users)
+    text = ''
+    if users:
+        text = start_registration(users)
     return text
