@@ -6,6 +6,7 @@ from Contact import Contact
 from Utils.log import log
 from Zoom.queue_zoom import Queue, load_old_users, save_old_users
 from Zoom.selenium_zoom import registration_user_zoom_link
+from registration import parser_and_registration
 
 
 async def run_clicker():
@@ -13,14 +14,17 @@ async def run_clicker():
     while True:
         my_queue = Queue()
         try:
+            parser_and_registration()
             user: Contact = my_queue.users[0]
         except IndexError:
-            await asyncio.sleep(5)
+            await asyncio.sleep(50)
+            print('asyncio.sleep(50)')
             continue
-
+        print(f'USER: {user}')
         old_users = load_old_users()
         if user in old_users:
             log.info(f'[ INFO ] [ Есть в логе ] {user}')
+            print(f'[ INFO ] [ Есть в логе ] {user}')
             my_queue.del_user(user)
         else:
             log.info(f'[ INFO ] {user}')
