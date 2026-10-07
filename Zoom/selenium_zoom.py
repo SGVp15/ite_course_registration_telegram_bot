@@ -1,8 +1,13 @@
 import asyncio
+import tkinter as tk
 
 from selenium import webdriver
-from selenium.common import NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException, \
-    InvalidArgumentException
+from selenium.common import (
+    NoSuchElementException,
+    ElementClickInterceptedException,
+    StaleElementReferenceException,
+    InvalidArgumentException,
+)
 from selenium.webdriver.common.by import By
 from selenium_stealth import stealth
 
@@ -10,6 +15,42 @@ from Config import FILE_XPATH_BTN_ZOOM_REGISTRATION
 from Contact.Contact import User
 from Utils.chromedriver_autoupdate import ChromedriverAutoupdate
 from Utils.log import log
+
+
+def show_captcha_window():
+    """Создает маленькое окошко tkinter с кнопкой для продолжения."""
+    root = tk.Tk()
+    root.title("Решение капчи")
+    root.geometry("350x150")
+    root.attributes("-topmost", True)  # Окно поверх остальных
+
+    label = tk.Label(
+        root,
+        text=(
+            "Обнаружена капча!\nРешите её в браузере,\nзатем нажмите кнопку"
+            " ниже:"
+        ),
+        font=("Arial", 10),
+        pady=10,
+    )
+    label.pack()
+
+    def on_click():
+        root.destroy()  # Закрываем окно при нажатии
+
+    btn = tk.Button(
+        root,
+        text="Продолжить выполнение",
+        command=on_click,
+        bg="green",
+        fg="white",
+        font=("Arial", 10, "bold"),
+        padx=10,
+        pady=5,
+    )
+    btn.pack(pady=10)
+
+    root.mainloop()  # Блокирует выполнение программы до закрытия окна
 
 
 async def registration_user_zoom_link(user: User) -> bool:
@@ -21,31 +62,37 @@ async def registration_user_zoom_link(user: User) -> bool:
     # options.add_argument("--headless")
     options.add_argument("--disable-notifications")
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
-    options.add_experimental_option('useAutomationExtension', False)
+    options.add_experimental_option("useAutomationExtension", False)
     driver = webdriver.Chrome(options=options)
-    stealth(driver,
-            languages=["ru-RU", "ru"],
-            vendor="Google Inc.",
-            platform="Win32",
-            webgl_vendor="Intel Inc.",
-            renderer="Intel Iris OpenGL Engine",
-            fix_hairline=True,
-            )
+
+    stealth(
+        driver,
+        languages=["ru-RU", "ru"],
+        vendor="Google Inc.",
+        platform="Win32",
+        webgl_vendor="Intel Inc.",
+        renderer="Intel Iris OpenGL Engine",
+        fix_hairline=True,
+    )
+
     web_error = (
-        NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException,
-        InvalidArgumentException)
+        NoSuchElementException,
+        ElementClickInterceptedException,
+        StaleElementReferenceException,
+        InvalidArgumentException,
+    )
 
     async def fill_form(contact: User):
-        async def fill_element(find_element='question_last_name', text=''):
+        async def fill_element(find_element="question_last_name", text=""):
             element = driver.find_element(by=By.ID, value=find_element)
             element.clear()
             element.send_keys(text)
             await asyncio.sleep(0.5)
 
         await asyncio.sleep(1)
-        await fill_element('question_first_name', contact.first_name)
-        await fill_element('question_last_name', contact.last_name)
-        await fill_element('question_email', contact.email)
+        await fill_element("question_first_name", contact.first_name)
+        await fill_element("question_last_name", contact.last_name)
+        await fill_element("question_email", contact.email)
 
     for i in range(3):
         driver.get(url=user.url_registration)
@@ -53,10 +100,16 @@ async def registration_user_zoom_link(user: User) -> bool:
         try:
             await fill_form(user)
             await asyncio.sleep(5)
-            log.info('fill_form_ok')
+            log.info("fill_form_ok")
+
+            # --- ВЫЗОВ ОКНА TKINTER ДЛЯ ПАУЗЫ И КАПЧИ ---
+            log.info(
+                "Ожидание решения капчи пользователем (открыто окно Tkinter)..."
+            )
+            await asyncio.to_thread(show_captcha_window)
 
             try:
-                with open(FILE_XPATH_BTN_ZOOM_REGISTRATION, mode='r', encoding='utf-8') as f:
+                with open(FILE_XPATH_BTN_ZOOM_REGISTRATION, mode="r", encoding="utf-8") as f:
                     xpath = f.read()
             except FileNotFoundError:
                 xpath = '//div[@class="btn-register mgb-lg mgt-sm"]//button'
@@ -65,6 +118,7 @@ async def registration_user_zoom_link(user: User) -> bool:
         except web_error:
             await asyncio.sleep(4)
             continue
+
         # check page is registration - ok
         await asyncio.sleep(1)
         try:
