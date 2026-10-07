@@ -35,7 +35,7 @@ async def run_clicker():
                     write_user_to_log(user)
                     log.info(f'[ OK ] {user}')
                     my_queue.del_user(user)
-                await asyncio.sleep(60 * 1)
+                await asyncio.sleep(10 * 1)
             except Exception as e:
                 log.error(e)
                 await asyncio.sleep(10)
