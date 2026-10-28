@@ -44,4 +44,6 @@ async def run_clicker():
 
 def write_user_to_log(user):
     with open(LOG_FILE, 'a', encoding='utf-8') as f:
-        f.write(f'{datetime.now().date()} {datetime.now().time().strftime("%H:%M:%S")}\t{user}\n')
+        f.write(f'{datetime.now().date()} {datetime.now().time().strftime("%H:%M:%S")}'
+                f'\n{user}'
+                f'\n\n')
