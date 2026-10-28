@@ -35,11 +35,12 @@ class User:
 
     def __str__(self):
         return (
-            f'Курс:{self.abs_course}'
+            f'\nКурс:{self.abs_course}'
             f'\nТренер:{self.teacher}'
             f'\nДаты проведения курса:{self.date}'
             f'\n{self.last_name} {self.first_name} {self.email}'
-            f'\n{self.url_registration}')
+            f'\n{self.url_registration}'
+            f'\n')
 
     def __eq__(self, other):
         if self.last_name == other.last_name and self.first_name == other.first_name and self.email == other.email:
